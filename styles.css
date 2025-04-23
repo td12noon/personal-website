@@ -178,7 +178,7 @@ img {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 30px 15px;
+    padding: 0;
     height: auto;
     aspect-ratio: 1/1;
     border-radius: 15px;
@@ -189,34 +189,17 @@ img {
 }
 
 .experience-item img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    margin-bottom: 15px;
-    filter: brightness(0) invert(1);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
     transition: transform var(--transition-speed) ease;
 }
 
-.experience-item:hover img {
-    transform: scale(1.1);
-}
-
-.experience-item::after {
-    content: attr(data-company);
-    position: static;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 5px;
-}
-
+/* Remove the text indicators */
+.experience-item::after,
 .experience-item::before {
-    content: attr(data-title);
-    position: static;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 500;
-    font-size: 0.8rem;
-    order: 1;
+    display: none;
 }
 
 /* Update experience cards to match reference */
@@ -572,4 +555,60 @@ footer {
 #modal-description {
     line-height: 1.6;
     color: var(--gray-text);
+}
+
+/* Link items (new image-based style) */
+.link-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 15px;
+}
+
+.link-item:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+
+.link-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform var(--transition-speed) ease;
+}
+
+/* Interest items (new image-based style) */
+.interest-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 15px;
+}
+
+.interest-item:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+
+.interest-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform var(--transition-speed) ease;
 } 

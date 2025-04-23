@@ -1,6 +1,6 @@
-# Personal Bento Profile Page
+# Personal Profile Page
 
-This is a simplified version of a Bento.me profile page for Trevor Noon. It's built with HTML and CSS, inspired by the layout and design elements of the Bento platform.
+This is a simplified version of a profile page for Trevor Noon. It's built with HTML and CSS, inspired by the layout and design elements of the Bento platform.
 
 ## Features
 
