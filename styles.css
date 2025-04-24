@@ -196,6 +196,31 @@ img {
     transition: transform var(--transition-speed) ease;
 }
 
+/* Confidential overlay styling */
+.confidential-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+.confidential-overlay span {
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
 /* Remove the text indicators */
 .experience-item::after,
 .experience-item::before {
