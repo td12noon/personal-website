@@ -22,7 +22,7 @@ const imageData = [
   { 
     name: 'meta.png', 
     company: 'Meta', 
-    title: 'Confidential AI Project'
+    title: 'Llama API Consultant'
   },
   { 
     name: 'openai.png', 
