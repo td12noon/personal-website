@@ -471,8 +471,8 @@ footer {
 
 .welcome-content {
     position: relative;
-    padding-right: 190px; /* Increase space for the button */
-    min-height: 80px;
+    padding: 16px;
+    min-height: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -485,57 +485,18 @@ footer {
 }
 
 .welcome-content p {
-    font-size: 0.9rem;
-    color: var(--gray-text);
-    margin-bottom: 3px;
-    line-height: 1.4;
-}
-
-/* Trophy Husband button styles */
-.trophy-button {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    background-color: #2d2d2d;
-    color: white;
-    padding: 5px 12px;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    white-space: nowrap;
-}
-
-.trophy-button:hover {
-    transform: translateY(-50%) translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    background-color: #222;
-}
-
-.trophy-icon {
-    margin-right: 6px;
     font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-weight: 400;
 }
+
 
 @media (max-width: 576px) {
     .welcome-content {
         padding-right: 0;
         min-height: auto;
-    }
-    
-    .trophy-button {
-        position: relative;
-        display: inline-flex;
-        margin-top: 10px;
-        transform: none;
-    }
-    
-    .trophy-button:hover {
-        transform: translateY(-2px);
     }
 }
 
