@@ -174,7 +174,7 @@ img {
 /* Bento Grid */
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
 
@@ -226,7 +226,9 @@ img {
     justify-content: center;
     text-align: center;
     padding: 0;
-    height: auto;
+    height: 200px;
+    width: 200px;
+    max-width: 200px;
     aspect-ratio: 1/1;
     border-radius: 15px;
 }
@@ -523,20 +525,20 @@ footer {
     
     .bento-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 15px;
+        gap: 20px;
     }
 }
 
 @media (min-width: 1024px) {
     .bento-grid {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 20px;
     }
 }
 
 @media (min-width: 1280px) {
     .bento-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 }
 
@@ -662,7 +664,9 @@ footer {
     justify-content: center;
     text-align: center;
     padding: 0;
-    height: auto;
+    height: 200px;
+    width: 200px;
+    max-width: 200px;
     aspect-ratio: 1/1;
     border-radius: 15px;
 }
@@ -705,4 +709,243 @@ footer {
     object-fit: cover;
     border-radius: 15px;
     transition: transform var(--transition-speed) ease;
+}
+
+/* Coverflow Sections (Interests and Projects) */
+.interests-coverflow-container,
+.projects-coverflow-container {
+    grid-column: 1 / -1;
+    background: var(--widget-bg);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: var(--widget-shadow);
+    overflow: hidden;
+}
+
+.coverflow-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+    perspective: 1000px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.coverflow-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.coverflow-item {
+    flex: 0 0 200px;
+    height: 200px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.coverflow-item:hover {
+    transform: translateY(-10px) rotateY(5deg) scale(1.05);
+    z-index: 2;
+}
+
+.coverflow-item:nth-child(even):hover {
+    transform: translateY(-10px) rotateY(-5deg) scale(1.05);
+}
+
+.coverflow-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.coverflow-item:hover img {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Add subtle 3D effect to non-hovered items */
+.coverflow-scroll:hover .coverflow-item:not(:hover) {
+    transform: rotateY(2deg) scale(0.95);
+    opacity: 0.8;
+}
+
+/* Scroll Indicators */
+.scroll-indicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 10;
+    opacity: 0;
+}
+
+.scroll-indicator.scroll-right {
+    right: 30px;
+}
+
+.scroll-indicator.scroll-left {
+    left: 30px;
+}
+
+.scroll-indicator.visible {
+    opacity: 0.8;
+}
+
+.scroll-indicator span {
+    font-size: 18px;
+    color: var(--text-color);
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 0.7;
+        transform: translateX(0);
+    }
+    50% { 
+        opacity: 1;
+        transform: translateX(2px);
+    }
+}
+
+/* Container positioning */
+.interests-coverflow-container {
+    position: relative;
+}
+
+.coverflow-scroll:hover ~ .scroll-indicator.visible {
+    opacity: 0.3;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .coverflow-item {
+        flex: 0 0 150px;
+        height: 150px;
+    }
+    
+    .coverflow-scroll {
+        gap: 15px;
+        padding: 15px 0;
+    }
+    
+    .interests-coverflow-container {
+        padding: 15px;
+    }
+    
+    .experience-item,
+    .link-item {
+        height: 150px;
+        width: 150px;
+        max-width: 150px;
+    }
+    
+    .scroll-indicator {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .scroll-indicator.scroll-right {
+        right: 20px;
+    }
+    
+    .scroll-indicator.scroll-left {
+        left: 20px;
+    }
+    
+    .scroll-indicator span {
+        font-size: 16px;
+    }
+}
+
+/* Coming Soon Projects Section */
+.projects-coverflow-container.coming-soon {
+    position: relative;
+    opacity: 0.7;
+}
+
+.projects-coverflow-container.coming-soon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(0.5px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.coming-soon-placeholder {
+    flex: 0 0 300px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    border-radius: 15px;
+    border: 2px dashed #c0c0c0;
+    position: relative;
+}
+
+.coming-soon-content {
+    text-align: center;
+    color: var(--gray-text);
+    z-index: 2;
+    position: relative;
+}
+
+.coming-soon-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+.coming-soon-content p {
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.5;
+}
+
+/* Hide scroll indicators for coming soon section */
+.projects-coverflow-container.coming-soon .scroll-indicator {
+    display: none;
+}
+
+/* Mobile responsive for coming soon */
+@media (max-width: 768px) {
+    .coming-soon-placeholder {
+        flex: 0 0 250px;
+        height: 150px;
+    }
+    
+    .coming-soon-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .coming-soon-content p {
+        font-size: 0.9rem;
+    }
 } 

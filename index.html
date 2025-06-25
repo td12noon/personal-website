@@ -31,6 +31,7 @@
                             <ul>
                                 <li><a href="#welcome">Welcome</a></li>
                                 <li><a href="#experience">Experience</a></li>
+                                <li><a href="#projects">Projects</a></li>
                                 <li><a href="#links">Links</a></li>
                                 <li><a href="#interests">Interests</a></li>
                             </ul>
@@ -113,6 +114,29 @@
                         <img src="images/experience/harvard.png" alt="Harvard">
                     </div>
                     
+                    <!-- Section Header: Projects -->
+                    <div id="projects" class="section-header">
+                        <p>Projects</p>
+                    </div>
+                    
+                    <!-- Projects Coverflow Container -->
+                    <div class="grid-item projects-coverflow-container coming-soon">
+                        <div class="coverflow-scroll">
+                            <div class="coming-soon-placeholder">
+                                <div class="coming-soon-content">
+                                    <h3>Coming Soon</h3>
+                                    <p>Exciting projects on the way!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scroll-indicator scroll-right" id="projectsScrollRight">
+                            <span>→</span>
+                        </div>
+                        <div class="scroll-indicator scroll-left" id="projectsScrollLeft">
+                            <span>←</span>
+                        </div>
+                    </div>
+                    
                     <!-- Section Header: Links -->
                     <div id="links" class="section-header">
                         <p>Links</p>
@@ -143,30 +167,39 @@
                         <p>Interests</p>
                     </div>
                     
-                    <!-- Interest Links (Movies and Albums) -->
-                    <a href="https://abounding-mechanic-89d.notion.site/Movies-bde67a8c911a49d1b4101f13dec646a8" target="_blank" class="grid-item image-widget interest-item">
-                        <img src="images/interests/movies.png" alt="Top 10 Movies">
-                    </a>
-                    
-                    <a href="https://music.apple.com/us/playlist/trevors-top-10-albums/pl.u-ePr9CzGYM9N" target="_blank" class="grid-item image-widget interest-item">
-                        <img src="images/interests/albums.png" alt="Top 10 Albums">
-                    </a>
-                    
-                    <!-- Interest Images -->
-                    <div class="grid-item image-widget">
-                        <img src="images/interests/image_8.jpeg" alt="">
-                    </div>
-                    
-                    <div class="grid-item image-widget">
-                        <img src="images/interests/image_9.jpeg" alt="">
-                    </div>
-                    
-                    <div class="grid-item image-widget">
-                        <img src="images/interests/image_10.jpeg" alt="">
-                    </div>
-                    
-                    <div class="grid-item image-widget">
-                        <img src="images/interests/image_11.jpeg" alt="">
+                    <!-- Interests Coverflow Container -->
+                    <div class="grid-item interests-coverflow-container">
+                        <div class="coverflow-scroll">
+                            <a href="https://abounding-mechanic-89d.notion.site/Movies-bde67a8c911a49d1b4101f13dec646a8" target="_blank" class="coverflow-item">
+                                <img src="images/interests/movies.png" alt="Top 10 Movies">
+                            </a>
+                            
+                            <a href="https://music.apple.com/us/playlist/trevors-top-10-albums/pl.u-ePr9CzGYM9N" target="_blank" class="coverflow-item">
+                                <img src="images/interests/albums.png" alt="Top 10 Albums">
+                            </a>
+                            
+                            <div class="coverflow-item">
+                                <img src="images/interests/image_8.jpeg" alt="">
+                            </div>
+                            
+                            <div class="coverflow-item">
+                                <img src="images/interests/image_9.jpeg" alt="">
+                            </div>
+                            
+                            <div class="coverflow-item">
+                                <img src="images/interests/image_10.jpeg" alt="">
+                            </div>
+                            
+                            <div class="coverflow-item">
+                                <img src="images/interests/image_11.jpeg" alt="">
+                            </div>
+                        </div>
+                        <div class="scroll-indicator scroll-right" id="scrollRight">
+                            <span>→</span>
+                        </div>
+                        <div class="scroll-indicator scroll-left" id="scrollLeft">
+                            <span>←</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -234,6 +267,64 @@
                         modal.classList.remove('show-modal');
                     }
                 });
+
+                // Coverflow scroll indicators functionality
+                const interestsCoverflowScroll = document.querySelector('.interests-coverflow-container .coverflow-scroll');
+                const interestsScrollLeftIndicator = document.getElementById('scrollLeft');
+                const interestsScrollRightIndicator = document.getElementById('scrollRight');
+                
+                const projectsCoverflowScroll = document.querySelector('.projects-coverflow-container .coverflow-scroll');
+                const projectsScrollLeftIndicator = document.getElementById('projectsScrollLeft');
+                const projectsScrollRightIndicator = document.getElementById('projectsScrollRight');
+
+                function updateScrollIndicators(scrollContainer, leftIndicator, rightIndicator) {
+                    if (!scrollContainer || !leftIndicator || !rightIndicator) return;
+                    
+                    const scrollLeft = scrollContainer.scrollLeft;
+                    const scrollWidth = scrollContainer.scrollWidth;
+                    const clientWidth = scrollContainer.clientWidth;
+                    const maxScroll = scrollWidth - clientWidth;
+
+                    // Show right arrow if there's content to scroll to the right
+                    if (scrollLeft < maxScroll - 10) { // 10px threshold
+                        rightIndicator.classList.add('visible');
+                    } else {
+                        rightIndicator.classList.remove('visible');
+                    }
+
+                    // Show left arrow if we've scrolled away from the start
+                    if (scrollLeft > 10) { // 10px threshold
+                        leftIndicator.classList.add('visible');
+                    } else {
+                        leftIndicator.classList.remove('visible');
+                    }
+                }
+
+                // Setup Interests scroll indicators
+                if (interestsCoverflowScroll) {
+                    const updateInterests = () => updateScrollIndicators(
+                        interestsCoverflowScroll, 
+                        interestsScrollLeftIndicator, 
+                        interestsScrollRightIndicator
+                    );
+                    
+                    updateInterests();
+                    interestsCoverflowScroll.addEventListener('scroll', updateInterests);
+                    window.addEventListener('resize', updateInterests);
+                }
+
+                // Setup Projects scroll indicators (for future use when content is added)
+                if (projectsCoverflowScroll) {
+                    const updateProjects = () => updateScrollIndicators(
+                        projectsCoverflowScroll, 
+                        projectsScrollLeftIndicator, 
+                        projectsScrollRightIndicator
+                    );
+                    
+                    updateProjects();
+                    projectsCoverflowScroll.addEventListener('scroll', updateProjects);
+                    window.addEventListener('resize', updateProjects);
+                }
             });
         </script>
     </div>
