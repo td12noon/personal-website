@@ -717,16 +717,16 @@ footer {
     grid-column: 1 / -1;
     background: var(--widget-bg);
     border-radius: 15px;
-    padding: 20px;
+    padding: 20px 10px;
     box-shadow: var(--widget-shadow);
-    overflow: hidden;
+    overflow: visible;
 }
 
 .coverflow-scroll {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    padding: 20px 0;
+    padding: 20px 30px;
     perspective: 1000px;
     scroll-behavior: smooth;
     scrollbar-width: none;
@@ -851,7 +851,7 @@ footer {
     
     .coverflow-scroll {
         gap: 15px;
-        padding: 15px 0;
+        padding: 15px 25px;
     }
     
     .interests-coverflow-container {
