@@ -120,14 +120,11 @@
                     </div>
                     
                     <!-- Projects Coverflow Container -->
-                    <div class="grid-item projects-coverflow-container coming-soon">
+                    <div class="grid-item projects-coverflow-container">
                         <div class="coverflow-scroll">
-                            <div class="coming-soon-placeholder">
-                                <div class="coming-soon-content">
-                                    <h3>Coming Soon</h3>
-                                    <p>Exciting projects on the way!</p>
-                                </div>
-                            </div>
+                            <a href="https://sitterbot-info-hub.lovable.app" target="_blank" class="coverflow-item">
+                                <img src="images/projects/sitterbot.png" alt="SitterBot - AI Pet Sitting Assistant">
+                            </a>
                         </div>
                         <div class="scroll-indicator scroll-right" id="projectsScrollRight">
                             <span>→</span>
@@ -340,6 +337,45 @@
                     updateProjects();
                     projectsCoverflowScroll.addEventListener('scroll', updateProjects);
                     window.addEventListener('resize', updateProjects);
+                }
+
+                // Add click event handlers for scroll arrows
+                if (interestsScrollLeftIndicator && interestsCoverflowScroll) {
+                    interestsScrollLeftIndicator.addEventListener('click', function() {
+                        console.log('Left arrow clicked - scrolling left');
+                        interestsCoverflowScroll.scrollBy({
+                            left: -200,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+
+                if (interestsScrollRightIndicator && interestsCoverflowScroll) {
+                    interestsScrollRightIndicator.addEventListener('click', function() {
+                        console.log('Right arrow clicked - scrolling right');
+                        interestsCoverflowScroll.scrollBy({
+                            left: 200,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+
+                if (projectsScrollLeftIndicator && projectsCoverflowScroll) {
+                    projectsScrollLeftIndicator.addEventListener('click', function() {
+                        projectsCoverflowScroll.scrollBy({
+                            left: -200,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+
+                if (projectsScrollRightIndicator && projectsCoverflowScroll) {
+                    projectsScrollRightIndicator.addEventListener('click', function() {
+                        projectsCoverflowScroll.scrollBy({
+                            left: 200,
+                            behavior: 'smooth'
+                        });
+                    });
                 }
             });
         </script>

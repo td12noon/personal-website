@@ -790,7 +790,8 @@ footer {
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    pointer-events: none;
+    pointer-events: auto;
+    cursor: pointer;
     transition: all 0.3s ease;
     z-index: 10;
     opacity: 0;
@@ -806,6 +807,12 @@ footer {
 
 .scroll-indicator.visible {
     opacity: 0.8;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.1);
 }
 
 .scroll-indicator span {
@@ -876,76 +883,4 @@ footer {
     }
 }
 
-/* Coming Soon Projects Section */
-.projects-coverflow-container.coming-soon {
-    position: relative;
-    opacity: 0.7;
-}
-
-.projects-coverflow-container.coming-soon::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    backdrop-filter: blur(0.5px);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.coming-soon-placeholder {
-    flex: 0 0 300px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
-    border-radius: 15px;
-    border: 2px dashed #c0c0c0;
-    position: relative;
-}
-
-.coming-soon-content {
-    text-align: center;
-    color: var(--gray-text);
-    z-index: 2;
-    position: relative;
-}
-
-.coming-soon-content h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--text-color);
-    opacity: 0.6;
-}
-
-.coming-soon-content p {
-    font-size: 1rem;
-    margin: 0;
-    opacity: 0.5;
-}
-
-/* Hide scroll indicators for coming soon section */
-.projects-coverflow-container.coming-soon .scroll-indicator {
-    display: none;
-}
-
-/* Mobile responsive for coming soon */
-@media (max-width: 768px) {
-    .coming-soon-placeholder {
-        flex: 0 0 250px;
-        height: 150px;
-    }
-    
-    .coming-soon-content h3 {
-        font-size: 1.2rem;
-    }
-    
-    .coming-soon-content p {
-        font-size: 0.9rem;
-    }
-} 
+ 
