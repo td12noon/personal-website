@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#g)"/>
+  <g>
+    <circle cx="200" cy="150" r="70" fill="rgba(255,255,255,0.18)"/>
+    <text x="200" y="158" text-anchor="middle" font-size="60" fill="#ffffff" font-family="Arial, Helvetica, sans-serif">🔎</text>
+  </g>
+  <text x="200" y="300" text-anchor="middle" font-size="28" font-weight="700" fill="#ffffff" font-family="Arial, Helvetica, sans-serif">ESource Screener</text>
+  <text x="200" y="334" text-anchor="middle" font-size="18" fill="rgba(255,255,255,0.9)" font-family="Arial, Helvetica, sans-serif">NPI screening for life sciences</text>
+</svg>
