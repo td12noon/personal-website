@@ -83,11 +83,20 @@ body::after {
     font-family: 'VT323', monospace;
     font-size: 10px;
     line-height: 1.1;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     color: var(--text-cyan);
     text-shadow: 0 0 10px var(--text-cyan);
     white-space: pre;
     letter-spacing: 1px;
+}
+
+.easter-egg {
+    font-size: 8px;
+    color: var(--text-amber);
+    text-shadow: 0 0 10px var(--text-amber);
+    margin-bottom: 30px;
+    animation: flicker 4s infinite;
+    letter-spacing: 2px;
 }
 
 .prompt {

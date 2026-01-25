@@ -4,29 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>TREVOR'S ARCADE</title>
-    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕹️</text></svg>">
-    <link rel="stylesheet" href="css/portal.css">
+    <title>My Apps - Trevor Noon</title>
+    <link rel="shortcut icon" href="images/headshot.png">
+    <link rel="stylesheet" href="css/portal-apps.css">
 </head>
 <body>
-    <div class="crt-overlay"></div>
+    <button id="logout-btn" class="exit-btn">Exit</button>
 
-    <div class="arcade-container">
-        <header class="arcade-header">
-            <h1>TREVOR'S ARCADE</h1>
-            <button id="logout-btn" class="pixel-button small">[ EXIT ]</button>
-        </header>
+    <header class="apps-header">
+        <h1>My Apps</h1>
+        <a href="/" class="back-link">Back to Portfolio</a>
+    </header>
 
-        <p class="subtitle">> SELECT YOUR DESTINATION</p>
+    <main class="apps-grid" id="apps-grid">
+        <!-- Apps rendered by JavaScript -->
+    </main>
 
-        <div class="arcade-grid" id="apps-grid">
-            <!-- Apps rendered by JavaScript -->
-        </div>
-
-        <footer class="arcade-footer">
-            <p>Click to launch / ESC to exit</p>
-        </footer>
-    </div>
+    <footer class="apps-footer">
+        <p>Press ESC to exit</p>
+    </footer>
 
     <script src="js/portal-apps.js"></script>
 </body>

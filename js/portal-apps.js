@@ -44,10 +44,7 @@ function renderApps() {
         tile.href = app.url;
         tile.target = '_blank';
         tile.rel = 'noopener noreferrer';
-        tile.className = 'arcade-tile';
-        if (app.color) {
-            tile.dataset.color = app.color;
-        }
+        tile.className = 'app-tile';
 
         tile.innerHTML = `
             <div class="tile-icon">${app.icon}</div>
