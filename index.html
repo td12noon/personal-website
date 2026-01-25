@@ -22,7 +22,7 @@
             <!-- Left Sidebar with Profile Header -->
             <div class="sidebar">
                 <div class="profile-header">
-                    <div class="profile-avatar">
+                    <div class="profile-avatar" id="portal-trigger" style="cursor: pointer;" title="...">
                         <img src="images/headshot.png" alt="Trevor Noon">
                     </div>
                     <div class="profile-info">
@@ -263,6 +263,14 @@
         <!-- JavaScript for Modal Functionality -->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
+                // Portal trigger - clicking the profile avatar
+                const portalTrigger = document.getElementById('portal-trigger');
+                if (portalTrigger) {
+                    portalTrigger.addEventListener('click', function() {
+                        window.location.href = '/portal.html';
+                    });
+                }
+
                 // Get the modal and its elements
                 const modal = document.getElementById('experience-modal');
                 const modalTitle = document.getElementById('modal-title');

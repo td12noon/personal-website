@@ -1,0 +1,13 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "Trevor Noon's personal website",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "@vercel/node": "^3.0.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

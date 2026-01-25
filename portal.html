@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>??? ACCESS TERMINAL ???</title>
+    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕹️</text></svg>">
+    <link rel="stylesheet" href="css/portal.css">
+</head>
+<body>
+    <div class="crt-overlay"></div>
+
+    <div class="terminal-container">
+        <pre class="ascii-art">
+████████╗██████╗ ███████╗██╗   ██╗ ██████╗ ██████╗ 
+╚══██╔══╝██╔══██╗██╔════╝██║   ██║██╔═══██╗██╔══██╗
+   ██║   ██████╔╝█████╗  ██║   ██║██║   ██║██████╔╝
+   ██║   ██╔══██╗██╔══╝  ██║   ██║██║   ██║██╔══██╗
+   ██║   ██║  ██║███████╗╚██████╔╝╚██████╔╝██║  ██║
+   ╚═╝   ╚═╝  ╚═╝╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝
+        </pre>
+
+        <p class="prompt">> ENTER ACCESS CODE</p>
+
+        <form id="portal-form">
+            <div class="input-wrapper">
+                <input type="password" id="access-code" autocomplete="off" autofocus placeholder="********">
+            </div>
+            <div id="message" class="error"></div>
+            <button type="submit" class="pixel-button">[ AUTHENTICATE ]</button>
+        </form>
+
+        <p class="hint">Press ESC to return</p>
+    </div>
+
+    <script src="js/portal-auth.js"></script>
+</body>
+</html>

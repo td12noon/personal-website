@@ -1,0 +1,418 @@
+/* 8-bit Portal Styles - Trevor's Arcade */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+    --bg-dark: #0f0f23;
+    --bg-darker: #0a0a1a;
+    --text-green: #00ff00;
+    --text-amber: #ff9900;
+    --text-cyan: #00ffff;
+    --text-red: #ff0000;
+    --text-white: #ffffff;
+    --border-color: #00ff00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Press Start 2P', 'VT323', monospace;
+    background-color: var(--bg-dark);
+    color: var(--text-green);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* CRT scanline effect */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    z-index: 1000;
+}
+
+/* Vignette effect */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        transparent 60%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    z-index: 999;
+}
+
+/* Password Page Styles */
+.terminal-container {
+    text-align: center;
+    padding: 40px;
+    max-width: 600px;
+    z-index: 1;
+}
+
+.ascii-art {
+    font-family: 'VT323', monospace;
+    font-size: 10px;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    color: var(--text-cyan);
+    text-shadow: 0 0 10px var(--text-cyan);
+    white-space: pre;
+    letter-spacing: 1px;
+}
+
+.prompt {
+    font-size: 12px;
+    margin-bottom: 20px;
+    animation: flicker 4s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    92% { opacity: 1; }
+    93% { opacity: 0.8; }
+    94% { opacity: 1; }
+    96% { opacity: 0.9; }
+    97% { opacity: 1; }
+}
+
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+input[type="password"] {
+    background: transparent;
+    border: 4px solid var(--border-color);
+    color: var(--text-green);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    padding: 15px 20px;
+    width: 300px;
+    outline: none;
+    text-shadow: 0 0 5px var(--text-green);
+    caret-color: var(--text-green);
+}
+
+input[type="password"]:focus {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+input[type="password"]::placeholder {
+    color: rgba(0, 255, 0, 0.3);
+}
+
+.pixel-button {
+    background: transparent;
+    border: 4px solid var(--text-amber);
+    color: var(--text-amber);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: all 0.1s;
+    display: block;
+    margin: 20px auto;
+    text-transform: uppercase;
+}
+
+.pixel-button:hover {
+    background: var(--text-amber);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--text-amber);
+}
+
+.pixel-button:active {
+    transform: scale(0.98);
+}
+
+.error {
+    color: var(--text-red);
+    font-size: 8px;
+    min-height: 20px;
+    margin: 10px 0;
+    text-shadow: 0 0 10px var(--text-red);
+}
+
+.success {
+    color: var(--text-green);
+    font-size: 8px;
+    text-shadow: 0 0 10px var(--text-green);
+}
+
+.hint {
+    font-size: 7px;
+    color: #444;
+    margin-top: 40px;
+}
+
+/* Screen shake on error */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10% { transform: translateX(-10px); }
+    20% { transform: translateX(10px); }
+    30% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    50% { transform: translateX(-5px); }
+    60% { transform: translateX(5px); }
+    70% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    90% { transform: translateX(-2px); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Apps Page Styles */
+.arcade-container {
+    width: 100%;
+    max-width: 900px;
+    padding: 40px 20px;
+    z-index: 1;
+}
+
+.arcade-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    border-bottom: 4px solid var(--text-green);
+}
+
+.arcade-header h1 {
+    font-size: 20px;
+    color: var(--text-cyan);
+    text-shadow: 0 0 20px var(--text-cyan);
+    letter-spacing: 2px;
+}
+
+.pixel-button.small {
+    font-size: 8px;
+    padding: 10px 15px;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 10px;
+    margin: 30px 0;
+    text-align: center;
+    animation: flicker 4s infinite;
+}
+
+.arcade-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.arcade-tile {
+    aspect-ratio: 1;
+    border: 4px solid var(--text-green);
+    background: rgba(0, 255, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s;
+    padding: 15px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.arcade-tile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 255, 0, 0.1),
+        transparent
+    );
+    transition: left 0.3s;
+}
+
+.arcade-tile:hover::before {
+    left: 100%;
+}
+
+.arcade-tile:hover {
+    border-color: var(--text-cyan);
+    box-shadow: 0 0 30px var(--text-cyan),
+                inset 0 0 30px rgba(0, 255, 255, 0.05);
+    transform: scale(1.05);
+}
+
+.arcade-tile:active {
+    transform: scale(0.98);
+}
+
+.tile-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+.tile-name {
+    font-size: 7px;
+    text-align: center;
+    color: var(--text-green);
+    text-transform: uppercase;
+    line-height: 1.6;
+    letter-spacing: 1px;
+}
+
+.arcade-tile:hover .tile-name {
+    color: var(--text-cyan);
+}
+
+.arcade-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 7px;
+    color: #444;
+}
+
+/* Individual tile accent colors */
+.arcade-tile[data-color="red"] { border-color: #ff6b6b; }
+.arcade-tile[data-color="red"]:hover {
+    box-shadow: 0 0 30px #ff6b6b;
+    border-color: #ff6b6b;
+}
+.arcade-tile[data-color="red"] .tile-name { color: #ff6b6b; }
+
+.arcade-tile[data-color="teal"] { border-color: #4ecdc4; }
+.arcade-tile[data-color="teal"]:hover {
+    box-shadow: 0 0 30px #4ecdc4;
+    border-color: #4ecdc4;
+}
+.arcade-tile[data-color="teal"] .tile-name { color: #4ecdc4; }
+
+.arcade-tile[data-color="yellow"] { border-color: #ffe66d; }
+.arcade-tile[data-color="yellow"]:hover {
+    box-shadow: 0 0 30px #ffe66d;
+    border-color: #ffe66d;
+}
+.arcade-tile[data-color="yellow"] .tile-name { color: #ffe66d; }
+
+.arcade-tile[data-color="purple"] { border-color: #c792ea; }
+.arcade-tile[data-color="purple"]:hover {
+    box-shadow: 0 0 30px #c792ea;
+    border-color: #c792ea;
+}
+.arcade-tile[data-color="purple"] .tile-name { color: #c792ea; }
+
+.arcade-tile[data-color="pink"] { border-color: #ff79c6; }
+.arcade-tile[data-color="pink"]:hover {
+    box-shadow: 0 0 30px #ff79c6;
+    border-color: #ff79c6;
+}
+.arcade-tile[data-color="pink"] .tile-name { color: #ff79c6; }
+
+.arcade-tile[data-color="orange"] { border-color: #ffb86c; }
+.arcade-tile[data-color="orange"]:hover {
+    box-shadow: 0 0 30px #ffb86c;
+    border-color: #ffb86c;
+}
+.arcade-tile[data-color="orange"] .tile-name { color: #ffb86c; }
+
+/* Loading animation */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.loading {
+    animation: pulse 1s infinite;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .ascii-art {
+        font-size: 6px;
+    }
+
+    input[type="password"] {
+        width: 250px;
+        font-size: 12px;
+        padding: 12px 15px;
+    }
+
+    .arcade-header h1 {
+        font-size: 12px;
+    }
+
+    .arcade-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .tile-icon {
+        font-size: 32px;
+    }
+
+    .tile-name {
+        font-size: 6px;
+    }
+
+    .prompt {
+        font-size: 10px;
+    }
+
+    .pixel-button {
+        font-size: 8px;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .terminal-container {
+        padding: 20px;
+    }
+
+    .ascii-art {
+        font-size: 5px;
+    }
+
+    input[type="password"] {
+        width: 220px;
+    }
+}
