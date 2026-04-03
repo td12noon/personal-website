@@ -22,7 +22,7 @@
             <!-- Left Sidebar with Profile Header -->
             <div class="sidebar">
                 <div class="profile-header">
-                    <div class="profile-avatar" id="portal-trigger" style="cursor: pointer;" title="...">
+                    <div class="profile-avatar">
                         <img src="images/headshot.png" alt="Trevor Noon">
                     </div>
                     <div class="profile-info">
@@ -78,11 +78,11 @@
                         </div>
                     </div> -->
                     
-                    <div class="grid-item image-widget experience-item" data-company="Tribe AI" data-title="AI Product Manager @ Tribe AI" data-description="Helped Fortune 500 companies deliver best-in-class AI solutions.">
+                    <div class="grid-item image-widget experience-item" data-company="Tribe AI" data-title="Director of Product & Lead PM @ Tribe AI" data-description="Shipped an AI-native deal execution platform for a top-5 global law firm, driving significant account expansion. Developed an AI Book Companion that directly contributed to a NYT Bestseller.">
                         <img src="images/experience/tribe.png" alt="Tribe AI">
                     </div>
                     
-                    <div class="grid-item image-widget experience-item" data-company="Confidential" data-title="MCP Consultant @ Confidential" data-description="Helped an AI leader worth over $170B develop an MCP offering.">
+                    <div class="grid-item image-widget experience-item" data-company="Confidential" data-title="MCP Consultant @ Confidential" data-description="Helped a leading AI company develop an MCP offering.">
                         <img src="images/experience/anthropic.png" alt="Anthropic">
                         <div class="confidential-overlay">
                             <span>Confidential</span>
@@ -143,6 +143,10 @@
                             
                             <a href="https://esource-screener.vercel.app" target="_blank" class="coverflow-item">
                                 <img src="images/projects/esource.png" alt="ESource Screener">
+                            </a>
+
+                            <a href="https://www.linkedin.com/posts/share-7445448704918081536-gOTG?utm_source=share&utm_medium=member_desktop&rcm=ACoAABoV63wBpqUEfIH3mk0lYrSawqe5WPLERtE" target="_blank" class="coverflow-item">
+                                <img src="images/projects/forage.png" alt="Forage">
                             </a>
                         </div>
                         <div class="scroll-indicator scroll-right" id="projectsScrollRight">
@@ -263,14 +267,6 @@
         <!-- JavaScript for Modal Functionality -->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                // Portal trigger - click on avatar to go to secret portal
-                const portalTrigger = document.getElementById('portal-trigger');
-                if (portalTrigger) {
-                    portalTrigger.addEventListener('click', function() {
-                        window.location.href = '/portal.html';
-                    });
-                }
-
                 // Get the modal and its elements
                 const modal = document.getElementById('experience-modal');
                 const modalTitle = document.getElementById('modal-title');
