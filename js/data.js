@@ -16,8 +16,8 @@ window.SITE_DATA = {
       company: "Tribe AI",
       role: "AI Product Manager",
       title: "Product @ Tribe AI",
-      logo: "images/logos/tribe.png",
-      theme: { bg: "linear-gradient(155deg, #6767FF 0%, #5340CC 100%)", ink: "light" },
+      logo: "images/logos/tribe.svg",
+      theme: { bg: "#65D9EE", ink: "dark" },
       description:
         "Tribe AI designs and builds production AI solutions for Fortune 1000 companies. The problems we work on are top CEO / Board-level bets with $100M+ in enterprise value on the line. Our north star is helping enterprises become AI-native by fundamentally reimagining how they create value in an AI-first world. We are hiring!",
     },

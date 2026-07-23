@@ -21,7 +21,7 @@ OUT = os.path.join(ROOT, "images", "logos")
 # diagonal gradients. fill_holes restores enclosed transparent regions (glyphs
 # that matched the background color, e.g. YouTube's play triangle).
 JOBS = {
-    "tribe":     dict(src="images/experience/tribe.png",     box=(60, 80, 350, 320),  bg_x=700, thr=(40, 110)),
+    # tribe: superseded — the current mark is hand-built vector art at images/logos/tribe.svg
     "anthropic": dict(src="images/experience/anthropic.png", box=(60, 70, 350, 300),  bg_x=700, thr=(40, 110)),
     "meta":      dict(src="images/experience/meta.png",      box=(60, 70, 480, 350),  bg_x=700, thr=(40, 110)),
     "ateam":     dict(src="images/experience/ateam.png",     box=(95, 120, 300, 290), bg_x=70, bg_x2=340, thr=(26, 60)),
