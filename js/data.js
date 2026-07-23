@@ -14,12 +14,12 @@ window.SITE_DATA = {
   experience: [
     {
       company: "Tribe AI",
-      role: "AI Product Manager",
-      title: "Product @ Tribe AI",
+      role: "Head of Product",
+      title: "Head of Product @ Tribe AI",
       logo: "images/logos/tribe.svg",
       theme: { bg: "#65D9EE", ink: "dark" },
       description:
-        "Tribe AI designs and builds production AI solutions for Fortune 1000 companies. The problems we work on are top CEO / Board-level bets with $100M+ in enterprise value on the line. Our north star is helping enterprises become AI-native by fundamentally reimagining how they create value in an AI-first world. We are hiring!",
+        "Tribe AI designs and builds production AI solutions for Fortune 1000 companies. I lead an enterprise AI program spanning four product pods — core platform, client portal, knowledge infrastructure, and roadmap acceleration — with 30+ engineers, designers, and data scientists. Designed and shipped an AI-native deal execution platform for M&amp;A attorneys at a top-5 global law firm; early delivery and client confidence grew the account from $4M to nearly $20M. We are hiring!",
     },
     {
       company: "Anthropic",
@@ -28,7 +28,7 @@ window.SITE_DATA = {
       logo: "images/logos/anthropic.png",
       theme: { bg: "#FF6719", ink: "dark" },
       description:
-        "Helped Anthropic develop an MCP offering. Full project details are confidential.",
+        "Built critical infrastructure for Anthropic's MCP offering and co-authored an MCP security guide. Full project details are confidential.",
     },
     {
       company: "Meta",
@@ -46,25 +46,25 @@ window.SITE_DATA = {
       logo: "images/logos/ateam.png",
       theme: { bg: "linear-gradient(135deg, #ACE8DB 0%, #EBC8D2 45%, #ABA2EF 100%)", ink: "dark" },
       description:
-        "Contract Product Manager driving Monetization and CX initiatives for a dating platform serving 14M+ users globally. Generated $4M+ in subscription revenue as users upgraded for premium features including AI-powered profile recommendations, profile curation, in-app image and identity verification, and enhanced note-taking capabilities.",
-    },
-    {
-      company: "Amazon",
-      role: "Technical Product Manager",
-      title: "Technical Product Manager @ Amazon",
-      logo: "images/logos/amazon.png",
-      theme: { bg: "#FF9900", ink: "dark" },
-      description:
-        "Realized $52.5M in savings by creating and driving adoption of a new, more accurate, machine learning model forecasting data center completion timelines and identifying areas of inefficiency.",
+        "Contract Product Lead for Grindr via A.Team, driving monetization and CX for a platform serving 14M+ users globally. Generated $7M+ in annual subscription revenue with AI-powered features — profile recommendations, curation, in-app image and identity verification — and launched AI content moderation saving $1.2M+ annually.",
     },
     {
       company: "Woebot",
       role: "Senior Product Manager",
-      title: "Senior Product Manager @ Woebot",
+      title: "Senior Product Manager, Enterprise Lead @ Woebot Health",
       logo: "images/logos/woebot.png",
       theme: { bg: "#003087", ink: "light" },
       description:
-        "Woebot provided chat-based mental health support delivered through a mobile application. Woebot served 1.5 million users before the company sunset its consumer operations. Realized $5M in revenue leading implementations of mental health chatbots for health systems, payers, and employers.",
+        "Woebot provided chat-based mental health support through a mobile application, serving 1.5M+ users. As Enterprise Lead, generated $5M+ in revenue deploying AI-powered chatbots to health systems and payers, and more than doubled user renewals year over year by building Spotlight, an external analytics product.",
+    },
+    {
+      company: "Amazon",
+      role: "Technical Product Manager",
+      title: "Technical Product Manager, AWS Infrastructure @ Amazon",
+      logo: "images/logos/amazon.png",
+      theme: { bg: "#FF9900", ink: "dark" },
+      description:
+        "Realized $52.5M in savings with ML-powered forecasting for data center build schedules. Drove another $10M in networking cost savings via automated workflows, and led adoption of scheduling platforms used by 5,000+ AWS operations staff worldwide.",
     },
     {
       company: "Nirvana",
@@ -73,7 +73,7 @@ window.SITE_DATA = {
       logo: "images/logos/nirvana.png",
       theme: { bg: "#2C1E45", ink: "light" },
       description:
-        "First product-hire at seed-stage healthcare/fintech startup, growing user-base to 7.5K+ users. Drove $4M in ARR prototyping and scaling API products for insurance eligibility, claims filing, and payments.",
+        "First product-hire at a seed-stage healthcare/fintech startup automating insurance, growing the user base to 7.5K+. Found product-market fit for API products — secured and scaled a $1B+ telehealth partnership and shipped insurance eligibility products driving $4M in ARR.",
     },
     {
       company: "Activant",
