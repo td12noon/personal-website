@@ -19,7 +19,7 @@ window.SITE_DATA = {
       logo: "images/logos/tribe.svg",
       theme: { bg: "#65D9EE", ink: "dark" },
       description:
-        "Tribe AI designs and builds production AI solutions for Fortune 1000 companies. I lead an enterprise AI program spanning four product pods — core platform, client portal, knowledge infrastructure, and roadmap acceleration — with 30+ engineers, designers, and data scientists. Designed and shipped an AI-native deal execution platform for M&amp;A attorneys at a top-5 global law firm; early delivery and client confidence grew the account from $4M to nearly $20M. We are hiring!",
+        "Tribe AI designs and builds production AI solutions for Fortune 1000 companies. I lead product for one of Tribe's largest enterprise AI programs, spanning four product pods with 30+ engineers, designers, and data scientists. We are hiring!",
     },
     {
       company: "Anthropic",
