@@ -126,7 +126,7 @@ window.SITE_DATA = {
   projects: [
     {
       title: "OpenAI Model Selection Guide",
-      subtitle: "Co-author · OpenAI Cookbook",
+      subtitle: "Co-author",
       href: "https://cookbook.openai.com/examples/partners/model_selection_guide/model_selection_guide",
       image: "images/projects/openai_author.png",
     },
@@ -138,14 +138,14 @@ window.SITE_DATA = {
     },
     {
       title: "Securing MCPs for the Autonomous Age",
-      subtitle: "Tribe AI · Applied AI",
+      subtitle: "Co-author",
       // original tribe.ai URL is dead; archived copy keeps the piece readable
       href: "https://web.archive.org/web/2025/https://www.tribe.ai/applied-ai/securing-mcps-for-the-autonomous-age-your-ai-assistant-just-leaked-your-customer-database",
       image: "images/projects/anthropic_guide.png",
     },
     {
       title: "ESource Resume Screener",
-      subtitle: "AI resume screening for hiring",
+      subtitle: "AI recruitment tool",
       href: "https://esource-screener.vercel.app",
       image: "images/projects/esource.png",
     },
