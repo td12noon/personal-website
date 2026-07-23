@@ -4,84 +4,65 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a static personal website/portfolio for Trevor Noon built with vanilla HTML, CSS, and JavaScript. It features a Bento-style grid layout inspired by Bento.me platform and is designed for deployment on GitHub Pages with a custom domain (trevornoon.com).
+This is a static personal website/portfolio for Trevor Noon built with vanilla HTML, CSS, and JavaScript — no frameworks, no build step. It features a Bento-style grid layout and deploys as static files (custom domain: trevornoon.com).
 
 ## Development Commands
 
-Since this is a static website with no build tools or package managers, development is straightforward:
-
-- **Preview**: Open `index.html` directly in a web browser
-- **Image Processing**: Node.js scripts are available in the `/js` directory for generating company logos and processing images. These require Node.js with the `canvas` package installed.
+- **Preview**: Open `index.html` directly in a browser, or `python3 -m http.server`
+- **Logo extraction** (rarely needed): `python3 scripts/extract-logos.py` regenerates transparent logo marks in `images/logos/` from the legacy tile PNGs (requires Pillow)
 
 ## Architecture
 
 ### Core Files
-- `index.html` - Single-page application with all content
-- `styles.css` - Complete styling with CSS custom properties for theming
-- No JavaScript frameworks - uses vanilla DOM manipulation
+- `index.html` — page shell: head/meta, sidebar, section containers, experience dialog
+- `styles.css` — complete design system (CSS custom properties, light/dark via `prefers-color-scheme`)
+- `js/data.js` — **all site content lives here** (experience, projects, links, interests)
+- `js/site.js` — renders the sections from `data.js` and wires interactions (dialog, shelves, scrollspy, scroll-reveal)
 
-### Content Structure
-The page uses a sidebar navigation with smooth scrolling to these main sections:
-- **Welcome**: Introduction and business link
-- **Experience**: Professional history with interactive modals
-- **Links**: External links (calendar, resume, LinkedIn, YouTube)
-- **Interests**: Personal content (movies, music, photos)
+### Content Management — IMPORTANT
 
-### Modal System
-Interactive experience items use a data-driven modal system:
-- Experience data stored as `data-experience` attributes in HTML
-- JavaScript handles modal open/close with keyboard support
-- Modals contain detailed job descriptions and achievements
+Cards are generated in code; there are no Figma-designed tile images anymore.
+
+**To add/edit an experience or link card**, edit `js/data.js`:
+1. Drop a transparent logo (PNG or SVG) in `images/logos/` (any reasonable size; it renders ~60px tall)
+2. Add an entry with `company`, `role`, `title`, `logo`, `description`, and a `theme`:
+   - `theme.bg` — any CSS background (solid color or gradient) for the tile
+   - `theme.ink` — `"light"` or `"dark"` text on that background
+3. Optional flags: `confidential: true` (veils the tile), `hidden: true` (keeps the entry without rendering it)
+
+**Projects and interests** are image cards in the same file — add an object with `image`, and optionally `title`, `subtitle`, `href`. Use `alt` instead of `title` for a linked card that shouldn't show a visible caption (e.g. when the artwork already contains the title).
+
+Modal descriptions may contain trusted HTML (links). Card names/roles are rendered as plain text.
 
 ### Image Organization
 ```
 images/
-├── experience/     # Company logos (generated via Node.js scripts)
-├── interests/      # Personal photos
-├── links/          # Link button icons
-└── headshot.png    # Profile photo
+├── logos/          # Transparent logo marks used by code-generated cards
+├── experience/     # LEGACY full-tile PNGs (source material for scripts/extract-logos.py)
+├── links/          # LEGACY full-tile PNGs (same)
+├── projects/       # Project/publication thumbnails
+├── interests/      # Personal photos (keep ≤1000px, compressed)
+└── headshot.png    # Profile photo / favicon / og:image
 ```
 
-### Node.js Utilities
-Scripts in `/js` directory for content generation:
-- `add-company-logos.js` - Generates company logos using HTML5 Canvas
-- Image processing utilities for creating consistent branding
-- These are development utilities, not part of the website runtime
+New photos should be resized to ≤1000px on the long edge and saved as progressive JPEG (~80 quality) before committing — big camera originals were the main performance problem historically.
+
+### Portal (separate feature)
+`portal.html`, `portal-apps.html`, `css/portal*.css`, `js/portal-*.js`, and `api/` are an independent password-gated area deployed on Vercel. Don't touch them when working on the main site.
 
 ## Styling Architecture
 
-### CSS Custom Properties
-The design system uses CSS variables for consistent theming:
-- Color palette defined at root level
-- Typography scale using Inter font
-- Consistent spacing and border radius values
-
-### Layout System
-- **CSS Grid**: Main content area uses a responsive bento-style grid
-- **Flexbox**: Sidebar navigation and individual component layouts
-- **Mobile-first**: Responsive design with desktop enhancements
-
-## Content Management
-
-### Adding Experience Items
-1. Add company logo to `images/experience/`
-2. Create grid item in HTML with `data-experience` attribute containing JSON
-3. Include modal content with job title, dates, and description
-4. Style may need updates for new grid items
-
-### Updating Links
-External links are managed in the Links section with corresponding icons in `images/links/`
+- All colors/spacing/motion come from CSS custom properties in `:root` (dark theme overrides under `@media (prefers-color-scheme: dark)`)
+- Fonts: Space Grotesk (display) + Inter (body), loaded from Google Fonts
+- Tiles use per-item `--tile-bg` custom property set from `data.js` themes
+- Animations respect `prefers-reduced-motion`
 
 ## Deployment
 
-This site is configured for GitHub Pages deployment:
-- `CNAME` file contains custom domain `trevornoon.com`
-- All files are static and ready for immediate hosting
-- No build process required
+Static hosting (GitHub Pages custom domain trevornoon.com; `vercel.json` exists for the portal's serverless functions). No build process — pushed files are served as-is.
 
 ## Development Notes
 
-- The site prioritizes performance with minimal JavaScript and optimized images
-- All external links open in new tabs for better UX
-- Keyboard accessibility is implemented (ESC key closes modals)
-- No user input processing keeps the attack surface minimal
+- Performance matters: keep JavaScript minimal, images compressed, no new dependencies
+- All external links use `target="_blank" rel="noopener"`
+- Keyboard accessibility: experience tiles are `<button>`s, the modal is a native `<dialog>` (ESC/backdrop close for free)

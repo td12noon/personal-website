@@ -37,3 +37,6 @@ logs
 # Vercel
 .vercel
 
+
+# Python
+__pycache__/

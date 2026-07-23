@@ -3,413 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trevor Noon — AI Product Leader</title>
+    <meta name="description" content="Trevor Noon is an AI product leader in Durham, NC. He has built and launched products with Amazon, Meta, OpenAI, Anthropic, Tribe AI, and innovative startups.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://trevornoon.com/">
+    <meta name="theme-color" content="#F6F5F1" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0F1014" media="(prefers-color-scheme: dark)">
+
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
-    <title>Trevor Noon</title>
-    <meta name="robots" content="index,follow">
-    <meta property="og:title" content="Trevor Noon">
-    <meta property="og:description" content="📍 Durham, North Carolina
-💼 Fractional Product Leader
-🏈 Go Bills!">
+    <meta property="og:url" content="https://trevornoon.com/">
+    <meta property="og:title" content="Trevor Noon — AI Product Leader">
+    <meta property="og:description" content="📍 Durham, North Carolina · 💼 AI Product Leader · 🏈 Go Bills!">
+    <meta property="og:image" content="https://trevornoon.com/images/headshot.png">
+    <meta name="twitter:card" content="summary">
+
     <link rel="shortcut icon" href="images/headshot.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Trevor Noon",
+      "url": "https://trevornoon.com/",
+      "image": "https://trevornoon.com/images/headshot.png",
+      "jobTitle": "AI Product Leader",
+      "address": { "@type": "PostalAddress", "addressLocality": "Durham", "addressRegion": "NC" },
+      "alumniOf": "Harvard College",
+      "sameAs": ["https://linkedin.com/in/tnoon"]
+    }
+    </script>
+
+    <script src="js/data.js" defer></script>
+    <script src="js/site.js" defer></script>
 </head>
 <body>
-    <div id="root">
-        <main class="min-full-screen">
-            <!-- Left Sidebar with Profile Header -->
-            <div class="sidebar">
-                <div class="profile-header">
-                    <div class="profile-avatar">
-                        <img src="images/headshot.png" alt="Trevor Noon">
-                    </div>
-                    <div class="profile-info">
-                        <h1>Trevor Noon</h1>
-                        <nav class="sidebar-nav">
-                            <ul>
-                                <li><a href="#welcome">Welcome</a></li>
-                                <li><a href="#experience">Experience</a></li>
-                                <li><a href="#projects">Projects and Publications</a></li>
-                                <li><a href="#links">Links</a></li>
-                                <li><a href="#interests">Interests</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="bio">
-                        <p>📍 Durham, NC</p>
-                        <p>💼 AI Product Leader</p>
-                        <p>🏈 Go Bills!</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Main Content Area -->
-            <div class="main-content">
-                <!-- Grid Layout for Content -->
-                <div class="bento-grid">
-                    <!-- Welcome Section -->
-                    <div id="welcome" class="section-header">
-                        <p>Welcome</p>
-                    </div>
-                    
-                    <!-- Welcome Message -->
-                    <div class="grid-item welcome-widget">
-                        <div class="welcome-content">
-                            <p>Hi, I'm Trevor—an endlessly curious product leader in Durham, NC. I've built and launched products with Amazon, Meta, and innovative startups, and studied at Harvard. From early-stage teams to global enterprises, I love building things that matter.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Section Header: Experience -->
-                    <div id="experience" class="section-header">
-                        <p>Experience</p>
-                    </div>
-                    
-                    <!-- Experience Images (reordered as requested) -->
-                    <!-- <div class="grid-item image-widget experience-item" data-company="OpenAI" data-title="Confidential project in progress" data-description="Confidential project in progress. Co-authored a <a href='https://cookbook.openai.com/examples/partners/model_selection_guide/model_selection_guide' target='_blank'><strong>joint model selection guide</strong></a> to help organizations efficiently deploy OpenAI models for real-world business impact.">
-                        <img src="images/experience/openai.png" alt="OpenAI">
-                    </div> -->
-                    
-                    <!-- <div class="grid-item image-widget experience-item" data-company="Microsoft" data-title="Confidential" data-description="Confidential">
-                        <img src="images/experience/microsoft.png" alt="Microsoft">
-                        <div class="confidential-overlay">
-                            <span>Confidential</span>
-                        </div>
-                    </div> -->
-                    
-                    <div class="grid-item image-widget experience-item" data-company="Tribe AI" data-title="Product @ Tribe AI" data-description="Tribe AI designs and builds production AI solutions for Fortune 1000 companies. The problems we work on are top CEO / Board-level bets with $100M+ in enterprise value on the line. Our north star is helping enterprises become AI-native by fundamentally reimagining how they create value in an AI-first world. We are hiring!">
-                        <img src="images/experience/tribe.png" alt="Tribe AI">
-                    </div>
-                    
-                    <div class="grid-item image-widget experience-item" data-company="Confidential" data-title="MCP Consultant @ Confidential" data-description="Helped a leading AI company develop an MCP offering.">
-                        <img src="images/experience/anthropic.png" alt="Anthropic">
-                        <div class="confidential-overlay">
-                            <span>Confidential</span>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-item image-widget experience-item" data-company="Meta" data-title="Llama API Consultant @ Meta" data-description="Led a developer experience and documentation effort for Meta's Llama API, driving improvements that impact millions of developers worldwide. Benchmarked Meta's offering against leading LLM providers to identify and close gaps in usability and onboarding. Provided guidance and team management for technical writers, to ensure those gaps were closed and met high standards.">
-                        <img src="images/experience/meta.png" alt="Meta">
-                    </div>
-                    
-                    <div class="grid-item image-widget experience-item" data-company="A.Team" data-title="Product Lead @ A.Team" data-description="Contract Product Manager driving Monetization and CX initiatives for a dating platform serving 14M+ users globally. Generated $4M+ in subscription revenue as users upgraded for premium features including AI-powered profile recommendations, profile curation, in-app image and identity verification, and enhanced note-taking capabilities.">
-                        <img src="images/experience/ateam.png" alt="A.Team">
-                    </div>
-                    
-                    <div class="grid-item image-widget experience-item" data-company="Amazon" data-title="Technical Product Manager @ Amazon" data-description="Realized $52.5M in savings by creating and driving adoption of a new, more accurate, machine learning model forecasting data center completion timelines and identifying areas of inefficiency.">
-                        <img src="images/experience/amazon.png" alt="Amazon">
-                    </div>
-                    
-                    <div class="grid-item image-widget experience-item" data-company="Woebot" data-title="Senior Product Manager @ Woebot" data-description="Woebot provided chat-based mental health support delivered through a mobile application. Woebot served 1.5 million users before the company sunset its consumer operations. Realized $5M in revenue leading implementations of mental health chatbots for health systems, payers, and employers.">
-                        <img src="images/experience/woebot.png" alt="Woebot">
-                    </div>
-                    
-                    <div class="grid-item image-widget experience-item" data-company="Nirvana" data-title="First Product Manager @ Nirvana" data-description="First product-hire at seed-stage healthcare/fintech startup, growing user-base to 7.5K+ users. Drove $4M in ARR prototyping and scaling API products for insurance eligibility, claims filing, and payments.">
-                        <img src="images/experience/nirvana.png" alt="Nirvana">
-                    </div>
-                    
-                    <div class="grid-item image-widget experience-item" data-company="Activant" data-title="Investor @ Activant" data-description="Developed a proprietary software tool that identified 300+ investment targets, including two of the firm's largest investments for which I later served as Board Observer.">
-                        <img src="images/experience/activant.png" alt="Activant">
-                    </div>
-                    
-                    <div class="grid-item image-widget experience-item" data-company="Monster Roster" data-title="Head of Data Science @ Monster Roster" data-description="Developed and scaled a statistical model for predicting MLB, NFL, and NBA daily fantasy sports scores, achieving a 55% overall win-rate that drove over 5,000 subscriptions and $250,000 in revenue.">
-                        <img src="images/experience/mr.png" alt="Monster Roster">
-                    </div>
-                    
-                    <div class="grid-item image-widget experience-item" data-company="Harvard" data-title="Statistics & Astrophysics @ Harvard" data-description="Bachelor's in Statistics and Astrophysics from Harvard College.">
-                        <img src="images/experience/harvard.png" alt="Harvard">
-                    </div>
-                    
-                    <!-- Section Header: Projects and Publications -->
-                    <div id="projects" class="section-header">
-                        <p>Projects and Publications</p>
-                    </div>
-                    
-                    <!-- Projects and Publications Coverflow Container -->
-                    <div class="grid-item projects-coverflow-container">
-                        <div class="coverflow-scroll">
-                            <a href="https://cookbook.openai.com/examples/partners/model_selection_guide/model_selection_guide" target="_blank" class="coverflow-item">
-                                <img src="images/projects/openai_author.png" alt="OpenAI Model Selection Guide">
-                            </a>
-                            
-                            <a href="https://sitterbot-info-hub.lovable.app" target="_blank" class="coverflow-item">
-                                <img src="images/projects/sitterbot.png" alt="SitterBot - AI Pet Sitting Assistant">
-                            </a>
-                            
-                            <a href="https://www.tribe.ai/applied-ai/securing-mcps-for-the-autonomous-age-your-ai-assistant-just-leaked-your-customer-database" target="_blank" class="coverflow-item">
-                                <img src="images/projects/anthropic_guide.png" alt="Securing MCPs for the Autonomous Age — Tribe AI">
-                            </a>
-                            
-                            <a href="https://esource-screener.vercel.app" target="_blank" class="coverflow-item">
-                                <img src="images/projects/esource.png" alt="ESource Screener">
-                            </a>
+    <a class="skip-link" href="#content">Skip to content</a>
 
-                            <a href="https://www.linkedin.com/posts/share-7445448704918081536-gOTG?utm_source=share&utm_medium=member_desktop&rcm=ACoAABoV63wBpqUEfIH3mk0lYrSawqe5WPLERtE" target="_blank" class="coverflow-item">
-                                <img src="images/projects/forage.png" alt="Forage">
-                            </a>
-                        </div>
-                        <div class="scroll-indicator scroll-right" id="projectsScrollRight">
-                            <span>→</span>
-                        </div>
-                        <div class="scroll-indicator scroll-left" id="projectsScrollLeft">
-                            <span>←</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Section Header: Links -->
-                    <div id="links" class="section-header">
-                        <p>Links</p>
-                    </div>
-                    
-                    <!-- Meeting Scheduler -->
-                    <a href="https://www.cal.com/tnoon" target="_blank" class="grid-item image-widget link-item">
-                        <img src="images/links/calendar.png" alt="Schedule a Meeting">
-                    </a>
-                    
-                    <!-- Resume Link -->
-                    <a href="https://docs.google.com/document/d/1axLGwBemstmQHP_-UtcZ1BzlMT1qG5wgpcMYeQrzWKI/edit?usp=sharing" target="_blank" class="grid-item image-widget link-item">
-                        <img src="images/links/resume.png" alt="Resume">
-                    </a>
-                    
-                    <!-- LinkedIn Link -->
-                    <a href="http://linkedin.com/in/tnoon" target="_blank" class="grid-item image-widget link-item">
-                        <img src="images/links/linkedin.png" alt="LinkedIn">
-                    </a>
-                    
-                    <!-- YouTube Link -->
-                    <a href="https://www.youtube.com/channel/UCqG_H5pwLAxD9Jq0kmthuqw" target="_blank" class="grid-item image-widget link-item">
-                        <img src="images/links/youtube.png" alt="YouTube">
-                    </a>
-                    
-                    <!-- Section Header: Interests -->
-                    <div id="interests" class="section-header">
-                        <p>Interests</p>
-                    </div>
-                    
-                    <!-- Interests Coverflow Container -->
-                    <div class="grid-item interests-coverflow-container">
-                        <div class="coverflow-scroll">
-                            <a href="https://abounding-mechanic-89d.notion.site/Movies-bde67a8c911a49d1b4101f13dec646a8" target="_blank" class="coverflow-item">
-                                <img src="images/interests/movies.png" alt="Top 10 Movies">
-                            </a>
-                            
-                            <a href="https://music.apple.com/us/playlist/trevors-top-10-albums/pl.u-ePr9CzGYM9N" target="_blank" class="coverflow-item">
-                                <img src="images/interests/albums.png" alt="Top 10 Albums">
-                            </a>
-                            
-                            <div class="coverflow-item">
-                                <img src="images/interests/image_7.JPG" alt="">
-                            </div>
-                            
-                            <div class="coverflow-item">
-                                <img src="images/interests/image_8.jpeg" alt="">
-                            </div>
-                            
-                            <div class="coverflow-item">
-                                <img src="images/interests/image_9.jpeg" alt="">
-                            </div>
-                            
-                            <div class="coverflow-item">
-                                <img src="images/interests/image_10.jpeg" alt="">
-                            </div>
-                            
-                            <div class="coverflow-item">
-                                <img src="images/interests/image_11.jpeg" alt="">
-                            </div>
-                            
-                            <div class="coverflow-item">
-                                <img src="images/interests/image_12.jpeg" alt="">
-                            </div>
-                            
-                            <div class="coverflow-item">
-                                <img src="images/interests/image_13.jpeg" alt="">
-                            </div>
-                            
-                            <div class="coverflow-item">
-                                <img src="images/interests/image_14.jpeg" alt="">
-                            </div>
-                            
-                            <div class="coverflow-item">
-                                <img src="images/interests/image_15.jpeg" alt="">
-                            </div>
-                            
-                            <div class="coverflow-item">
-                                <img src="images/interests/image_16.jpeg" alt="">
-                            </div>
-                        </div>
-                        <div class="scroll-indicator scroll-right" id="scrollRight">
-                            <span>→</span>
-                        </div>
-                        <div class="scroll-indicator scroll-left" id="scrollLeft">
-                            <span>←</span>
-                        </div>
+    <div class="page">
+        <!-- Sidebar / header -->
+        <aside class="sidebar">
+            <div class="profile">
+                <button class="avatar-btn" type="button" aria-label="Go Bills!">
+                    <img class="avatar" src="images/headshot.png" alt="Portrait of Trevor Noon" width="140" height="140" fetchpriority="high">
+                </button>
+                <p class="profile-name">Trevor Noon</p>
+                <p class="profile-tagline">AI Product Leader</p>
+            </div>
+
+            <nav class="site-nav" aria-label="Sections">
+                <ul>
+                    <li><a href="#welcome">Welcome</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects &amp; Publications</a></li>
+                    <li><a href="#links">Links</a></li>
+                    <li><a href="#interests">Interests</a></li>
+                </ul>
+            </nav>
+
+            <ul class="bio" aria-label="About">
+                <li>📍 Durham, NC</li>
+                <li>💼 AI Product Leader</li>
+                <li>🏈 Go Bills!</li>
+            </ul>
+        </aside>
+
+        <!-- Main content -->
+        <main id="content">
+            <section id="welcome" aria-labelledby="welcome-title">
+                <div class="hero">
+                    <h1 id="welcome-title" class="hero-title">
+                        Hi, I'm Trevor —<br>
+                        an endlessly curious <em>product leader</em> in Durham,&nbsp;NC.
+                    </h1>
+                    <p class="hero-copy">
+                        I've built and launched products with Amazon, Meta, OpenAI, Anthropic,
+                        and innovative startups, and studied at Harvard. From early-stage teams
+                        to global enterprises, I love building things that matter.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="https://www.cal.com/tnoon" target="_blank" rel="noopener">Book a meeting</a>
+                        <a class="btn btn-ghost" href="http://linkedin.com/in/tnoon" target="_blank" rel="noopener">Connect on LinkedIn</a>
                     </div>
                 </div>
-                
-                <!-- Footer -->
-                <footer>
-                    <div class="footer-buttons">
+            </section>
+
+            <section id="experience" aria-labelledby="experience-title">
+                <header class="section-head">
+                    <span class="section-index" aria-hidden="true">01</span>
+                    <h2 id="experience-title">Experience</h2>
+                    <p class="section-note">Tap a card for the full story.</p>
+                </header>
+                <div id="experience-grid" class="tile-grid"></div>
+            </section>
+
+            <section id="projects" aria-labelledby="projects-title">
+                <header class="section-head">
+                    <span class="section-index" aria-hidden="true">02</span>
+                    <h2 id="projects-title">Projects &amp; Publications</h2>
+                </header>
+                <div id="projects-shelf" class="shelf">
+                    <div class="shelf-track" tabindex="0" aria-label="Projects and publications"></div>
+                    <div class="shelf-controls">
+                        <button class="shelf-btn shelf-btn-prev" type="button" aria-label="Scroll backwards">&larr;</button>
+                        <button class="shelf-btn shelf-btn-next" type="button" aria-label="Scroll forwards">&rarr;</button>
                     </div>
-                </footer>
-            </div>
+                </div>
+            </section>
+
+            <section id="links" aria-labelledby="links-title">
+                <header class="section-head">
+                    <span class="section-index" aria-hidden="true">03</span>
+                    <h2 id="links-title">Links</h2>
+                </header>
+                <div id="links-grid" class="tile-grid"></div>
+            </section>
+
+            <section id="interests" aria-labelledby="interests-title">
+                <header class="section-head">
+                    <span class="section-index" aria-hidden="true">04</span>
+                    <h2 id="interests-title">Interests</h2>
+                </header>
+                <div id="interests-shelf" class="shelf">
+                    <div class="shelf-track" tabindex="0" aria-label="Interests and photos"></div>
+                    <div class="shelf-controls">
+                        <button class="shelf-btn shelf-btn-prev" type="button" aria-label="Scroll backwards">&larr;</button>
+                        <button class="shelf-btn shelf-btn-next" type="button" aria-label="Scroll forwards">&rarr;</button>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="site-footer">
+                <p>&copy; <span id="year">2026</span> Trevor Noon · Durham, NC</p>
+            </footer>
         </main>
-        
-        <!-- Modal container -->
-        <div id="experience-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-button">&times;</span>
-                <h2 id="modal-title"></h2>
-                <p id="modal-description"></p>
-            </div>
-        </div>
-
-        <!-- JavaScript for Modal Functionality -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Get the modal and its elements
-                const modal = document.getElementById('experience-modal');
-                const modalTitle = document.getElementById('modal-title');
-                const modalDescription = document.getElementById('modal-description');
-                const closeButton = document.querySelector('.close-button');
-                
-                // Get all experience items
-                const experienceItems = document.querySelectorAll('.experience-item');
-                
-                // Add click event to each experience item
-                experienceItems.forEach(item => {
-                    item.addEventListener('click', function() {
-                        // Get the data attributes
-                        const company = this.getAttribute('data-company');
-                        const title = this.getAttribute('data-title');
-                        const description = this.getAttribute('data-description');
-                        
-                        // Set the modal content
-                        modalTitle.textContent = title;
-                        modalDescription.innerHTML = description;
-                        
-                        // Display the modal
-                        modal.classList.add('show-modal');
-                    });
-                });
-                
-                // Close the modal when clicking the close button
-                closeButton.addEventListener('click', function() {
-                    modal.classList.remove('show-modal');
-                });
-                
-                // Close the modal when clicking outside of it
-                window.addEventListener('click', function(event) {
-                    if (event.target === modal) {
-                        modal.classList.remove('show-modal');
-                    }
-                });
-                
-                // Close the modal with the Escape key
-                document.addEventListener('keydown', function(event) {
-                    if (event.key === 'Escape' && modal.classList.contains('show-modal')) {
-                        modal.classList.remove('show-modal');
-                    }
-                });
-
-                // Coverflow scroll indicators functionality
-                const interestsCoverflowScroll = document.querySelector('.interests-coverflow-container .coverflow-scroll');
-                const interestsScrollLeftIndicator = document.getElementById('scrollLeft');
-                const interestsScrollRightIndicator = document.getElementById('scrollRight');
-                
-                const projectsCoverflowScroll = document.querySelector('.projects-coverflow-container .coverflow-scroll');
-                const projectsScrollLeftIndicator = document.getElementById('projectsScrollLeft');
-                const projectsScrollRightIndicator = document.getElementById('projectsScrollRight');
-
-                function updateScrollIndicators(scrollContainer, leftIndicator, rightIndicator) {
-                    if (!scrollContainer || !leftIndicator || !rightIndicator) return;
-                    
-                    const scrollLeft = scrollContainer.scrollLeft;
-                    const scrollWidth = scrollContainer.scrollWidth;
-                    const clientWidth = scrollContainer.clientWidth;
-                    const maxScroll = scrollWidth - clientWidth;
-
-                    // Show right arrow if there's content to scroll to the right
-                    if (scrollLeft < maxScroll - 10) { // 10px threshold
-                        rightIndicator.classList.add('visible');
-                    } else {
-                        rightIndicator.classList.remove('visible');
-                    }
-
-                    // Show left arrow if we've scrolled away from the start
-                    if (scrollLeft > 10) { // 10px threshold
-                        leftIndicator.classList.add('visible');
-                    } else {
-                        leftIndicator.classList.remove('visible');
-                    }
-                }
-
-                // Setup Interests scroll indicators
-                if (interestsCoverflowScroll) {
-                    const updateInterests = () => updateScrollIndicators(
-                        interestsCoverflowScroll, 
-                        interestsScrollLeftIndicator, 
-                        interestsScrollRightIndicator
-                    );
-                    
-                    updateInterests();
-                    interestsCoverflowScroll.addEventListener('scroll', updateInterests);
-                    window.addEventListener('resize', updateInterests);
-                }
-
-                // Setup Projects scroll indicators (for future use when content is added)
-                if (projectsCoverflowScroll) {
-                    const updateProjects = () => updateScrollIndicators(
-                        projectsCoverflowScroll, 
-                        projectsScrollLeftIndicator, 
-                        projectsScrollRightIndicator
-                    );
-                    
-                    updateProjects();
-                    projectsCoverflowScroll.addEventListener('scroll', updateProjects);
-                    window.addEventListener('resize', updateProjects);
-                }
-
-                // Add click event handlers for scroll arrows
-                if (interestsScrollLeftIndicator && interestsCoverflowScroll) {
-                    interestsScrollLeftIndicator.addEventListener('click', function() {
-                        console.log('Left arrow clicked - scrolling left');
-                        interestsCoverflowScroll.scrollBy({
-                            left: -200,
-                            behavior: 'smooth'
-                        });
-                    });
-                }
-
-                if (interestsScrollRightIndicator && interestsCoverflowScroll) {
-                    interestsScrollRightIndicator.addEventListener('click', function() {
-                        console.log('Right arrow clicked - scrolling right');
-                        interestsCoverflowScroll.scrollBy({
-                            left: 200,
-                            behavior: 'smooth'
-                        });
-                    });
-                }
-
-                if (projectsScrollLeftIndicator && projectsCoverflowScroll) {
-                    projectsScrollLeftIndicator.addEventListener('click', function() {
-                        projectsCoverflowScroll.scrollBy({
-                            left: -200,
-                            behavior: 'smooth'
-                        });
-                    });
-                }
-
-                if (projectsScrollRightIndicator && projectsCoverflowScroll) {
-                    projectsScrollRightIndicator.addEventListener('click', function() {
-                        projectsCoverflowScroll.scrollBy({
-                            left: 200,
-                            behavior: 'smooth'
-                        });
-                    });
-                }
-            });
-        </script>
     </div>
+
+    <!-- Experience detail dialog -->
+    <dialog id="experience-dialog" aria-labelledby="dialog-title">
+        <div class="dialog-inner">
+            <button class="dialog-close" type="button" aria-label="Close">&times;</button>
+            <h3 id="dialog-title"></h3>
+            <div id="dialog-body"></div>
+        </div>
+    </dialog>
+
+    <noscript>
+        <p style="padding:1rem 1.5rem">
+            This page renders its cards with JavaScript. In the meantime:
+            <a href="http://linkedin.com/in/tnoon">LinkedIn</a> ·
+            <a href="https://www.cal.com/tnoon">Book a meeting</a>
+        </p>
+    </noscript>
+
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
-</html> 
+</html>
