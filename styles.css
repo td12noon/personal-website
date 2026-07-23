@@ -157,13 +157,84 @@ section {
     text-align: left;
 }
 
+.avatar-btn {
+    display: block;
+    padding: 0;
+    border: 0;
+    background: none;
+    border-radius: 28px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    transition: transform var(--speed) var(--ease-out);
+}
+
+.avatar-btn:hover {
+    transform: scale(1.04) rotate(-2deg);
+}
+
 .avatar {
     width: 96px;
     height: 96px;
     border-radius: 28px;
     object-fit: cover;
     box-shadow: var(--shadow-1);
-    margin-bottom: 16px;
+    display: block;
+}
+
+.avatar-hyped {
+    animation: avatar-hype 0.6s var(--ease-out);
+}
+
+@keyframes avatar-hype {
+    30% {
+        transform: scale(1.15) rotate(-7deg);
+    }
+    60% {
+        transform: scale(0.96) rotate(4deg);
+    }
+}
+
+/* easter egg overlays */
+.confetti-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 90;
+}
+
+.bills-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 48px;
+    transform: translateX(-50%);
+    background: #00338D;
+    color: #fff;
+    border: 2px solid #C60C30;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 12px 26px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-2);
+    z-index: 91;
+    animation: toast-pop 2.2s var(--ease-out) forwards;
+}
+
+@keyframes toast-pop {
+    0% {
+        transform: translateX(-50%) translateY(70px) scale(0.8);
+        opacity: 0;
+    }
+    12%, 82% {
+        transform: translateX(-50%) translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(16px) scale(0.95);
+        opacity: 0;
+    }
 }
 
 .profile-name {
@@ -650,6 +721,11 @@ dialog[open] .dialog-inner {
         opacity: 1;
         transform: none;
     }
+    /* keep the toast readable without its entrance animation */
+    .bills-toast {
+        animation: none;
+        opacity: 1;
+    }
 }
 
 /* ==========================================================================
@@ -678,12 +754,15 @@ dialog[open] .dialog-inner {
         align-items: center;
     }
 
-    .avatar {
+    .avatar-btn {
         grid-row: span 2;
+        margin-bottom: 0;
+    }
+
+    .avatar {
         width: 64px;
         height: 64px;
         border-radius: 20px;
-        margin-bottom: 0;
     }
 
     .profile-name {

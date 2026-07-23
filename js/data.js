@@ -132,19 +132,20 @@ window.SITE_DATA = {
     },
     {
       title: "SitterBot",
-      subtitle: "AI pet-sitting assistant",
+      subtitle: "AI babysitting assistant",
       href: "https://sitterbot-info-hub.lovable.app",
       image: "images/projects/sitterbot.png",
     },
     {
       title: "Securing MCPs for the Autonomous Age",
       subtitle: "Tribe AI · Applied AI",
-      href: "https://www.tribe.ai/applied-ai/securing-mcps-for-the-autonomous-age-your-ai-assistant-just-leaked-your-customer-database",
+      // original tribe.ai URL is dead; archived copy keeps the piece readable
+      href: "https://web.archive.org/web/2025/https://www.tribe.ai/applied-ai/securing-mcps-for-the-autonomous-age-your-ai-assistant-just-leaked-your-customer-database",
       image: "images/projects/anthropic_guide.png",
     },
     {
-      title: "ESource Screener",
-      subtitle: "Clinical-trial screening tool",
+      title: "ESource Resume Screener",
+      subtitle: "AI resume screening for hiring",
       href: "https://esource-screener.vercel.app",
       image: "images/projects/esource.png",
     },

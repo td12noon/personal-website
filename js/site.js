@@ -189,6 +189,87 @@
     revealables.forEach((n) => io.observe(n));
   }
 
+  /* ---------- easter egg: click the headshot ---------- */
+
+  const avatarBtn = document.querySelector(".avatar-btn");
+  if (avatarBtn) {
+    let running = false;
+    avatarBtn.addEventListener("click", () => {
+      const toast = el("div", "bills-toast");
+      toast.textContent = "🏈 Go Bills!";
+      document.body.append(toast);
+      setTimeout(() => toast.remove(), 2200);
+
+      if (running || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      running = true;
+      avatarBtn.classList.add("avatar-hyped");
+
+      const canvas = document.createElement("canvas");
+      canvas.className = "confetti-canvas";
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = innerWidth * dpr;
+      canvas.height = innerHeight * dpr;
+      ctx.scale(dpr, dpr);
+
+      const rect = avatarBtn.getBoundingClientRect();
+      const ox = rect.left + rect.width / 2;
+      const oy = rect.top + rect.height / 2;
+      const COLORS = ["#00338D", "#C60C30", "#FFFFFF", "#7A9BD4"]; // Bills palette
+      const parts = Array.from({ length: 150 }, (_, i) => {
+        const angle = -Math.PI / 2 + (Math.random() - 0.5) * 2.2;
+        const speed = 4 + Math.random() * 8;
+        return {
+          x: ox, y: oy,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          rot: Math.random() * Math.PI,
+          vr: (Math.random() - 0.5) * 0.3,
+          size: 5 + Math.random() * 6,
+          color: COLORS[i % COLORS.length],
+          ball: i % 24 === 0, // every so often, a football
+        };
+      });
+
+      const started = performance.now();
+      const DURATION = 2400;
+      (function tick(now) {
+        const t = (now || performance.now()) - started;
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+        ctx.globalAlpha = Math.max(0, 1 - Math.max(0, t - 1600) / (DURATION - 1600));
+        parts.forEach((p) => {
+          p.vy += 0.22; // gravity
+          p.vx *= 0.992;
+          p.x += p.vx;
+          p.y += p.vy;
+          p.rot += p.vr;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot);
+          if (p.ball) {
+            ctx.font = "22px serif";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText("🏈", 0, 0);
+          } else {
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+          }
+          ctx.restore();
+        });
+        ctx.globalAlpha = 1;
+        if (t < DURATION) {
+          requestAnimationFrame(tick);
+        } else {
+          canvas.remove();
+          avatarBtn.classList.remove("avatar-hyped");
+          running = false;
+        }
+      })();
+    });
+  }
+
   /* ---------- scrollspy nav ---------- */
 
   const navLinks = document.querySelectorAll(".site-nav a[href^='#']");
