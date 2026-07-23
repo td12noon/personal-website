@@ -36,7 +36,7 @@ JOBS = {
     "calendar":  dict(src="images/links/calendar.png",       box=(60, 60, 350, 350),  bg_x=700, thr=(25, 90)),
     "resume":    dict(src="images/links/resume.png",         box=(60, 60, 350, 350),  bg_x=700, thr=(25, 90)),
     "linkedin":  dict(src="images/links/linkedin.png",       box=(60, 60, 350, 350),  bg_x=700, thr=(25, 90), fill_holes=True),
-    "youtube":   dict(src="images/links/youtube.png",        box=(60, 60, 350, 350),  bg_x=700, thr=(25, 90), fill_holes=True),
+    "youtube":   dict(src="images/links/youtube.png",        box=(60, 60, 470, 350),  bg_x=700, thr=(25, 90), fill_holes=True),
 }
 
 

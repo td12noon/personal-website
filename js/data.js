@@ -22,13 +22,13 @@ window.SITE_DATA = {
         "Tribe AI designs and builds production AI solutions for Fortune 1000 companies. The problems we work on are top CEO / Board-level bets with $100M+ in enterprise value on the line. Our north star is helping enterprises become AI-native by fundamentally reimagining how they create value in an AI-first world. We are hiring!",
     },
     {
-      company: "Confidential",
+      company: "Anthropic",
       role: "MCP Consultant",
-      title: "MCP Consultant @ Confidential",
+      title: "MCP Consultant @ Anthropic",
       logo: "images/logos/anthropic.png",
       theme: { bg: "#FF6719", ink: "dark" },
-      confidential: true,
-      description: "Helped a leading AI company develop an MCP offering.",
+      description:
+        "Helped Anthropic develop an MCP offering. Full project details are confidential.",
     },
     {
       company: "Meta",
@@ -189,12 +189,12 @@ window.SITE_DATA = {
 
   interests: [
     {
-      title: "Top 10 Movies",
+      alt: "Top 10 Movies",
       href: "https://abounding-mechanic-89d.notion.site/Movies-bde67a8c911a49d1b4101f13dec646a8",
       image: "images/interests/movies.png",
     },
     {
-      title: "Top 10 Albums",
+      alt: "Top 10 Albums",
       href: "https://music.apple.com/us/playlist/trevors-top-10-albums/pl.u-ePr9CzGYM9N",
       image: "images/interests/albums.png",
     },

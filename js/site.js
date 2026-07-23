@@ -105,12 +105,13 @@
       const frame = el("span", "shelf-frame");
       const img = el("img", "", {
         src: item.image,
-        alt: item.title || "",
+        alt: item.alt || item.title || "",
         loading: "lazy",
         decoding: "async",
         width: "600",
         height: "600",
       });
+      if (item.href && !item.title) card.setAttribute("aria-label", item.alt || "");
       frame.append(img);
       card.append(frame);
       if (item.title) {
@@ -130,9 +131,18 @@
 
     const prev = shelf.querySelector(".shelf-btn-prev");
     const next = shelf.querySelector(".shelf-btn-next");
-    const step = () => Math.max(track.clientWidth * 0.7, 240);
-    prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
-    next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+    // page by whole cards so the arrows always land on a card edge
+    const unit = () =>
+      track.children.length > 1
+        ? track.children[1].offsetLeft - track.children[0].offsetLeft
+        : 240;
+    const step = () => unit() * Math.max(1, Math.floor((track.clientWidth * 0.9) / unit()));
+    const page = (dir) => {
+      const target = Math.round((track.scrollLeft + dir * step()) / unit()) * unit();
+      track.scrollTo({ left: target, behavior: "smooth" });
+    };
+    prev.addEventListener("click", () => page(-1));
+    next.addEventListener("click", () => page(1));
 
     function updateButtons() {
       const max = track.scrollWidth - track.clientWidth;
@@ -153,7 +163,12 @@
   const revealables = document.querySelectorAll(
     ".tile, .shelf-item, .section-head, .hero > *"
   );
-  revealables.forEach((node, i) => {
+  // stagger by position within each container so items reveal left to right
+  const siblingCounts = new Map();
+  revealables.forEach((node) => {
+    const parent = node.parentElement;
+    const i = siblingCounts.get(parent) || 0;
+    siblingCounts.set(parent, i + 1);
     node.classList.add("reveal");
     node.style.setProperty("--reveal-delay", `${Math.min(i % 8, 5) * 60}ms`);
   });

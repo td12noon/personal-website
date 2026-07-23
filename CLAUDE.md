@@ -24,13 +24,13 @@ This is a static personal website/portfolio for Trevor Noon built with vanilla H
 Cards are generated in code; there are no Figma-designed tile images anymore.
 
 **To add/edit an experience or link card**, edit `js/data.js`:
-1. Drop a transparent logo PNG in `images/logos/` (any reasonable size; it renders ~60px tall)
+1. Drop a transparent logo (PNG or SVG) in `images/logos/` (any reasonable size; it renders ~60px tall)
 2. Add an entry with `company`, `role`, `title`, `logo`, `description`, and a `theme`:
    - `theme.bg` — any CSS background (solid color or gradient) for the tile
    - `theme.ink` — `"light"` or `"dark"` text on that background
 3. Optional flags: `confidential: true` (veils the tile), `hidden: true` (keeps the entry without rendering it)
 
-**Projects and interests** are image cards in the same file — add an object with `image`, and optionally `title`, `subtitle`, `href`.
+**Projects and interests** are image cards in the same file — add an object with `image`, and optionally `title`, `subtitle`, `href`. Use `alt` instead of `title` for a linked card that shouldn't show a visible caption (e.g. when the artwork already contains the title).
 
 Modal descriptions may contain trusted HTML (links). Card names/roles are rendered as plain text.
 
