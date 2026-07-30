@@ -4,26 +4,26 @@
    ========================================================================== */
 
 :root {
-    /* color tokens */
-    --bg: #F6F5F1;
-    --surface: #FFFFFF;
-    --ink: #1B1B20;
-    --ink-muted: #6E6E78;
-    --line: #E4E2DB;
-    --accent: #4F46E5;
-    --accent-soft: rgba(79, 70, 229, 0.10);
-    --glow-a: rgba(99, 102, 241, 0.16);
-    --glow-b: rgba(244, 114, 182, 0.10);
+    /* color tokens — mist & pine (cool slate paper, forest accent) */
+    --bg: #E7EEF0;
+    --surface: #F4F8F9;
+    --ink: #132028;
+    --ink-muted: #5A6972;
+    --line: #CDD7DC;
+    --accent: #0C6B56;
+    --accent-soft: rgba(12, 107, 86, 0.11);
+    --glow-a: rgba(12, 107, 86, 0.14);
+    --glow-b: rgba(70, 120, 150, 0.12);
 
     /* type */
-    --font-display: "Space Grotesk", "Inter", sans-serif;
-    --font-body: "Inter", -apple-system, sans-serif;
+    --font-display: "Bricolage Grotesque", "Segoe UI", sans-serif;
+    --font-body: "Figtree", "Segoe UI", sans-serif;
 
     /* shape + elevation */
     --radius: 18px;
     --radius-sm: 12px;
-    --shadow-1: 0 1px 2px rgba(20, 20, 30, 0.05), 0 4px 16px rgba(20, 20, 30, 0.06);
-    --shadow-2: 0 2px 4px rgba(20, 20, 30, 0.07), 0 14px 34px rgba(20, 20, 30, 0.13);
+    --shadow-1: 0 1px 2px rgba(19, 32, 40, 0.05), 0 4px 16px rgba(19, 32, 40, 0.06);
+    --shadow-2: 0 2px 4px rgba(19, 32, 40, 0.07), 0 14px 34px rgba(19, 32, 40, 0.12);
 
     /* motion */
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -32,15 +32,15 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #0F1014;
-        --surface: #17181E;
-        --ink: #ECECF1;
-        --ink-muted: #9B9BA7;
-        --line: #26272F;
-        --accent: #8B8DF8;
-        --accent-soft: rgba(139, 141, 248, 0.14);
-        --glow-a: rgba(99, 102, 241, 0.20);
-        --glow-b: rgba(244, 114, 182, 0.08);
+        --bg: #0D1316;
+        --surface: #151C20;
+        --ink: #E6EEF0;
+        --ink-muted: #93A2AB;
+        --line: #243036;
+        --accent: #4FBEA3;
+        --accent-soft: rgba(79, 190, 163, 0.14);
+        --glow-a: rgba(79, 190, 163, 0.12);
+        --glow-b: rgba(80, 130, 160, 0.10);
         --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.35);
         --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.5), 0 14px 34px rgba(0, 0, 0, 0.5);
     }
@@ -241,8 +241,8 @@ section {
     font-family: var(--font-display);
     font-size: 1.45rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
 }
 
 .profile-tagline {
@@ -332,7 +332,8 @@ section {
     align-items: center;
     gap: 8px;
     padding: 11px 22px;
-    border-radius: 999px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
     font-size: 0.95rem;
     font-weight: 600;
     transition: transform var(--speed) var(--ease-out), box-shadow var(--speed) var(--ease-out),
@@ -343,6 +344,16 @@ section {
     background: var(--accent);
     color: #fff;
     box-shadow: var(--shadow-1);
+}
+
+@media (prefers-color-scheme: dark) {
+    .btn-primary {
+        color: #0D1316;
+    }
+
+    ::selection {
+        color: #0D1316;
+    }
 }
 
 .btn-primary:hover {
@@ -615,7 +626,7 @@ dialog {
 }
 
 dialog::backdrop {
-    background: rgba(12, 12, 18, 0.55);
+    background: rgba(10, 18, 22, 0.55);
     backdrop-filter: blur(4px);
 }
 
