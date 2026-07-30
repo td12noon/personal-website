@@ -1,20 +1,20 @@
 /* Applies ?theme= and optional ?scheme= before first paint when loaded in <head>.
-   Valid themes: mist | previous | citrus | harbor | signal | slate */
+   Valid themes: storm | moss | fogline | overcast | canopy | previous */
 (function () {
   "use strict";
 
   var ALLOWED = {
-    mist: true,
+    storm: true,
+    moss: true,
+    fogline: true,
+    overcast: true,
+    canopy: true,
     previous: true,
-    citrus: true,
-    harbor: true,
-    signal: true,
-    slate: true,
   };
 
   var params = new URLSearchParams(window.location.search);
-  var theme = params.get("theme") || "mist";
-  if (!ALLOWED[theme]) theme = "mist";
+  var theme = params.get("theme") || "storm";
+  if (!ALLOWED[theme]) theme = "storm";
   document.documentElement.setAttribute("data-theme", theme);
 
   var scheme = params.get("scheme");

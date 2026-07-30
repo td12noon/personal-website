@@ -3,52 +3,52 @@
 
   var OPTIONS = [
     {
+      id: "storm",
+      name: "Stormy morning",
+      tag: "Blue-gray",
+      desc: "Mist and fog blues — trustworthy, calm, quietly modern. Closest to your Stormy morning board.",
+      fonts: "Sora + Source Sans 3",
+      swatches: ["#6A89A7", "#BDDDFC", "#88BDF2", "#384959"],
+    },
+    {
+      id: "moss",
+      name: "Mossy hollow",
+      tag: "Olive",
+      desc: "Earthy olive greens with soft sage paper. Natural and grounded without going rustic.",
+      fonts: "Archivo + Public Sans",
+      swatches: ["#636B2F", "#BAC095", "#D4DE95", "#3D4127"],
+    },
+    {
+      id: "fogline",
+      name: "Fogline",
+      tag: "Hybrid",
+      desc: "Stormy paper with a moss accent — the two boards crossed. Unique, still restrained.",
+      fonts: "Outfit + DM Sans",
+      swatches: ["#EAF1F6", "#88BDF2", "#5E6635", "#2F3A3F"],
+    },
+    {
+      id: "overcast",
+      name: "Overcast",
+      tag: "Monochrome",
+      desc: "Same storm family, deeper slate as the accent. More graphic, less color pop.",
+      fonts: "Bricolage Grotesque + Figtree",
+      swatches: ["#EEF3F7", "#BDDDFC", "#6A89A7", "#384959"],
+    },
+    {
+      id: "canopy",
+      name: "Canopy",
+      tag: "Soft moss",
+      desc: "Mossy hollow turned quieter — pear washes, olive accent, airy sage paper.",
+      fonts: "Sora + Manrope",
+      swatches: ["#F2F3EB", "#D4DE95", "#BAC095", "#636B2F"],
+    },
+    {
       id: "previous",
       name: "Previous",
       tag: "Before",
-      desc: "Warm cream paper, indigo accent — the look you have now on production.",
+      desc: "Warm cream + indigo — the production look, for side-by-side reference.",
       fonts: "Space Grotesk + Inter",
       swatches: ["#F6F5F1", "#FFFFFF", "#1B1B20", "#4F46E5"],
-    },
-    {
-      id: "mist",
-      name: "Mist & pine",
-      tag: "Cool / calm",
-      desc: "Cool slate mist paper with a forest accent. Quiet, professional, less “default AI.”",
-      fonts: "Bricolage Grotesque + Figtree",
-      swatches: ["#E7EEF0", "#F4F8F9", "#132028", "#0C6B56"],
-    },
-    {
-      id: "citrus",
-      name: "Ink & citrus",
-      tag: "Sharp",
-      desc: "Olive-cool paper and a chartreuse signal color. Higher energy without going neon-purple.",
-      fonts: "Syne + Manrope",
-      swatches: ["#F1F3EC", "#FAFBF7", "#171A14", "#8FA30D"],
-    },
-    {
-      id: "harbor",
-      name: "Harbor",
-      tag: "Editorial",
-      desc: "Soft blue paper, deep harbor ink-blue, Fraunces for a more editorial display voice.",
-      fonts: "Fraunces + Source Sans 3",
-      swatches: ["#E8EEF4", "#F5F8FB", "#142033", "#1F4E79"],
-    },
-    {
-      id: "signal",
-      name: "Signal",
-      tag: "Product",
-      desc: "Cool gray paper with a cyan-teal accent — clean product-site energy, not indigo.",
-      fonts: "Outfit + DM Sans",
-      swatches: ["#EEF1F4", "#F7F9FB", "#101418", "#0E7C8B"],
-    },
-    {
-      id: "slate",
-      name: "Slate & ember",
-      tag: "Bold",
-      desc: "Stone-gray paper with a strong ember red accent. Direct and high-contrast.",
-      fonts: "Archivo + Public Sans",
-      swatches: ["#E9E7E2", "#F6F4EF", "#1C1F24", "#C0392B"],
     },
   ];
 
@@ -89,7 +89,6 @@
       mock.setAttribute("data-scheme", scheme);
 
       grid.appendChild(node);
-      // keep a reference for scheme updates
       article.dataset.themeId = opt.id;
     });
   }
