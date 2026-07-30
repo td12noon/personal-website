@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-scheme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme options — Trevor Noon</title>
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="shortcut icon" href="images/headshot.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;600;700&family=DM+Sans:wght@400;500;600&family=Figtree:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;600;700&family=Inter:wght@400;500;600&family=Manrope:wght@400;500;600&family=Outfit:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/theme-options.css">
+</head>
+<body>
+    <header class="compare-head">
+        <div class="compare-head-copy">
+            <p class="compare-kicker">Preview only · not linked from the live site</p>
+            <h1>Color &amp; font options</h1>
+            <p class="compare-lede">Same cards and structure. Six looks side by side — open any one on the full site to scroll the real page.</p>
+        </div>
+        <div class="compare-controls" role="group" aria-label="Preview scheme">
+            <button type="button" class="scheme-btn is-active" data-scheme="light">Light</button>
+            <button type="button" class="scheme-btn" data-scheme="dark">Dark</button>
+        </div>
+    </header>
+
+    <main id="options" class="compare-grid"></main>
+
+    <template id="option-template">
+        <article class="option">
+            <div class="option-meta">
+                <div class="option-meta-top">
+                    <h2 class="option-name"></h2>
+                    <p class="option-tag"></p>
+                </div>
+                <p class="option-desc"></p>
+                <p class="option-fonts"></p>
+                <div class="swatches" aria-hidden="true"></div>
+                <a class="option-link" href="#">Open full site →</a>
+            </div>
+            <div class="mock" data-scheme="light">
+                <aside class="mock-side">
+                    <div class="mock-avatar"></div>
+                    <p class="mock-name">Trevor Noon</p>
+                    <p class="mock-role">AI Product Leader</p>
+                    <nav class="mock-nav">
+                        <span class="is-current">Welcome</span>
+                        <span>Experience</span>
+                        <span>Projects</span>
+                    </nav>
+                </aside>
+                <div class="mock-main">
+                    <h3 class="mock-title">Hi, I'm Trevor — an endlessly curious <em>product leader</em> in Durham, NC.</h3>
+                    <p class="mock-copy">I build AI products people actually use — from 0→1 through scale.</p>
+                    <div class="mock-actions">
+                        <span class="mock-btn mock-btn-primary">Book a meeting</span>
+                        <span class="mock-btn mock-btn-ghost">LinkedIn</span>
+                    </div>
+                    <div class="mock-tiles">
+                        <div class="mock-tile" style="--tile:#2EC4B6">Tribe AI</div>
+                        <div class="mock-tile" style="--tile:#D97706">Anthropic</div>
+                        <div class="mock-tile" style="--tile:#0866FF">Meta</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <script src="js/theme-options.js"></script>
+</body>
+</html>
