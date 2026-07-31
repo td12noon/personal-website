@@ -5,25 +5,27 @@
 
 :root {
     /* color tokens */
-    --bg: #F6F5F1;
-    --surface: #FFFFFF;
-    --ink: #1B1B20;
-    --ink-muted: #6E6E78;
-    --line: #E4E2DB;
-    --accent: #4F46E5;
-    --accent-soft: rgba(79, 70, 229, 0.10);
-    --glow-a: rgba(99, 102, 241, 0.16);
-    --glow-b: rgba(244, 114, 182, 0.10);
+    --bg: #0755F5;
+    --surface: #F4F0DF;
+    --ink: #FFF9E9;
+    --ink-dark: #06140D;
+    --ink-muted: #BFD0FF;
+    --line: rgba(255, 249, 233, 0.34);
+    --accent: #FF4B24;
+    --accent-2: #70B946;
+    --accent-soft: rgba(255, 75, 36, 0.18);
+    --glow-a: rgba(112, 185, 70, 0.24);
+    --glow-b: rgba(255, 75, 36, 0.16);
 
     /* type */
     --font-display: "Space Grotesk", "Inter", sans-serif;
     --font-body: "Inter", -apple-system, sans-serif;
 
     /* shape + elevation */
-    --radius: 18px;
-    --radius-sm: 12px;
-    --shadow-1: 0 1px 2px rgba(20, 20, 30, 0.05), 0 4px 16px rgba(20, 20, 30, 0.06);
-    --shadow-2: 0 2px 4px rgba(20, 20, 30, 0.07), 0 14px 34px rgba(20, 20, 30, 0.13);
+    --radius: 4px;
+    --radius-sm: 2px;
+    --shadow-1: 5px 5px 0 rgba(6, 20, 13, 0.88);
+    --shadow-2: 9px 9px 0 rgba(6, 20, 13, 0.92);
 
     /* motion */
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -32,17 +34,16 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #0F1014;
-        --surface: #17181E;
-        --ink: #ECECF1;
-        --ink-muted: #9B9BA7;
-        --line: #26272F;
-        --accent: #8B8DF8;
-        --accent-soft: rgba(139, 141, 248, 0.14);
-        --glow-a: rgba(99, 102, 241, 0.20);
-        --glow-b: rgba(244, 114, 182, 0.08);
-        --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.35);
-        --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.5), 0 14px 34px rgba(0, 0, 0, 0.5);
+        --bg: #0755F5;
+        --surface: #F4F0DF;
+        --ink: #FFF9E9;
+        --ink-dark: #06140D;
+        --ink-muted: #BFD0FF;
+        --line: rgba(255, 249, 233, 0.34);
+        --accent: #FF4B24;
+        --accent-soft: rgba(255, 75, 36, 0.18);
+        --shadow-1: 5px 5px 0 rgba(6, 20, 13, 0.88);
+        --shadow-2: 9px 9px 0 rgba(6, 20, 13, 0.92);
     }
 }
 
@@ -66,15 +67,18 @@ body {
     overflow-x: hidden;
 }
 
-/* soft atmospheric wash behind everything */
+/* saturated landscape-inspired light and subtle halftone grain */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -1;
     background:
-        radial-gradient(56rem 36rem at 85% -10%, var(--glow-a), transparent 60%),
-        radial-gradient(40rem 30rem at -10% 30%, var(--glow-b), transparent 65%);
+        radial-gradient(56rem 36rem at 92% -8%, var(--glow-a), transparent 60%),
+        radial-gradient(40rem 30rem at -10% 42%, var(--glow-b), transparent 65%),
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.12) 0 0.7px, transparent 0.9px);
+    background-size: auto, auto, 4px 4px;
+    pointer-events: none;
 }
 
 img {
@@ -136,6 +140,8 @@ a {
     flex-direction: column;
     gap: 28px;
     border-right: 1px solid var(--line);
+    background: rgba(4, 35, 116, 0.28);
+    backdrop-filter: blur(8px);
 }
 
 main {
@@ -162,7 +168,7 @@ section {
     padding: 0;
     border: 0;
     background: none;
-    border-radius: 28px;
+    border-radius: var(--radius);
     cursor: pointer;
     margin-bottom: 16px;
     transition: transform var(--speed) var(--ease-out);
@@ -175,9 +181,10 @@ section {
 .avatar {
     width: 96px;
     height: 96px;
-    border-radius: 28px;
+    border-radius: var(--radius);
     object-fit: cover;
     box-shadow: var(--shadow-1);
+    border: 1px solid var(--ink);
     display: block;
 }
 
@@ -243,6 +250,7 @@ section {
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.2;
+    font-style: italic;
 }
 
 .profile-tagline {
@@ -276,9 +284,10 @@ section {
 }
 
 .site-nav a[aria-current="true"] {
-    color: var(--accent);
+    color: var(--ink);
     background: var(--accent-soft);
     font-weight: 600;
+    box-shadow: inset 3px 0 0 var(--accent);
 }
 
 .bio {
@@ -298,20 +307,21 @@ section {
    ========================================================================== */
 
 .hero {
-    padding-top: 24px;
+    padding: 24px 0 12px;
 }
 
 .hero-title {
     font-family: var(--font-display);
     font-size: clamp(2rem, 4.5vw, 3.4rem);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.08;
     letter-spacing: -0.03em;
 }
 
 .hero-title em {
     font-style: normal;
-    color: var(--accent);
+    color: var(--accent-2);
+    text-shadow: 2px 2px 0 var(--ink-dark);
 }
 
 .hero-copy {
@@ -332,7 +342,7 @@ section {
     align-items: center;
     gap: 8px;
     padding: 11px 22px;
-    border-radius: 999px;
+    border-radius: var(--radius-sm);
     font-size: 0.95rem;
     font-weight: 600;
     transition: transform var(--speed) var(--ease-out), box-shadow var(--speed) var(--ease-out),
@@ -341,7 +351,7 @@ section {
 
 .btn-primary {
     background: var(--accent);
-    color: #fff;
+    color: var(--ink);
     box-shadow: var(--shadow-1);
 }
 
@@ -353,7 +363,8 @@ section {
 .btn-ghost {
     border: 1px solid var(--line);
     background: var(--surface);
-    color: var(--ink);
+    color: var(--ink-dark);
+    box-shadow: var(--shadow-1);
 }
 
 .btn-ghost:hover {
@@ -377,7 +388,7 @@ section {
     font-family: var(--font-display);
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--accent-2);
     letter-spacing: 0.14em;
 }
 
@@ -407,7 +418,7 @@ section {
 .tile {
     position: relative;
     aspect-ratio: 1 / 1;
-    border: 1px solid var(--line);
+    border: 1px solid var(--ink-dark);
     border-radius: var(--radius);
     background: var(--tile-bg, var(--surface));
     box-shadow: var(--shadow-1);
@@ -423,7 +434,7 @@ section {
 }
 
 .tile:hover {
-    transform: translateY(-5px);
+    transform: translate(-3px, -3px);
     box-shadow: var(--shadow-2);
 }
 
@@ -526,7 +537,7 @@ section {
     aspect-ratio: 1 / 1;
     border-radius: var(--radius);
     overflow: hidden;
-    border: 1px solid var(--line);
+    border: 1px solid var(--ink-dark);
     box-shadow: var(--shadow-1);
     background: var(--surface);
     transition: transform var(--speed) var(--ease-out), box-shadow var(--speed) var(--ease-out);
@@ -540,7 +551,7 @@ section {
 }
 
 .shelf-item:hover .shelf-frame {
-    transform: translateY(-5px);
+    transform: translate(-3px, -3px);
     box-shadow: var(--shadow-2);
 }
 
@@ -580,9 +591,9 @@ a.shelf-item:hover .shelf-title {
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    border: 1px solid var(--line);
+    border: 1px solid var(--ink-dark);
     background: var(--surface);
-    color: var(--ink);
+    color: var(--ink-dark);
     font-size: 1rem;
     cursor: pointer;
     transition: all var(--speed) var(--ease-out);
@@ -610,7 +621,8 @@ dialog {
     padding: 0;
     max-width: min(540px, calc(100vw - 40px));
     background: var(--surface);
-    color: var(--ink);
+    color: var(--ink-dark);
+    border: 1px solid var(--ink-dark);
     box-shadow: var(--shadow-2);
 }
 
@@ -648,7 +660,7 @@ dialog[open] .dialog-inner {
 }
 
 #dialog-body {
-    color: var(--ink-muted);
+    color: rgba(6, 20, 13, 0.72);
     font-size: 0.95rem;
 }
 
@@ -667,7 +679,7 @@ dialog[open] .dialog-inner {
     border-radius: 50%;
     border: 1px solid var(--line);
     background: var(--surface);
-    color: var(--ink-muted);
+    color: rgba(6, 20, 13, 0.64);
     font-size: 1.1rem;
     line-height: 1;
     cursor: pointer;
@@ -675,8 +687,8 @@ dialog[open] .dialog-inner {
 }
 
 .dialog-close:hover {
-    color: var(--ink);
-    border-color: var(--ink-muted);
+    color: var(--ink-dark);
+    border-color: var(--ink-dark);
 }
 
 /* ==========================================================================
@@ -794,7 +806,7 @@ dialog[open] .dialog-inner {
         border-radius: 999px;
         padding: 6px 14px;
         font-size: 0.85rem;
-        background: var(--surface);
+        background: rgba(4, 35, 116, 0.34);
     }
 
     .bio {

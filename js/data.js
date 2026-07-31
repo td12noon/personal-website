@@ -17,7 +17,7 @@ window.SITE_DATA = {
       role: "Head of Product",
       title: "Head of Product @ Tribe AI",
       logo: "images/logos/tribe.svg",
-      theme: { bg: "#65D9EE", ink: "dark" },
+      theme: { bg: "#70B946", ink: "dark" },
       description:
         "Tribe AI designs and builds production AI solutions for Fortune 1000 companies. I lead product for one of Tribe's largest enterprise AI programs, spanning four product pods with 30+ engineers, designers, and data scientists. We are hiring!",
     },
@@ -26,7 +26,7 @@ window.SITE_DATA = {
       role: "MCP Consultant",
       title: "MCP Consultant @ Anthropic",
       logo: "images/logos/anthropic.png",
-      theme: { bg: "#FF6719", ink: "dark" },
+      theme: { bg: "#FF4B24", ink: "dark" },
       description:
         "Built critical infrastructure for Anthropic's MCP offering and co-authored an MCP security guide. Full project details are confidential.",
     },
@@ -35,7 +35,7 @@ window.SITE_DATA = {
       role: "Llama API Consultant",
       title: "Llama API Consultant @ Meta",
       logo: "images/logos/meta.png",
-      theme: { bg: "#0080F9", ink: "light" },
+      theme: { bg: "#F4F0DF", ink: "dark" },
       description:
         "Led a developer experience and documentation effort for Meta's Llama API, driving improvements that impact millions of developers worldwide. Benchmarked Meta's offering against leading LLM providers to identify and close gaps in usability and onboarding. Provided guidance and team management for technical writers, to ensure those gaps were closed and met high standards.",
     },
@@ -44,7 +44,7 @@ window.SITE_DATA = {
       role: "Product Lead",
       title: "Product Lead @ A.Team",
       logo: "images/logos/ateam.png",
-      theme: { bg: "linear-gradient(135deg, #ACE8DB 0%, #EBC8D2 45%, #ABA2EF 100%)", ink: "dark" },
+      theme: { bg: "linear-gradient(135deg, #70B946 0%, #F4F0DF 52%, #FF4B24 100%)", ink: "dark" },
       description:
         "Contract Product Lead for Grindr via A.Team, driving monetization and CX for a platform serving 14M+ users globally. Generated $7M+ in annual subscription revenue with AI-powered features — profile recommendations, curation, in-app image and identity verification — and launched AI content moderation saving $1.2M+ annually.",
     },
@@ -53,7 +53,7 @@ window.SITE_DATA = {
       role: "Senior Product Manager",
       title: "Senior Product Manager, Enterprise Lead @ Woebot Health",
       logo: "images/logos/woebot.png",
-      theme: { bg: "#003087", ink: "light" },
+      theme: { bg: "#063B2A", ink: "light" },
       description:
         "Woebot provided chat-based mental health support through a mobile application, serving 1.5M+ users. As Enterprise Lead, generated $5M+ in revenue deploying AI-powered chatbots to health systems and payers, and more than doubled user renewals year over year by building Spotlight, an external analytics product.",
     },
@@ -62,7 +62,7 @@ window.SITE_DATA = {
       role: "Technical Product Manager",
       title: "Technical Product Manager, AWS Infrastructure @ Amazon",
       logo: "images/logos/amazon.png",
-      theme: { bg: "#FF9900", ink: "dark" },
+      theme: { bg: "#FF4B24", ink: "dark" },
       description:
         "Realized $52.5M in savings with ML-powered forecasting for data center build schedules. Drove another $10M in networking cost savings via automated workflows, and led adoption of scheduling platforms used by 5,000+ AWS operations staff worldwide.",
     },
@@ -71,7 +71,7 @@ window.SITE_DATA = {
       role: "First Product Manager",
       title: "First Product Manager @ Nirvana",
       logo: "images/logos/nirvana.png",
-      theme: { bg: "#2C1E45", ink: "light" },
+      theme: { bg: "#042374", ink: "light" },
       description:
         "First product-hire at a seed-stage healthcare/fintech startup automating insurance, growing the user base to 7.5K+. Found product-market fit for API products — secured and scaled a $1B+ telehealth partnership and shipped insurance eligibility products driving $4M in ARR.",
     },
@@ -80,7 +80,7 @@ window.SITE_DATA = {
       role: "Investor",
       title: "Investor @ Activant",
       logo: "images/logos/activant.png",
-      theme: { bg: "#DBDBDB", ink: "dark" },
+      theme: { bg: "#F4F0DF", ink: "dark" },
       description:
         "Developed a proprietary software tool that identified 300+ investment targets, including two of the firm's largest investments for which I later served as Board Observer.",
     },
@@ -89,7 +89,7 @@ window.SITE_DATA = {
       role: "Head of Data Science",
       title: "Head of Data Science @ Monster Roster",
       logo: "images/logos/mr.png",
-      theme: { bg: "#FFFFFF", ink: "dark" },
+      theme: { bg: "#70B946", ink: "dark" },
       description:
         "Developed and scaled a statistical model for predicting MLB, NFL, and NBA daily fantasy sports scores, achieving a 55% overall win-rate that drove over 5,000 subscriptions and $250,000 in revenue.",
     },
@@ -98,7 +98,7 @@ window.SITE_DATA = {
       role: "Statistics & Astrophysics",
       title: "Statistics & Astrophysics @ Harvard",
       logo: "images/logos/harvard.png",
-      theme: { bg: "#A51C30", ink: "light" },
+      theme: { bg: "#FF4B24", ink: "light" },
       description: "Bachelor's in Statistics and Astrophysics from Harvard College.",
     },
     {
@@ -106,7 +106,7 @@ window.SITE_DATA = {
       role: "Consultant",
       title: "Consultant @ OpenAI",
       logo: "images/logos/openai.png",
-      theme: { bg: "#FFFFFF", ink: "dark" },
+      theme: { bg: "#F4F0DF", ink: "dark" },
       hidden: true,
       description:
         "Confidential project in progress. Co-authored a <a href='https://cookbook.openai.com/examples/partners/model_selection_guide/model_selection_guide' target='_blank' rel='noopener'><strong>joint model selection guide</strong></a> to help organizations efficiently deploy OpenAI models for real-world business impact.",
@@ -163,28 +163,28 @@ window.SITE_DATA = {
       tagline: "Meet with me!",
       href: "https://www.cal.com/tnoon",
       logo: "images/logos/calendar.png",
-      theme: { bg: "#FFFFFF", ink: "dark" },
+      theme: { bg: "#F4F0DF", ink: "dark" },
     },
     {
       name: "Resume",
       tagline: "The full story",
       href: "https://docs.google.com/document/d/1axLGwBemstmQHP_-UtcZ1BzlMT1qG5wgpcMYeQrzWKI/edit?usp=sharing",
       logo: "images/logos/resume.png",
-      theme: { bg: "#FFFFFF", ink: "dark" },
+      theme: { bg: "#70B946", ink: "dark" },
     },
     {
       name: "LinkedIn",
       tagline: "Let's connect",
       href: "http://linkedin.com/in/tnoon",
       logo: "images/logos/linkedin.png",
-      theme: { bg: "#FFFFFF", ink: "dark" },
+      theme: { bg: "#FF4B24", ink: "dark" },
     },
     {
       name: "YouTube",
       tagline: "Personal account",
       href: "https://www.youtube.com/channel/UCqG_H5pwLAxD9Jq0kmthuqw",
       logo: "images/logos/youtube.png",
-      theme: { bg: "#FF0000", ink: "light" },
+      theme: { bg: "#063B2A", ink: "light" },
     },
   ],
 
