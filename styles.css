@@ -5,6 +5,7 @@
 
 :root {
     /* color tokens */
+    color-scheme: light;
     --bg: #F6F5F1;
     --surface: #FFFFFF;
     --ink: #1B1B20;
@@ -30,8 +31,12 @@
     --speed: 0.3s;
 }
 
+/* Dark tokens follow the OS unless the visitor picked a theme with the
+   sidebar picker, which sets data-theme on <html>. The two blocks below
+   must stay identical. */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
+        color-scheme: dark;
         --bg: #0F1014;
         --surface: #17181E;
         --ink: #ECECF1;
@@ -44,6 +49,21 @@
         --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.35);
         --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.5), 0 14px 34px rgba(0, 0, 0, 0.5);
     }
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0F1014;
+    --surface: #17181E;
+    --ink: #ECECF1;
+    --ink-muted: #9B9BA7;
+    --line: #26272F;
+    --accent: #8B8DF8;
+    --accent-soft: rgba(139, 141, 248, 0.14);
+    --glow-a: rgba(99, 102, 241, 0.20);
+    --glow-b: rgba(244, 114, 182, 0.08);
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.35);
+    --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.5), 0 14px 34px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -291,6 +311,63 @@ section {
     display: flex;
     flex-direction: column;
     gap: 6px;
+}
+
+/* light / system / dark — deliberately quiet, sits under the bio */
+.theme-picker {
+    display: inline-flex;
+    align-self: flex-start;
+    gap: 2px;
+    padding: 3px;
+    margin-top: -10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+}
+
+.theme-option {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition: color var(--speed) var(--ease-out), background var(--speed) var(--ease-out);
+}
+
+/* the native radio stays in place (keyboard arrows, screen readers) but invisible */
+.theme-option input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.theme-option svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.theme-option:hover {
+    color: var(--ink);
+}
+
+.theme-option:has(input:checked) {
+    color: var(--ink);
+    background: var(--surface);
+    box-shadow: var(--shadow-1);
+}
+
+.theme-option:has(input:focus-visible) {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
 }
 
 /* ==========================================================================
@@ -739,12 +816,15 @@ dialog[open] .dialog-inner {
 
     .sidebar {
         position: static;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 12px;
         width: 100%;
         height: auto;
         border-right: none;
         border-bottom: 1px solid var(--line);
         padding: 28px 20px 16px;
-        gap: 18px;
+        row-gap: 18px;
     }
 
     .profile {
@@ -752,6 +832,18 @@ dialog[open] .dialog-inner {
         grid-template-columns: auto 1fr;
         column-gap: 16px;
         align-items: center;
+    }
+
+    /* the bio is hidden here, so the picker moves up beside the profile */
+    .theme-picker {
+        grid-row: 1;
+        grid-column: 2;
+        align-self: center;
+        margin: 0;
+    }
+
+    .site-nav {
+        grid-column: 1 / -1;
     }
 
     .avatar-btn {
