@@ -11,6 +11,7 @@
     --ink-muted: #6E6E78;
     --line: #E4E2DB;
     --accent: #4F46E5;
+    --on-accent: #FFFFFF; /* text on a solid accent fill */
     --accent-soft: rgba(79, 70, 229, 0.10);
     --glow-a: rgba(99, 102, 241, 0.16);
     --glow-b: rgba(244, 114, 182, 0.10);
@@ -38,6 +39,7 @@
         --ink-muted: #9B9BA7;
         --line: #26272F;
         --accent: #8B8DF8;
+        --on-accent: #0F1014; /* white on the lighter dark-mode accent is only 2.9:1 */
         --accent-soft: rgba(139, 141, 248, 0.14);
         --glow-a: rgba(99, 102, 241, 0.20);
         --glow-b: rgba(244, 114, 182, 0.08);
@@ -89,7 +91,7 @@ a {
 
 ::selection {
     background: var(--accent);
-    color: #fff;
+    color: var(--on-accent);
 }
 
 .skip-link {
@@ -97,7 +99,7 @@ a {
     left: -100vw;
     top: 0;
     background: var(--accent);
-    color: #fff;
+    color: var(--on-accent);
     padding: 10px 18px;
     border-radius: 0 0 var(--radius-sm) 0;
     z-index: 100;
@@ -315,6 +317,7 @@ section {
 }
 
 .hero-copy {
+    max-width: 60ch;
     margin-top: 20px;
     font-size: clamp(1rem, 1.4vw, 1.15rem);
     color: var(--ink-muted);
@@ -341,7 +344,7 @@ section {
 
 .btn-primary {
     background: var(--accent);
-    color: #fff;
+    color: var(--on-accent);
     box-shadow: var(--shadow-1);
 }
 
