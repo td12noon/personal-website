@@ -123,37 +123,45 @@ window.SITE_DATA = {
     },
   ],
 
+  // Each project opens its own page in projects/<slug>/index.html.
+  // Builds get a one-pager; co-authored guides get a reader view that links
+  // to the original. Links to other sites (https://...) open in a new tab.
   projects: [
+    {
+      title: "Forage",
+      subtitle: "Personal media library",
+      href: "projects/forage/",
+      image: "images/projects/forage/card.webp",
+    },
+    {
+      title: "Form",
+      subtitle: "CrossFit training journal",
+      href: "projects/form/",
+      image: "images/projects/form/card.webp",
+    },
     {
       title: "OpenAI Model Selection Guide",
       subtitle: "Co-author",
-      href: "https://cookbook.openai.com/examples/partners/model_selection_guide/model_selection_guide",
+      href: "projects/openai-model-selection-guide/",
       image: "images/projects/openai_author.png",
     },
     {
       title: "SitterBot",
       subtitle: "AI babysitting assistant",
-      href: "https://sitterbot-info-hub.lovable.app",
+      href: "projects/sitterbot/",
       image: "images/projects/sitterbot.png",
     },
     {
       title: "Securing MCPs for the Autonomous Age",
       subtitle: "Co-author",
-      // original tribe.ai URL is dead; archived copy keeps the piece readable
-      href: "https://web.archive.org/web/2025/https://www.tribe.ai/applied-ai/securing-mcps-for-the-autonomous-age-your-ai-assistant-just-leaked-your-customer-database",
+      href: "projects/securing-mcps/",
       image: "images/projects/anthropic_guide.png",
     },
     {
-      title: "ESource Resume Screener",
+      title: "E Source Resume Screener",
       subtitle: "AI recruitment tool",
-      href: "https://esource-screener.vercel.app",
+      href: "projects/esource-screener/",
       image: "images/projects/esource.png",
-    },
-    {
-      title: "Forage",
-      subtitle: "LinkedIn launch post",
-      href: "https://www.linkedin.com/posts/share-7445448704918081536-gOTG?utm_source=share&utm_medium=member_desktop&rcm=ACoAABoV63wBpqUEfIH3mk0lYrSawqe5WPLERtE",
-      image: "images/projects/forage.png",
     },
   ],
 
@@ -188,17 +196,16 @@ window.SITE_DATA = {
     },
   ],
 
+  // Favorites are the public top-10 lists in Forage (forage.trevornoon.com/favorites).
   interests: [
-    {
-      alt: "Top 10 Movies",
-      href: "https://abounding-mechanic-89d.notion.site/Movies-bde67a8c911a49d1b4101f13dec646a8",
-      image: "images/interests/movies.png",
-    },
-    {
-      alt: "Top 10 Albums",
-      href: "https://music.apple.com/us/playlist/trevors-top-10-albums/pl.u-ePr9CzGYM9N",
-      image: "images/interests/albums.png",
-    },
+    { alt: "My top 10 films", href: "https://forage.trevornoon.com/favorites?kind=film", image: "images/interests/favorites/film.webp" },
+    { alt: "My top 10 albums", href: "https://forage.trevornoon.com/favorites?kind=album", image: "images/interests/favorites/album.webp" },
+    { alt: "My top 10 books", href: "https://forage.trevornoon.com/favorites?kind=book", image: "images/interests/favorites/book.webp" },
+    { alt: "My top 10 TV shows", href: "https://forage.trevornoon.com/favorites?kind=series", image: "images/interests/favorites/series.webp" },
+    { alt: "My top 10 podcasts", href: "https://forage.trevornoon.com/favorites?kind=podcast", image: "images/interests/favorites/podcast.webp" },
+    { alt: "My top 10 articles", href: "https://forage.trevornoon.com/favorites?kind=article", image: "images/interests/favorites/article.webp" },
+    { alt: "My top 10 newsletters", href: "https://forage.trevornoon.com/favorites?kind=newsletter", image: "images/interests/favorites/newsletter.webp" },
+    { alt: "My top 10 YouTube channels", href: "https://forage.trevornoon.com/favorites?kind=channel", image: "images/interests/favorites/channel.webp" },
     { image: "images/interests/image_7.JPG" },
     { image: "images/interests/image_8.jpeg" },
     { image: "images/interests/image_9.jpeg" },

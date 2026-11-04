@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form | Trevor Noon</title>
+    <meta name="description" content="Form is Trevor Noon's CrossFit training journal. Every class and habit adds a token to the day, the tokens stack, and the stacks are his form.">
+    <link rel="canonical" href="https://trevornoon.com/projects/form/">
+    <meta name="theme-color" content="#2457AC">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://trevornoon.com/projects/form/">
+    <meta property="og:title" content="Form | Trevor Noon">
+    <meta property="og:description" content="My CrossFit training journal. Every class and habit adds a token to the day, the tokens stack, and the stacks are my form.">
+    <meta property="og:image" content="https://trevornoon.com/images/projects/form/og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="../../images/headshot.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../project.css">
+</head>
+<body class="project project-form">
+    <a class="skip-link" href="#story">Skip to the story</a>
+
+    <div class="band">
+        <nav class="wrap topbar" aria-label="Site">
+            <a class="topbar-home" href="../../"><img src="../../images/headshot.png" alt="" width="32" height="32"><span>Trevor Noon</span></a>
+            <a class="topbar-all" href="../../#projects">All projects</a>
+        </nav>
+
+        <header class="wrap hero">
+            <div>
+                <h1>Form</h1>
+                <p class="lede">My CrossFit training journal. Every class and habit adds a token to the day, the tokens stack, and the stacks are my form.</p>
+            </div>
+            <dl class="facts">
+                <div><dt>Built</dt><dd>October 2026</dd></div>
+                <div><dt>Status</dt><dd>Private for now, cloud launch in progress</dd></div>
+                <div class="wide"><dt>Built with</dt><dd>Node, Express, libSQL and Vercel</dd></div>
+            </dl>
+        </header>
+    </div>
+
+    <div class="stage-wrap">
+        <div class="wrap">
+            <div class="stage">
+                <figure class="shot shot-main">
+                    <img src="../../images/projects/form/today.webp" width="1440" height="1000" fetchpriority="high"
+                         alt="Form's Today screen: a blue header with this week's day stacks of colored tokens, the day's back squat and for-time workout with suggested loads and the last result, today's habit stack, and a row of gold October session coins with one slot left.">
+                </figure>
+                <figure class="shot shot-phone">
+                    <img src="../../images/projects/form/stacked-phone.webp" width="375" height="812" loading="lazy"
+                         alt="A phone sheet with a smiling piggy bank and the words: Friday is stacked. All five daily habits, done.">
+                </figure>
+            </div>
+            <p class="stage-caption">Today, with the week's stacks up top, and the rare moment it celebrates: a stacked day. Shown with test data.</p>
+        </div>
+    </div>
+
+    <main id="story" class="wrap">
+        <article class="story">
+            <section>
+                <h2>The problem</h2>
+                <p>Every fitness app I've tried wants me on its program. I already have one. At CrossFit, the day's workout goes up on the board, and plenty of people are following a plan from a coach or a physical therapist. None of the apps let me bring that in.</p>
+                <p>What I wanted was simple to say: log the class I actually did, see it next to the last time I did it, and watch real progress against a few goals I care about, with the detail one tap away.</p>
+            </section>
+
+            <section>
+                <h2>Why I built it</h2>
+                <p>So I built my own, around four goals: the 1,000 lb club (back squat, bench press and deadlift combined), 12 classes a month, a better VO&#8322; max, and lower body fat. Everything in Form points back at one of those four.</p>
+            </section>
+
+            <p class="pull">Stack the days.</p>
+
+            <section>
+                <h2>What it does</h2>
+                <ul>
+                    <li>Today shows the class programming with my last result right beside it, suggested loads from my best lifts, and a one-tap "use last weight".</li>
+                    <li>Progress turns each lift into a stack of tokens, one per 10 lb, with dashed tokens on top for what's left to my aim.</li>
+                    <li>Every goal has a plan next to it: where I stand, what's left, and which class work, side work and habits move it. The plans are plain rules, so I can see exactly why it suggests what it does.</li>
+                    <li>Habits, a guided daily mobility routine, and Apple Health imports for the VO&#8322; and body-fat side.</li>
+                    <li>When every daily habit is done, the day is stacked, and a very happy piggy bank takes the tokens.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>What it's changed for me</h2>
+                <p>It's new. I built it in the last week of October, so the honest answer is that the jury's still out. The test is simple: more months at 12 classes, and a bigger total.</p>
+                <p>What I already like is what it rewards. Showing up is the bottom token on every stack, and my form is shown, never scored. No streak shaming, no grades.</p>
+                <p>It also took three rounds of design directions before the token idea clicked. Now every screen tells the same story, from the week's stacks on Today to the coin you mint when a goal lands.</p>
+            </section>
+        </article>
+
+        <nav class="next" aria-label="Next project">
+            <a href="../openai-model-selection-guide/"><span>Next project</span><strong>OpenAI Model Selection Guide</strong></a>
+        </nav>
+
+        <footer class="site-footer">
+            <p>&copy; 2026 Trevor Noon, Durham, NC</p>
+            <p><a href="../../">Back to trevornoon.com</a></p>
+        </footer>
+    </main>
+</body>
+</html>

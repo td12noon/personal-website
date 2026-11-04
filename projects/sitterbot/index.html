@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SitterBot | Trevor Noon</title>
+    <meta name="description" content="SitterBot is an AI assistant for babysitters that Trevor Noon built. Parents tell it about their kids once, and sitters can ask it anything, any time.">
+    <link rel="canonical" href="https://trevornoon.com/projects/sitterbot/">
+    <meta name="theme-color" content="#E3F4D9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1B2716" media="(prefers-color-scheme: dark)">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://trevornoon.com/projects/sitterbot/">
+    <meta property="og:title" content="SitterBot | Trevor Noon">
+    <meta property="og:description" content="An AI assistant for babysitters. Parents tell it about their kids once, and sitters can ask it anything, any time.">
+    <meta property="og:image" content="https://trevornoon.com/images/projects/sitterbot/og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="../../images/headshot.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../project.css">
+</head>
+<body class="project project-sitterbot">
+    <a class="skip-link" href="#story">Skip to the story</a>
+
+    <div class="band">
+        <nav class="wrap topbar" aria-label="Site">
+            <a class="topbar-home" href="../../"><img src="../../images/headshot.png" alt="" width="32" height="32"><span>Trevor Noon</span></a>
+            <a class="topbar-all" href="../../#projects">All projects</a>
+        </nav>
+
+        <header class="wrap hero">
+            <div>
+                <h1>SitterBot</h1>
+                <p class="lede">An AI assistant for babysitters. Parents tell it about their kids once, and sitters can ask it anything, any time.</p>
+                <div class="actions">
+                    <a class="btn" href="https://sitterbot-info-hub.lovable.app" target="_blank" rel="noopener">Visit SitterBot</a>
+                </div>
+            </div>
+            <dl class="facts">
+                <div><dt>Built</dt><dd>Spring 2025</dd></div>
+                <div><dt>Status</dt><dd>Prototype, with a waitlist</dd></div>
+                <div class="wide"><dt>Built with</dt><dd>Next.js, Supabase with pgvector, and OpenAI</dd></div>
+            </dl>
+        </header>
+    </div>
+
+    <div class="stage-wrap">
+        <div class="wrap">
+            <div class="stage">
+                <figure class="shot shot-main">
+                    <img src="../../images/projects/sitterbot/home.webp" width="2000" height="1250" fetchpriority="high"
+                         alt="The SitterBot site: the headline Bridging the gap between parents and sitters, and a sample chat where a sitter asks about Emma's bedtime routine and food allergies and SitterBot answers.">
+                </figure>
+                <figure class="shot shot-phone">
+                    <img src="../../images/projects/sitterbot/home-phone.webp" width="780" height="1328" loading="lazy"
+                         alt="The SitterBot chat on a phone: a sitter asks about Emma's bedtime routine and food allergies, and SitterBot answers from what her parents shared.">
+                </figure>
+            </div>
+            <p class="stage-caption">The SitterBot site, and its sample chat on a phone.</p>
+        </div>
+    </div>
+
+    <main id="story" class="wrap">
+        <article class="story">
+            <section>
+                <h2>The problem</h2>
+                <p>Every handoff to a sitter is a brain dump: bedtime, allergies, the routine, which stuffed animal absolutely has to be in the bed. It lives in a note on the fridge or a long text thread, it's out of date the moment you write it, and nobody wants to text a parent in the middle of bedtime to ask.</p>
+            </section>
+
+            <section>
+                <h2>Why I built it</h2>
+                <p>I built it as a parent. The idea was to make the handoff something you do once, and do well, and then let the sitter ask questions in plain English instead of digging through texts.</p>
+            </section>
+
+            <p class="pull">The fridge note, but it answers back.</p>
+
+            <section>
+                <h2>What it does</h2>
+                <ul>
+                    <li>An AI-guided setup walks parents through a profile for each child, so the important details actually get captured.</li>
+                    <li>Parents share a profile with any sitter by email, set an end date, and revoke access whenever they want.</li>
+                    <li>Sitters chat with a bot that answers only from what the parents shared, and says so when it doesn't know.</li>
+                    <li>Under the hood, it's retrieval over each child's profile with Supabase and pgvector, and OpenAI for the chat.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>What it's changed for me</h2>
+                <p>SitterBot is where I learned the way I still build: write the PRD first, break it into tasks, and let an agent work through them while I review each one. Back then it was Cursor and a task list. Forage and Form came from the same habit, with better tools.</p>
+                <p>It's still a prototype with a waitlist. It answered the question I had, and it made every build after it better.</p>
+            </section>
+        </article>
+
+        <nav class="next" aria-label="Next project">
+            <a href="../securing-mcps/"><span>Next project</span><strong>Securing MCPs for the Autonomous Age</strong></a>
+        </nav>
+
+        <footer class="site-footer">
+            <p>&copy; 2026 Trevor Noon, Durham, NC</p>
+            <p><a href="../../">Back to trevornoon.com</a></p>
+        </footer>
+    </main>
+</body>
+</html>

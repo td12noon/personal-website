@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Securing MCPs for the Autonomous Age | Trevor Noon</title>
+    <meta name="description" content="Reader view of Securing MCPs for the Autonomous Age, by Trevor Noon and Andres March for Tribe AI: how MCP deployments go wrong, and the authorization patterns that keep data safe.">
+    <link rel="canonical" href="https://trevornoon.com/projects/securing-mcps/">
+    <meta name="theme-color" content="#F6F5F1" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0F1014" media="(prefers-color-scheme: dark)">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://trevornoon.com/projects/securing-mcps/">
+    <meta property="og:title" content="Securing MCPs for the Autonomous Age: Your AI Assistant Just Leaked Your Customer Database">
+    <meta property="og:description" content="By Trevor Noon and Andres March for Tribe AI. Why traditional OAuth falls short for autonomous AI clients, and what to do instead.">
+    <meta property="og:image" content="https://trevornoon.com/images/projects/anthropic_guide.png">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" href="../../images/headshot.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../project.css">
+</head>
+<body class="reader">
+    <a class="skip-link" href="#article">Skip to the article</a>
+    <div class="read-progress" aria-hidden="true"></div>
+
+    <nav class="wrap topbar" aria-label="Site">
+        <a class="topbar-home" href="../../"><img src="../../images/headshot.png" alt="" width="32" height="32"><span>Trevor Noon</span></a>
+        <a class="topbar-all" href="../../#projects">All projects</a>
+    </nav>
+
+    <main id="article" class="wrap">
+        <article class="article">
+            <header class="article-head">
+                <h1>Securing MCPs for the Autonomous Age: Your AI Assistant Just Leaked Your Customer Database</h1>
+                <p class="byline">Trevor Noon and Andres March, published by Tribe AI on September 23, 2025</p>
+                <div class="origin">
+                    <p>This is a reader view of a piece Andres and I wrote for Tribe AI. The original page has moved, so the link below goes to an archived copy.</p>
+                    <a class="btn" href="https://web.archive.org/web/2025/https://www.tribe.ai/applied-ai/securing-mcps-for-the-autonomous-age-your-ai-assistant-just-leaked-your-customer-database" target="_blank" rel="noopener">Read the original</a>
+                </div>
+            </header>
+
+            <details class="toc">
+                <summary>Contents</summary>
+                <ol>
+                    <li><a href="#local-to-remote">The Shift from Local to Remote: Security Through Distance</a></li>
+                    <li><a href="#protocol">What the MCP Protocol Provides</a></li>
+                    <li><a href="#travel-example">A Simple Travel Example: How Innocuous Becomes Dangerous</a></li>
+                    <li><a href="#apis-to-agents">From APIs to Agents: The Security Model Has Changed</a></li>
+                    <li><a href="#scope-negotiation">Runtime Scope Negotiation: The Core Challenge</a></li>
+                    <li><a href="#architectures">Building Secure MCP Architectures</a></li>
+                    <li><a href="#oauth-patterns">Solutions: OAuth 2.1 Patterns for MCP Authorization</a></li>
+                    <li><a href="#hybrid">Hybrid Approaches and Provider Support</a></li>
+                    <li><a href="#conclusion">Conclusion: Building Trustworthy, Composable Enterprise AI</a></li>
+                </ol>
+            </details>
+
+            <div class="prose">
+                <p>It’s 9:47 AM on a Tuesday. Your AI assistant helpfully summarizes the quarterly sales report you requested. What you don’t see: it just sent your entire customer database to a server in Eastern Europe.</p>
+                <p>The assistant wasn’t hacked. It wasn’t malfunctioning. It was simply following instructions from a perfectly legitimate-looking MCP (Model Context Protocol) server that claimed to “optimize document processing.” Your local MCP server, running with full access to your machine, had been quietly modified by a supply chain attack three weeks ago. The AI, operating autonomously as designed, chained together your CRM access with this “document optimizer,” and your data walked right out the door.</p>
+                <p>This isn’t fiction. It’s the nightmare scenario that keeps security teams up at night as MCPs race toward enterprise adoption.</p>
+                <p>Fortunately, these risks aren’t inevitable. In the rest of this article, we’ll break down exactly how modern MCP deployments go wrong and, more importantly, map out the latest patterns and practical steps security teams are using to stop breaches before they start. You’ll learn why traditional OAuth falls short for autonomous AI clients, what new authorization and auditing models are required, and how to build composable MCPs that keep data safe in dynamic AI environments.</p>
+
+                <h2 id="local-to-remote">The Shift from Local to Remote: Security Through Distance</h2>
+                <p>The MCP community is rapidly learning what enterprise IT teams have known for decades: local is insecure. Recent security research revealed that 43% of tested MCP implementations contain command injection vulnerabilities, while 22% allow arbitrary file access<sup><a href="#fn1" id="fnref1">1</a></sup>. When your AI assistant can execute arbitrary code on your local machine with full user privileges, you’re one compromised dependency away from disaster.</p>
+                <p>The solution emerging across the ecosystem is deceptively simple: move MCPs to remote servers. Remote deployment offers critical security advantages that local servers simply cannot match:</p>
+                <ul>
+                    <li><strong>Isolation and Containment:</strong> Remote MCPs run in controlled, sandboxed environments rather than your development machine with access to SSH keys, credentials, and sensitive files.</li>
+                    <li><strong>Governance and Monitoring:</strong> Enterprises can wrap remote MCPs in standardized logging, audit trails, and monitoring—impossible with ad-hoc local servers scattered across developer laptops.</li>
+                    <li><strong>Reproducible Deployments:</strong> Containerized remote MCPs eliminate the “works on my machine” problem, ensuring consistent security postures across environments.</li>
+                </ul>
+                <p>But remote deployment introduces new complexities that make traditional OAuth patterns insufficient.</p>
+
+                <h2 id="protocol">What the MCP Protocol Provides</h2>
+                <p>MCP, originally introduced by Anthropic in November 2024, was designed to standardize how AI systems like Claude connect to external data sources and tools. While Anthropic built strong security guardrails into the protocol specification, the real-world security challenges emerge in how organizations deploy and manage these servers at scale.</p>
+                <p>MCPs are quickly becoming the connective tissue between AI agents and enterprise data. This is transformative but dangerous: most first-wave MCPs were built for individual or sandboxed use, not high-risk, multi-tenant situations.</p>
+                <p>Currently, MCP supports:</p>
+                <ul>
+                    <li><strong>Authentication hooks:</strong> Supports OAuth2, API keys, or custom, but enforcement is on the implementer, not the protocol.</li>
+                    <li><strong>Transport-agnostic:</strong> TLS recommended, never required.</li>
+                    <li><strong>Limited built-in authorization:</strong> No resource filtering, scoping, user roles, or permission negotiation. Authenticated clients see all exposed tools.</li>
+                    <li><strong>Stateless by design:</strong> No persistent session management, request correlation, transactionality, or audit trail.</li>
+                </ul>
+                <p>The MCP protocol provides a great foundation with the aforementioned features, but still it lacks enterprise necessities:</p>
+                <ul>
+                    <li>No built-in access control or per-tool resource filtering.</li>
+                    <li>No session or consent context management.</li>
+                    <li>No idempotency mechanisms.</li>
+                    <li>No consent UI or user feedback mechanisms.</li>
+                </ul>
+                <p>In practice, the gap between the protocol’s minimalism and enterprise needs is glaring. It is not uncommon to see enterprise MCPs with:</p>
+                <ul>
+                    <li>Consumer-grade, single-user assumptions.</li>
+                    <li>A maze of OAuth—confusing redirects, scope mismatches, and developer inexperience.</li>
+                    <li>A lack of enforced data minimization or role-based permissions.</li>
+                    <li>Far too few audit trails, end-to-end tests, and packaged governance features.</li>
+                </ul>
+                <p>In short, there’s no consistent “enterprise-ready” bar. This leaves the door open for sharp practices and accidental risk.</p>
+
+                <h2 id="travel-example">A Simple Travel Example: How Innocuous Becomes Dangerous</h2>
+                <p>Let’s trace how a seemingly innocent enterprise travel MCP can expose fundamental security challenges. Consider TravelMate, an internal MCP that helps employees manage business travel:</p>
+
+                <h3>Stage 1: Innocent Read-Only Access</h3>
+<pre><code>User: "What flights are available to Chicago next Tuesday?"
+TravelMate MCP: queries flights.search.read → returns flight options</code></pre>
+                <p>This seems to be safe, read-only access to flight data. But even this simple query raises complex questions:</p>
+                <ul>
+                    <li>Should the MCP see all flight data or just flights within company policy?</li>
+                    <li>What if the user is an executive assistant booking for their boss?</li>
+                    <li>Does the MCP differentiate between personal and business travel searches?</li>
+                </ul>
+
+                <h3>Stage 2: Booking Escalation</h3>
+                <p>Now we need write permissions across multiple systems. The security questions multiply:</p>
+                <ul>
+                    <li>Who can authorize charges above $1,000?</li>
+                    <li>Should an assistant be able to book first-class for their executive?</li>
+                    <li>What happens when the MCP chains a flight booking with automatic hotel reservations?</li>
+                </ul>
+
+                <h3>Stage 3: Cross-System Orchestration</h3>
+<pre><code>User: "Plan my entire Chicago trip"
+TravelMate MCP: queries flights.booking.write →
+                calls hotels.reservations.write →
+                accesses calendar.events.write →
+                updates expense.reports.write →
+                sends approval.notifications.send</code></pre>
+                <p>This single, natural language request now touches five different systems, each with its own permission model. The autonomous client decides how to chain these operations together—a decision that was previously made by human developers with explicit security review.</p>
+
+                <h2 id="apis-to-agents">From APIs to Agents: The Security Model Has Changed</h2>
+                <p>While MCPs are often called “APIs for AI,” they are quite different when it comes to security. To understand why a new authorization approach is needed, we need to highlight how agentic, tool-driven AI environments differ from traditional APIs.</p>
+                <p>The old approach of predefined, “bless,” and lock down doesn’t fit an environment where tools are composed and privileges are fluid. MCP clients are autonomous agents that make decisions dynamically. This autonomy creates a new class of security challenges that traditional OAuth wasn’t designed to handle.</p>
+                <p>Our TravelMate example illustrates these differences:</p>
+                <ul>
+                    <li><strong>Traditional API:</strong> A travel booking app has predetermined endpoints—search flights, book flights, charge card. Each call is explicitly authorized.</li>
+                    <li><strong>MCP Client:</strong> Claude autonomously decides to chain flight search → hotel booking → calendar update → expense report creation based on user intent. The permission boundaries blur across system boundaries.</li>
+                </ul>
+
+                <h2 id="scope-negotiation">Runtime Scope Negotiation: The Core Challenge</h2>
+                <p>Traditional OAuth apps have fixed, predetermined scopes defined at registration time. MCP servers need runtime-determined scopes that depend on what the AI is trying to accomplish. Let’s return to our TravelMate example to see how scope requirements evolve:</p>
+
+                <h3>Simple Request, Complex Permissions</h3>
+<pre><code>User: "Book travel for the sales team to the Chicago conference"</code></pre>
+                <p>This innocent request requires the MCP to:</p>
+                <ol>
+                    <li>Discover team members: <code>directory.sales-team.read</code></li>
+                    <li>Check travel policies: <code>policies.travel.read</code></li>
+                    <li>Access individual calendars: <code>calendar.team-members.read</code></li>
+                    <li>Book multiple flights: <code>flights.booking.write</code></li>
+                    <li>Reserve hotel blocks: <code>hotels.group-booking.write</code></li>
+                    <li>Charge corporate card: <code>finance.corporate-card.charge</code></li>
+                    <li>Create expense reports: <code>expense.bulk-create.write</code></li>
+                    <li>Send notifications: <code>notifications.team.send</code></li>
+                </ol>
+                <p>The scope requirements emerge from the AI’s planning process, not from predetermined app functionality. This is fundamentally different from Expedia requesting <code>flights.search.read</code> and <code>bookings.create.write</code> at registration time.</p>
+
+                <h3>Multi-Tenant Permission Complexity</h3>
+                <p>Now add enterprise complexity: What happens when executive assistants use TravelMate?</p>
+<pre><code>Assistant: "Book first-class to London for Sarah (CEO) next month"</code></pre>
+                <p>This single request raises critical authorization questions:</p>
+                <ul>
+                    <li>Can assistants book travel for executives?</li>
+                    <li>Who can authorize first-class upgrades?</li>
+                    <li>Should the assistant see the CEO’s calendar to avoid conflicts?</li>
+                    <li>What if the trip exceeds the assistant’s spending authority?</li>
+                    <li>How do we audit who actually made the booking decision?</li>
+                </ul>
+                <p>The MCP client must navigate these permission boundaries dynamically, making real-time decisions about what scopes to request and when.</p>
+
+                <h3>Even More Complexity</h3>
+                <p>The dynamic nature of autonomous clients introduces new enterprise security challenges, starkly contrasting traditional OAuth patterns.</p>
+                <ul>
+                    <li><strong>Just-in-Time Scope Elevation:</strong> Users may be prompted mid-workflow for permission upgrades, which risks consent fatigue and potential over-granting.</li>
+                    <li><strong>Cross-MCP Orchestration:</strong> Multiple MCPs interact in workflows, increasing lateral attack risk. A compromised MCP can impact others, accessing or manipulating sensitive enterprise data.</li>
+                    <li><strong>Auditability Gaps:</strong> While traditional APIs offer clear per-call audits, autonomous client decisions that chain multiple operations are often opaque, making it hard to trace reasoning behind actions.</li>
+                </ul>
+                <p>By now, you’ve realized: security for MCPs is hard. It’s difficult to manage dynamic runtime permission management, build in auditing and anomaly detection, and provide human oversight into all workflows. While this is difficult to achieve, it’s not impossible.</p>
+
+                <h2 id="architectures">Building Secure MCP Architectures</h2>
+                <p>While the risks can be daunting, they are all addressable. Existing MCP servers, like Stripe’s, prove that it is achievable to build secure MCP implementations with modern patterns that deliver both innovation and peace of mind. This section lays out concrete guidance on secure authentication flows, fine-grained runtime authorization, and scope management strategies that are proven to work in complex, autonomous systems.</p>
+
+                <h3>1. Secure Authentication Patterns</h3>
+                <ul>
+                    <li>Use OAuth 2.1 with PKCE through enterprise-grade identity providers to ensure secure, standardized authentication flows.</li>
+                    <li>Integrate MCPs with enterprise identity providers like Okta, Azure AD rather than managing credentials manually.</li>
+                    <li>Employ short-lived access tokens with automatic refresh, handled transparently by libraries to prevent token misuse.</li>
+                </ul>
+
+                <h3>2. Fine-Grained Authorization</h3>
+                <p>Implement fine-grained access control following the principle of least privilege:</p>
+                <ul>
+                    <li>Junior employees get only read permissions (e.g., <code>flights.search.read</code>), while executives and managers have elevated write capabilities within policy limits.</li>
+                    <li>Define fine-grained scopes for every action, keeping permissions as narrow as possible.</li>
+                    <li>Support dynamic scope escalation with real-time user approval, ensuring transparency and auditability.</li>
+                </ul>
+                <p>Continuously enforce scope validation at runtime for every tool invocation.</p>
+
+                <h3>3. Scope Management</h3>
+                <p>For users with access, we want to be certain that the scopes they have are permissive enough to work with the MCP but secure enough to not over-reach:</p>
+                <ul>
+                    <li>Discovering available scopes at runtime based on roles and context.</li>
+                    <li>Requesting least privilege, escalating only as needed with clear consent UX.</li>
+                    <li>Gracefully degrading when privileges are denied, offering alternatives.</li>
+                    <li>Supporting chained and batch operations with transaction boundaries.</li>
+                    <li>Auditing, storing, and regularly reviewing consent context to permit revocation.</li>
+                </ul>
+
+                <h2 id="oauth-patterns">Solutions: OAuth 2.1 Patterns for MCP Authorization</h2>
+                <p>For authorization, we have two complementary approaches to address MCP authorization granularity and flexibility:</p>
+
+                <h3>Pattern A: Coarse-Grained Scope Escalation</h3>
+                <p>A simple, broadly compatible approach that:</p>
+                <ul>
+                    <li>Uses traditional OAuth scopes arranged hierarchically.</li>
+                    <li>Requires escalation only when necessary, with clear error messages and user consent prompts.</li>
+                    <li>Is straightforward to audit and implement.</li>
+                    <li>Could lead to user consent fatigue.</li>
+                </ul>
+                <p>Example Flow:</p>
+                <ol>
+                    <li>Client calls MCP server with current token.</li>
+                    <li>If scope is insufficient, MCP responds with 403 and details.</li>
+                    <li>User consents on authorization server.</li>
+                    <li>Client retries with enhanced token.</li>
+                </ol>
+
+                <h3>Pattern B: Fine-Grained Rich Authorization Requests (RAR)</h3>
+                <p>An advanced, context-aware method that:</p>
+                <ul>
+                    <li>Encodes operation-specific contexts (flight number, amount, class) in authorization requests.</li>
+                    <li>Enables progressive consent: one-time, pattern-based, or standing approval.</li>
+                    <li>Provides rich audit trails and reduces consent fatigue.</li>
+                    <li>Requires greater implementation effort with custom consent UIs and advanced servers.</li>
+                </ul>
+
+                <h2 id="hybrid">Hybrid Approaches and Provider Support</h2>
+                <p>Most successful MCP deployments combine both patterns:</p>
+                <ol>
+                    <li><strong>Capability gating</strong> via coarse scopes limits broad access (e.g., <code>travel.access</code>, <code>finance.access</code>).</li>
+                    <li><strong>Contextual consent</strong> with RAR for sensitive operations within those capabilities.</li>
+                </ol>
+                <div class="table-scroll">
+                    <table>
+                        <caption class="visually-hidden">Table 1: MCP RAR Authorization Patterns and Offerings</caption>
+                        <thead>
+                            <tr><th scope="col">Capability Level</th><th scope="col">Example Vendors</th><th scope="col">Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Full RAR</td><td>Authlete, ForgeRock, Custom</td><td>Native OAuth 2.1 Rich Authorization Requests support</td></tr>
+                            <tr><td>Partial RAR / Hooks</td><td>Auth0 (rules/actions), Okta (hooks)</td><td>Extensions supporting RAR-like flows</td></tr>
+                            <tr><td>Limited RAR</td><td>Most traditional providers</td><td>Minimal or no direct RAR support</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="table-note">Table 1: MCP RAR Authorization Patterns and Offerings</p>
+
+                <h2 id="conclusion">Conclusion: Building Trustworthy, Composable Enterprise AI</h2>
+                <p>Securing MCPs for autonomous AI isn’t about one magic pattern—it’s about actively combining hard enterprise boundaries with flexible, contextual consent management. Start with what works today. Layer in granularity and context as the ecosystem matures. Seek clarity, minimize privilege by default, and above all: Test, audit, and iterate every consent and delegation pattern.</p>
+                <p>With the right foundation and operating discipline, MCPs can unlock a truly compositional, trustworthy app-store for enterprise AI. If we want the ecosystem to thrive, let’s treat security and consent as day-one features—not afterthoughts.</p>
+                <div class="table-scroll">
+                    <table class="tldr">
+                        <caption class="visually-hidden">Table 2: TLDR Tips</caption>
+                        <thead>
+                            <tr><th scope="col">Category</th><th scope="col">Recommendations</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">For Fast Progress</th><td>Start with coarse scopes, simple escalation, and robust error feedback.<br>Gradually introduce RAR for sensitive and privileged workflows.</td></tr>
+                            <tr><th scope="row">For High Assurance</th><td>Prioritize RAR-first implementations with detailed audit and custom consent UIs.<br>Store and regularly review all consent contexts and boundaries.<br>Design for explicit, revocable, session-bounded authorization.</td></tr>
+                            <tr><th scope="row">Tactical Recommendations</th><td>Embed negotiation and feedback at every step.<br>Use progressive disclosure to ease users into complex or escalated requests.<br>Document all consent paths, audit privilege changes, and ensure rollback.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="table-note">Table 2: TLDR Tips</p>
+
+                <hr>
+                <ol class="footnotes">
+                    <li id="fn1">Equixly, “MCP Servers: The New Security Nightmare,” March 2025. <a href="#fnref1" aria-label="Back to the text">Back</a></li>
+                </ol>
+            </div>
+
+            <footer class="article-end">
+                <div class="origin">
+                    <p>Originally published by Tribe AI on September 23, 2025.</p>
+                    <a class="btn" href="https://web.archive.org/web/2025/https://www.tribe.ai/applied-ai/securing-mcps-for-the-autonomous-age-your-ai-assistant-just-leaked-your-customer-database" target="_blank" rel="noopener">Read the original</a>
+                </div>
+            </footer>
+        </article>
+
+        <nav class="next" aria-label="Next project">
+            <a href="../esource-screener/"><span>Next project</span><strong>E Source Resume Screener</strong></a>
+        </nav>
+
+        <footer class="site-footer">
+            <p>&copy; 2026 Trevor Noon, Durham, NC</p>
+            <p><a href="../../">Back to trevornoon.com</a></p>
+        </footer>
+    </main>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E Source Resume Screener | Trevor Noon</title>
+    <meta name="description" content="An AI resume screener Trevor Noon built for E Source's hiring team. It reads every resume against the job, scores it with the evidence attached, and sorts the pile.">
+    <link rel="canonical" href="https://trevornoon.com/projects/esource-screener/">
+    <meta name="theme-color" content="#1E2A17">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://trevornoon.com/projects/esource-screener/">
+    <meta property="og:title" content="E Source Resume Screener | Trevor Noon">
+    <meta property="og:description" content="An AI screener I built for E Source's hiring team. It reads every resume against the job, scores it with the evidence attached, and sorts the pile.">
+    <meta property="og:image" content="https://trevornoon.com/images/projects/esource/og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="../../images/headshot.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../project.css">
+</head>
+<body class="project project-esource">
+    <a class="skip-link" href="#story">Skip to the story</a>
+
+    <div class="band">
+        <nav class="wrap topbar" aria-label="Site">
+            <a class="topbar-home" href="../../"><img src="../../images/headshot.png" alt="" width="32" height="32"><span>Trevor Noon</span></a>
+            <a class="topbar-all" href="../../#projects">All projects</a>
+        </nav>
+
+        <header class="wrap hero">
+            <div>
+                <h1 class="long">E Source Resume Screener</h1>
+                <p class="lede">An AI screener I built for E Source's hiring team. It reads every resume against the job, scores it with the evidence attached, and sorts the pile so people spend their time on the right candidates.</p>
+            </div>
+            <dl class="facts">
+                <div><dt>Built</dt><dd>Fall 2025</dd></div>
+                <div><dt>For</dt><dd>The hiring team at E Source</dd></div>
+                <div class="wide"><dt>Built with</dt><dd>React, Supabase and Claude</dd></div>
+            </dl>
+        </header>
+    </div>
+
+    <div class="stage-wrap">
+        <div class="wrap">
+            <div class="stage">
+                <figure class="shot shot-main">
+                    <img src="../../images/projects/esource/dashboard.webp" width="2000" height="1250" fetchpriority="high"
+                         alt="The E Source Profile Prioritizer dashboard: totals for candidates, phone screens, needs review and rejected, and a list of recent evaluations with AI scores and recommendations.">
+                </figure>
+                <figure class="shot shot-panel">
+                    <img src="../../images/projects/esource/candidate-detail.webp" width="1100" height="1123" loading="lazy"
+                         alt="A candidate's evaluation: a Phone Screen recommendation, an AI score of 92 with subscores for technical skills, experience, education and cultural fit, a written summary, and a skills table with the evidence for each skill.">
+                </figure>
+            </div>
+            <p class="stage-caption">The dashboard, and one candidate's evaluation. Shown with sample candidates, not real applicants.</p>
+        </div>
+    </div>
+
+    <main id="story" class="wrap">
+        <article class="story">
+            <section>
+                <h2>The problem</h2>
+                <p>The first pass on a stack of resumes is slow, and it's hard to hold the same bar on the fiftieth resume as on the first. Keyword filters are fast but blunt, and they can't tell you why someone is a fit.</p>
+            </section>
+
+            <section>
+                <h2>Why I built it</h2>
+                <p>I spend a lot of time on the hiring side of the table, so this one was personal. E Source needed a faster first pass that their team could still trust, and I wanted to see how far Claude could take it if every score had to show its work.</p>
+            </section>
+
+            <p class="pull">Every score shows its work.</p>
+
+            <section>
+                <h2>What it does</h2>
+                <ul>
+                    <li>Upload resumes in bulk: PDF, Word, plain text, or even an image of one.</li>
+                    <li>Claude scores each candidate from 0 to 100, with subscores for technical skills, experience, education and cultural fit, plus a recommendation: phone screen, needs review, or reject.</li>
+                    <li>A skills table lists each required skill, how well it matches, and the line from the resume behind it.</li>
+                    <li>Strengths, gaps and red flags, including a flag for applications that look AI-generated.</li>
+                    <li>Bias detection, an option to anonymize the evaluation, and an evaluation prompt and reject threshold the team can tune themselves. Everything exports to CSV.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>What it's changed for me</h2>
+                <p>It sharpened a view I hold pretty strongly: the answer isn't ban AI, but the answer also isn't AI without human review. The screener does the first read and shows its evidence, and the team decides how much to trust it, down to the reject threshold.</p>
+                <p>It also showed me that the evidence matters more than the score. A number on its own gets argued with. A number with the line from the resume behind it gets used.</p>
+            </section>
+        </article>
+
+        <nav class="next" aria-label="Next project">
+            <a href="../forage/"><span>Next project</span><strong>Forage</strong></a>
+        </nav>
+
+        <footer class="site-footer">
+            <p>&copy; 2026 Trevor Noon, Durham, NC</p>
+            <p><a href="../../">Back to trevornoon.com</a></p>
+        </footer>
+    </main>
+</body>
+</html>
