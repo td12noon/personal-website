@@ -54,7 +54,7 @@ New photos should be resized to ≤1000px on the long edge and saved as progress
 
 ## Styling Architecture
 
-- All colors/spacing/motion come from CSS custom properties in `:root`. Dark tokens are defined twice and must stay identical: under `@media (prefers-color-scheme: dark)` (follows the OS) and under `:root[data-theme="dark"]` (set by the sidebar light/system/dark picker, saved in `localStorage.theme`, applied before first paint by an inline script in `<head>`)
+- All colors/spacing/motion come from CSS custom properties in `:root`. Dark tokens are defined twice and must stay identical: under `@media (prefers-color-scheme: dark)` (follows the OS) and under `:root[data-theme="dark"]` (set by the sidebar light/dark picker, saved in `localStorage.theme` only when it differs from the OS, applied before first paint by an inline script in `<head>`)
 - Fonts: Space Grotesk (display) + Inter (body), loaded from Google Fonts
 - Tiles use per-item `--tile-bg` custom property set from `data.js` themes
 - Animations respect `prefers-reduced-motion`

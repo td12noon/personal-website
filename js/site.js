@@ -270,15 +270,20 @@
     });
   }
 
-  /* ---------- theme picker (light / system / dark) ---------- */
+  /* ---------- theme picker (light / dark, defaults to the OS) ---------- */
 
   // The inline script in <head> applies a saved choice before first paint;
   // this wires the picker and keeps the browser chrome color in sync.
+  // With nothing saved the site follows the OS, and the picker shows whichever
+  // theme the OS is using. Picking the OS's own theme clears the saved choice,
+  // so the site goes back to following the OS.
   const picker = document.querySelector(".theme-picker");
   if (picker) {
     const root = document.documentElement;
     const CHROME = { light: "#F6F5F1", dark: "#0F1014" }; // match --bg
     const metas = document.querySelectorAll('meta[name="theme-color"]');
+    const osDark = window.matchMedia("(prefers-color-scheme: dark)");
+    const osTheme = () => (osDark.matches ? "dark" : "light");
 
     function setColorScheme(choice) {
       if (choice === "light" || choice === "dark") root.dataset.theme = choice;
@@ -289,19 +294,24 @@
       });
     }
 
+    const syncPicker = () => {
+      picker.querySelector(`input[value="${root.dataset.theme || osTheme()}"]`).checked = true;
+    };
+
     let saved = null;
     try {
       saved = localStorage.getItem("theme");
     } catch (e) {}
-    const initial = saved === "light" || saved === "dark" ? saved : "system";
-    picker.querySelector(`input[value="${initial}"]`).checked = true;
-    setColorScheme(initial);
+    setColorScheme(saved);
+    syncPicker();
+    // keep the highlight right if the OS flips (e.g. auto dark mode at sunset)
+    osDark.addEventListener("change", syncPicker);
 
     picker.addEventListener("change", (e) => {
-      const choice = e.target.value;
+      const choice = e.target.value === osTheme() ? null : e.target.value;
       try {
-        if (choice === "system") localStorage.removeItem("theme");
-        else localStorage.setItem("theme", choice);
+        if (choice) localStorage.setItem("theme", choice);
+        else localStorage.removeItem("theme");
       } catch (err) {}
       const apply = () => setColorScheme(choice);
       // a soft cross-fade where supported; instant otherwise
