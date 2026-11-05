@@ -316,7 +316,7 @@ section {
     gap: 6px;
 }
 
-/* light / system / dark — deliberately quiet, sits under the bio */
+/* light / dark (defaults to the OS) — deliberately quiet, sits under the bio */
 .theme-picker {
     display: inline-flex;
     align-self: flex-start;
