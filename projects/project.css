@@ -440,6 +440,33 @@ a {
     border-radius: 12px;
 }
 
+/* Forage's main shot is its Home page, whose engraved tree fills the top
+   right. The phone sits just under the tree instead of over it: 29% of the
+   stage's width down from the top (percentage margins and paddings follow
+   the width, as the screenshot's height does), with the stage padded so the
+   phone can hang below the shot. */
+.project-forage .shot-phone {
+    top: 0;
+    bottom: auto;
+    margin-top: 29%;
+}
+
+.project-forage .stage {
+    padding-bottom: calc(16% + 24px);
+}
+
+@media (max-width: 860px) {
+    .project-forage .stage {
+        padding-bottom: calc(28% + 16px);
+    }
+}
+
+@media (max-width: 480px) {
+    .project-forage .stage {
+        padding-bottom: calc(35% + 12px);
+    }
+}
+
 .stage-caption {
     max-width: 1100px;
     margin: -12px auto 0;
