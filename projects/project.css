@@ -471,28 +471,20 @@ a {
 }
 
 .story .pull {
-    margin: 56px 0;
-    padding-left: 22px;
-    border-left: 3px solid var(--band-bg);
+    margin: 64px 0;
+    max-width: 22ch;
     font-family: var(--font-display);
-    font-size: clamp(1.5rem, 3.2vw, 2.125rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 600;
-    line-height: 1.25;
-    letter-spacing: -0.015em;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--link);
     text-wrap: balance;
-}
-
-.project-sitterbot .story .pull {
-    border-left-color: var(--link);
 }
 
 @media (prefers-color-scheme: dark) {
     .story ul li::before {
         background: var(--link);
-    }
-
-    .story .pull {
-        border-left-color: var(--link);
     }
 }
 
@@ -651,6 +643,7 @@ a {
 .toc summary {
     cursor: pointer;
     min-height: 48px;
+    padding: 6px 0;
     display: flex;
     align-items: center;
     font-weight: 600;
@@ -747,9 +740,15 @@ a {
 }
 
 .prose blockquote {
-    padding: 4px 0 4px 20px;
-    border-left: 3px solid var(--line);
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: var(--surface);
+    box-shadow: inset 0 0 0 1px var(--line);
     color: var(--ink-muted);
+}
+
+.prose blockquote > * + * {
+    margin-top: 0.6em;
 }
 
 .prose hr {
