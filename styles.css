@@ -316,7 +316,7 @@ section {
     gap: 6px;
 }
 
-/* light / system / dark — deliberately quiet, sits under the bio */
+/* light / dark (defaults to the OS) — deliberately quiet, sits under the bio */
 .theme-picker {
     display: inline-flex;
     align-self: flex-start;
@@ -395,6 +395,7 @@ section {
 }
 
 .hero-copy {
+    max-width: 60ch;
     margin-top: 20px;
     font-size: clamp(1rem, 1.4vw, 1.15rem);
     color: var(--ink-muted);

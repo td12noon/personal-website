@@ -34,6 +34,8 @@ Cards are generated in code; there are no Figma-designed tile images anymore.
 
 Modal descriptions may contain trusted HTML (links). Card names/roles are rendered as plain text.
 
+`llms.txt` (served at trevornoon.com/llms.txt for AI assistants) is a hand-written plain-text mirror of the hero copy and `js/data.js`. When you change experience, projects, links, or the headline, update it too. Leave out `hidden` entries.
+
 ### Project pages
 
 Every project card opens its own static page at `projects/<slug>/index.html`, styled by the shared `projects/project.css`:
@@ -63,7 +65,7 @@ New photos should be resized to ≤1000px on the long edge and saved as progress
 
 ## Styling Architecture
 
-- All colors/spacing/motion come from CSS custom properties in `:root`. Dark tokens are defined twice and must stay identical: under `@media (prefers-color-scheme: dark)` (follows the OS) and under `:root[data-theme="dark"]` (set by the sidebar light/system/dark picker, saved in `localStorage.theme`, applied before first paint by an inline script in `<head>`)
+- All colors/spacing/motion come from CSS custom properties in `:root`. Dark tokens are defined twice and must stay identical: under `@media (prefers-color-scheme: dark)` (follows the OS) and under `:root[data-theme="dark"]` (set by the sidebar light/dark picker, saved in `localStorage.theme` only when it differs from the OS, applied before first paint by an inline script in `<head>`)
 - Fonts: Space Grotesk (display) + Inter (body), loaded from Google Fonts
 - Tiles use per-item `--tile-bg` custom property set from `data.js` themes
 - Animations respect `prefers-reduced-motion`

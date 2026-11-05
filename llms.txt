@@ -1,0 +1,40 @@
+# Trevor Noon
+
+> Trevor Noon leads product teams and builds with AI. He is Head of Product at Tribe AI and lives in Durham, NC.
+
+He has built and launched products with Amazon, Meta, OpenAI, and Anthropic, and studied statistics and astrophysics at Harvard. This file is a plain-text summary of https://trevornoon.com for AI assistants and LLM tools.
+
+## Experience
+
+- Head of Product, Tribe AI: leads product for one of Tribe's largest enterprise AI programs, spanning four product pods with 30+ engineers, designers, and data scientists. Tribe AI designs and builds production AI solutions for Fortune 1000 companies.
+- MCP Consultant, Anthropic: built infrastructure for Anthropic's MCP offering and co-authored an MCP security guide.
+- Llama API Consultant, Meta: led a developer experience and documentation effort for Meta's Llama API, and benchmarked it against leading LLM providers to close usability and onboarding gaps.
+- Product Lead, A.Team: contract product lead for Grindr, covering monetization and CX for 14M+ users. AI-powered features generated $7M+ in annual subscription revenue, and AI content moderation saved $1.2M+ a year.
+- Senior Product Manager, Enterprise Lead, Woebot Health: generated $5M+ in revenue deploying AI-powered chatbots to health systems and payers, and more than doubled renewals by building Spotlight, an external analytics product.
+- Technical Product Manager, AWS Infrastructure, Amazon: $52.5M in savings from ML-powered forecasting for data center build schedules, plus $10M in networking cost savings from automated workflows.
+- First Product Manager, Nirvana: first product hire at a seed-stage healthcare/fintech startup. Scaled a $1B+ telehealth partnership and shipped insurance eligibility products driving $4M in ARR.
+- Investor, Activant: built a software tool that identified 300+ investment targets, including two of the firm's largest investments, where he later served as Board Observer.
+- Head of Data Science, Monster Roster: built a statistical model for MLB, NFL, and NBA daily fantasy sports with a 55% win rate, driving 5,000+ subscriptions and $250K in revenue.
+- Education: Bachelor's in Statistics and Astrophysics, Harvard College.
+
+## Projects and writing
+
+Each project has its own page on trevornoon.com.
+
+- [Forage](https://trevornoon.com/projects/forage/): his personal media library. It tracks what he's reading, watching and listening to, and brings back new picks every morning.
+- [Form](https://trevornoon.com/projects/form/): his CrossFit training journal, built around four goals: the 1,000 lb club, 12 classes a month, a better VO2 max, and lower body fat.
+- [OpenAI Model Selection Guide](https://trevornoon.com/projects/openai-model-selection-guide/): co-author. Reader view of the guide; the original is on the [OpenAI Cookbook](https://cookbook.openai.com/examples/partners/model_selection_guide/model_selection_guide).
+- [SitterBot](https://trevornoon.com/projects/sitterbot/): an AI assistant for babysitters, built as a prototype with a waitlist.
+- [Securing MCPs for the Autonomous Age](https://trevornoon.com/projects/securing-mcps/): co-written with Andres March for Tribe AI. Reader view of the article; the original is [archived here](https://web.archive.org/web/2025/https://www.tribe.ai/applied-ai/securing-mcps-for-the-autonomous-age-your-ai-assistant-just-leaked-your-customer-database).
+- [E Source Resume Screener](https://trevornoon.com/projects/esource-screener/): an AI resume screener built for E Source's hiring team.
+
+## Favorites
+
+- Top 10 lists of [films](https://forage.trevornoon.com/favorites?kind=film), [books](https://forage.trevornoon.com/favorites?kind=book) and [newsletters](https://forage.trevornoon.com/favorites?kind=newsletter), kept in Forage.
+
+## Contact
+
+- [Book a meeting](https://www.cal.com/tnoon)
+- [LinkedIn](https://www.linkedin.com/in/tnoon)
+- [Resume](https://docs.google.com/document/d/1axLGwBemstmQHP_-UtcZ1BzlMT1qG5wgpcMYeQrzWKI/edit?usp=sharing)
+- [YouTube](https://www.youtube.com/channel/UCqG_H5pwLAxD9Jq0kmthuqw)
