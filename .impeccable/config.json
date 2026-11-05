@@ -6,14 +6,14 @@
       {
         "rule": "overused-font",
         "value": "inter",
-        "createdAt": "2026-11-04T23:37:40.430Z",
-        "reason": "Project design system in CLAUDE.md specifies Inter as the body font; predates this session"
+        "createdAt": "2026-11-04T23:37:00.179Z",
+        "reason": "project design system: CLAUDE.md specifies Space Grotesk (display) + Inter (body); predates this session"
       },
       {
         "rule": "overused-font",
         "value": "space grotesk",
-        "createdAt": "2026-11-04T23:37:40.441Z",
-        "reason": "Project design system in CLAUDE.md specifies Space Grotesk as the display font; predates this session"
+        "createdAt": "2026-11-04T23:37:00.189Z",
+        "reason": "project design system: CLAUDE.md specifies Space Grotesk (display) + Inter (body); predates this session"
       }
     ]
   }
