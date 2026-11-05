@@ -4,7 +4,9 @@
 
    Experience / link tiles take a `theme`:
      bg  — any CSS background (color or gradient) for the tile
-     ink — "light" or "dark" text on that background
+     ink — "light" or "dark" text on that background. Pick a bg that gives
+           the small role text ≥ 4.5:1 contrast (white text needs a fairly deep
+           color — e.g. Meta uses #0064E0 rather than the brighter #0080F9)
    Logos are transparent PNGs in images/logos/ (see scripts/extract-logos.py).
    To add a new company: drop a logo in images/logos/ and add an entry below.
    Set `hidden: true` to keep an entry without showing it.
@@ -35,7 +37,7 @@ window.SITE_DATA = {
       role: "Llama API Consultant",
       title: "Llama API Consultant @ Meta",
       logo: "images/logos/meta.png",
-      theme: { bg: "#0080F9", ink: "light" },
+      theme: { bg: "#0064E0", ink: "light" },
       description:
         "Led a developer experience and documentation effort for Meta's Llama API, driving improvements that impact millions of developers worldwide. Benchmarked Meta's offering against leading LLM providers to identify and close gaps in usability and onboarding. Provided guidance and team management for technical writers, to ensure those gaps were closed and met high standards.",
     },
@@ -183,7 +185,7 @@ window.SITE_DATA = {
     {
       name: "LinkedIn",
       tagline: "Let's connect",
-      href: "http://linkedin.com/in/tnoon",
+      href: "https://www.linkedin.com/in/tnoon",
       logo: "images/logos/linkedin.png",
       theme: { bg: "#FFFFFF", ink: "dark" },
     },
@@ -192,7 +194,7 @@ window.SITE_DATA = {
       tagline: "Personal account",
       href: "https://www.youtube.com/channel/UCqG_H5pwLAxD9Jq0kmthuqw",
       logo: "images/logos/youtube.png",
-      theme: { bg: "#FF0000", ink: "light" },
+      theme: { bg: "#CC0000", ink: "light" },
     },
   ],
 

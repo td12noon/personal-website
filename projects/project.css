@@ -1,6 +1,9 @@
 /* ==========================================================================
    Project pages + reader views (projects/<slug>/index.html)
-   Site tokens mirror :root in /styles.css. Each project page sets its own
+   Site tokens mirror :root in /styles.css, including the light/system/dark
+   picker: every dark block below exists twice (OS setting, and
+   :root[data-theme="dark"]) and the two copies must stay identical.
+   Each project page sets its own
    band colors and display face on <body class="project project-<slug>">.
    ========================================================================== */
 
@@ -35,7 +38,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
         --bg: #0F1014;
         --surface: #17181E;
         --ink: #ECECF1;
@@ -48,6 +51,20 @@
         --shadow-shot: 0 2px 6px rgba(0, 0, 0, 0.4), 0 24px 60px rgba(0, 0, 0, 0.55);
         color-scheme: dark;
     }
+}
+
+:root[data-theme="dark"] {
+    --bg: #0F1014;
+    --surface: #17181E;
+    --ink: #ECECF1;
+    --ink-muted: #A3A3AE;
+    --line: #26272F;
+    --accent: #8B8DF8;
+    --accent-soft: rgba(139, 141, 248, 0.14);
+    --on-accent: #0F1014;
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 18px rgba(0, 0, 0, 0.35);
+    --shadow-shot: 0 2px 6px rgba(0, 0, 0, 0.4), 0 24px 60px rgba(0, 0, 0, 0.55);
+    color-scheme: dark;
 }
 
 /* ---------- per-project themes ---------- */
@@ -91,10 +108,19 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    .project-forage { --link: #AEB6EE; }
-    .project-form { --link: #8FB5F2; }
-    .project-esource { --link: #A9D07F; }
-    .project-sitterbot {
+    :root:not([data-theme="light"]) .project-forage {
+        --link: #AEB6EE;
+    }
+
+    :root:not([data-theme="light"]) .project-form {
+        --link: #8FB5F2;
+    }
+
+    :root:not([data-theme="light"]) .project-esource {
+        --link: #A9D07F;
+    }
+
+    :root:not([data-theme="light"]) .project-sitterbot {
         --band-bg: #1B2716;
         --band-ink: #E3F4D9;
         --band-soft: #B5C9A8;
@@ -102,6 +128,27 @@
         --btn-ink: #15240E;
         --link: #B0DB9C;
     }
+}
+
+:root[data-theme="dark"] .project-forage {
+    --link: #AEB6EE;
+}
+
+:root[data-theme="dark"] .project-form {
+    --link: #8FB5F2;
+}
+
+:root[data-theme="dark"] .project-esource {
+    --link: #A9D07F;
+}
+
+:root[data-theme="dark"] .project-sitterbot {
+    --band-bg: #1B2716;
+    --band-ink: #E3F4D9;
+    --band-soft: #B5C9A8;
+    --btn-bg: #B0DB9C;
+    --btn-ink: #15240E;
+    --link: #B0DB9C;
 }
 
 /* ---------- base ---------- */
@@ -483,9 +530,13 @@ a {
 }
 
 @media (prefers-color-scheme: dark) {
-    .story ul li::before {
+    :root:not([data-theme="light"]) .story ul li::before {
         background: var(--link);
     }
+}
+
+:root[data-theme="dark"] .story ul li::before {
+    background: var(--link);
 }
 
 .story .note {
@@ -926,13 +977,97 @@ a {
 .hl .nd { color: #8B2FC9; }
 
 @media (prefers-color-scheme: dark) {
-    .hl .k, .hl .kn, .hl .kd, .hl .kc, .hl .ow { color: #D2A8FF; }
-    .hl .s, .hl .s1, .hl .s2, .hl .sd, .hl .sa, .hl .si, .hl .se { color: #8FD6A0; }
-    .hl .c, .hl .c1, .hl .cm, .hl .ch { color: #8B8B98; }
-    .hl .nf, .hl .fm { color: #8DB8FF; }
-    .hl .nc, .hl .mi, .hl .mf, .hl .m { color: #F2B27A; }
-    .hl .nb, .hl .bp { color: #6FD0E0; }
-    .hl .nd { color: #D2A8FF; }
+    :root:not([data-theme="light"]) .hl .k,
+    :root:not([data-theme="light"]) .hl .kn,
+    :root:not([data-theme="light"]) .hl .kd,
+    :root:not([data-theme="light"]) .hl .kc,
+    :root:not([data-theme="light"]) .hl .ow {
+        color: #D2A8FF;
+    }
+
+    :root:not([data-theme="light"]) .hl .s,
+    :root:not([data-theme="light"]) .hl .s1,
+    :root:not([data-theme="light"]) .hl .s2,
+    :root:not([data-theme="light"]) .hl .sd,
+    :root:not([data-theme="light"]) .hl .sa,
+    :root:not([data-theme="light"]) .hl .si,
+    :root:not([data-theme="light"]) .hl .se {
+        color: #8FD6A0;
+    }
+
+    :root:not([data-theme="light"]) .hl .c,
+    :root:not([data-theme="light"]) .hl .c1,
+    :root:not([data-theme="light"]) .hl .cm,
+    :root:not([data-theme="light"]) .hl .ch {
+        color: #8B8B98;
+    }
+
+    :root:not([data-theme="light"]) .hl .nf,
+    :root:not([data-theme="light"]) .hl .fm {
+        color: #8DB8FF;
+    }
+
+    :root:not([data-theme="light"]) .hl .nc,
+    :root:not([data-theme="light"]) .hl .mi,
+    :root:not([data-theme="light"]) .hl .mf,
+    :root:not([data-theme="light"]) .hl .m {
+        color: #F2B27A;
+    }
+
+    :root:not([data-theme="light"]) .hl .nb,
+    :root:not([data-theme="light"]) .hl .bp {
+        color: #6FD0E0;
+    }
+
+    :root:not([data-theme="light"]) .hl .nd {
+        color: #D2A8FF;
+    }
+}
+
+:root[data-theme="dark"] .hl .k,
+:root[data-theme="dark"] .hl .kn,
+:root[data-theme="dark"] .hl .kd,
+:root[data-theme="dark"] .hl .kc,
+:root[data-theme="dark"] .hl .ow {
+    color: #D2A8FF;
+}
+
+:root[data-theme="dark"] .hl .s,
+:root[data-theme="dark"] .hl .s1,
+:root[data-theme="dark"] .hl .s2,
+:root[data-theme="dark"] .hl .sd,
+:root[data-theme="dark"] .hl .sa,
+:root[data-theme="dark"] .hl .si,
+:root[data-theme="dark"] .hl .se {
+    color: #8FD6A0;
+}
+
+:root[data-theme="dark"] .hl .c,
+:root[data-theme="dark"] .hl .c1,
+:root[data-theme="dark"] .hl .cm,
+:root[data-theme="dark"] .hl .ch {
+    color: #8B8B98;
+}
+
+:root[data-theme="dark"] .hl .nf,
+:root[data-theme="dark"] .hl .fm {
+    color: #8DB8FF;
+}
+
+:root[data-theme="dark"] .hl .nc,
+:root[data-theme="dark"] .hl .mi,
+:root[data-theme="dark"] .hl .mf,
+:root[data-theme="dark"] .hl .m {
+    color: #F2B27A;
+}
+
+:root[data-theme="dark"] .hl .nb,
+:root[data-theme="dark"] .hl .bp {
+    color: #6FD0E0;
+}
+
+:root[data-theme="dark"] .hl .nd {
+    color: #D2A8FF;
 }
 
 .article-end {

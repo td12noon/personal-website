@@ -274,6 +274,49 @@
     });
   }
 
+  /* ---------- theme picker (light / system / dark) ---------- */
+
+  // The inline script in <head> applies a saved choice before first paint;
+  // this wires the picker and keeps the browser chrome color in sync.
+  const picker = document.querySelector(".theme-picker");
+  if (picker) {
+    const root = document.documentElement;
+    const CHROME = { light: "#F6F5F1", dark: "#0F1014" }; // match --bg
+    const metas = document.querySelectorAll('meta[name="theme-color"]');
+
+    function setColorScheme(choice) {
+      if (choice === "light" || choice === "dark") root.dataset.theme = choice;
+      else delete root.dataset.theme;
+      metas.forEach((m) => {
+        const osScheme = m.media.includes("dark") ? "dark" : "light";
+        m.content = CHROME[root.dataset.theme || osScheme];
+      });
+    }
+
+    let saved = null;
+    try {
+      saved = localStorage.getItem("theme");
+    } catch (e) {}
+    const initial = saved === "light" || saved === "dark" ? saved : "system";
+    picker.querySelector(`input[value="${initial}"]`).checked = true;
+    setColorScheme(initial);
+
+    picker.addEventListener("change", (e) => {
+      const choice = e.target.value;
+      try {
+        if (choice === "system") localStorage.removeItem("theme");
+        else localStorage.setItem("theme", choice);
+      } catch (err) {}
+      const apply = () => setColorScheme(choice);
+      // a soft cross-fade where supported; instant otherwise
+      if (document.startViewTransition && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.startViewTransition(apply);
+      } else {
+        apply();
+      }
+    });
+  }
+
   /* ---------- scrollspy nav ---------- */
 
   const navLinks = document.querySelectorAll(".site-nav a[href^='#']");

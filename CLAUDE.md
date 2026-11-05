@@ -41,6 +41,7 @@ Every project card opens its own static page at `projects/<slug>/index.html`, st
 - **Guides** (OpenAI Model Selection Guide, Securing MCPs) are reader views (`<body class="reader">`) with the full text and a "Read the original" link at the top and bottom.
 - Screenshots live in `images/projects/<slug>/` as WebP (desktop ~2000px wide or less, phone ~780px). Use sample data, never real people's details. Each build page also has a 1200×630 `og.jpg` for link previews.
 - Pages use relative links (`../../`, `../project.css`) so they work from the file system and on any host.
+- Project pages follow the homepage theme picker: each page has the same inline pre-paint script in `<head>`, and every dark block in `project.css` exists twice (OS setting and `:root[data-theme="dark"]`), same rule as `styles.css`.
 
 **Interests → favorites** cards link to the public Forage lists (`https://forage.trevornoon.com/favorites?kind=<kind>`). The site shows Films, Books and Newsletters (`film`, `book`, `newsletter`); Forage also has `album`, `series`, `podcast`, `article` and `channel` lists. Card artwork is in `images/interests/favorites/`, cut from Forage's orchard engraving (cards for the other kinds are in git history at commit c0e220a).
 
@@ -62,7 +63,7 @@ New photos should be resized to ≤1000px on the long edge and saved as progress
 
 ## Styling Architecture
 
-- All colors/spacing/motion come from CSS custom properties in `:root` (dark theme overrides under `@media (prefers-color-scheme: dark)`)
+- All colors/spacing/motion come from CSS custom properties in `:root`. Dark tokens are defined twice and must stay identical: under `@media (prefers-color-scheme: dark)` (follows the OS) and under `:root[data-theme="dark"]` (set by the sidebar light/system/dark picker, saved in `localStorage.theme`, applied before first paint by an inline script in `<head>`)
 - Fonts: Space Grotesk (display) + Inter (body), loaded from Google Fonts
 - Tiles use per-item `--tile-bg` custom property set from `data.js` themes
 - Animations respect `prefers-reduced-motion`

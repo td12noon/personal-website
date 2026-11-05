@@ -9,6 +9,8 @@
     <link rel="canonical" href="https://trevornoon.com/">
     <meta name="theme-color" content="#F6F5F1" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0F1014" media="(prefers-color-scheme: dark)">
+    <!-- apply a saved light/dark choice before first paint (no flash); site.js owns the picker -->
+    <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
@@ -34,7 +36,7 @@
       "jobTitle": "AI Product Leader",
       "address": { "@type": "PostalAddress", "addressLocality": "Durham", "addressRegion": "NC" },
       "alumniOf": "Harvard College",
-      "sameAs": ["https://linkedin.com/in/tnoon"]
+      "sameAs": ["https://www.linkedin.com/in/tnoon"]
     }
     </script>
 
@@ -69,6 +71,21 @@
                 <li>📍 Durham, NC</li>
                 <li>💼 AI Product Leader</li>
             </ul>
+
+            <div class="theme-picker" role="radiogroup" aria-label="Color theme">
+                <label class="theme-option" title="Light">
+                    <input type="radio" name="theme" value="light" aria-label="Light">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                </label>
+                <label class="theme-option" title="Match system">
+                    <input type="radio" name="theme" value="system" aria-label="Match system" checked>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                </label>
+                <label class="theme-option" title="Dark">
+                    <input type="radio" name="theme" value="dark" aria-label="Dark">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </label>
+            </div>
         </aside>
 
         <!-- Main content -->
@@ -86,7 +103,7 @@
                     </p>
                     <div class="hero-actions">
                         <a class="btn btn-primary" href="https://www.cal.com/tnoon" target="_blank" rel="noopener">Book a meeting</a>
-                        <a class="btn btn-ghost" href="http://linkedin.com/in/tnoon" target="_blank" rel="noopener">Connect on LinkedIn</a>
+                        <a class="btn btn-ghost" href="https://www.linkedin.com/in/tnoon" target="_blank" rel="noopener">Connect on LinkedIn</a>
                     </div>
                 </div>
             </section>
@@ -106,7 +123,7 @@
                     <h2 id="projects-title">Projects &amp; Publications</h2>
                 </header>
                 <div id="projects-shelf" class="shelf">
-                    <div class="shelf-track" tabindex="0" aria-label="Projects and publications"></div>
+                    <div class="shelf-track" role="region" tabindex="0" aria-label="Projects and publications"></div>
                     <div class="shelf-controls">
                         <button class="shelf-btn shelf-btn-prev" type="button" aria-label="Scroll backwards">&larr;</button>
                         <button class="shelf-btn shelf-btn-next" type="button" aria-label="Scroll forwards">&rarr;</button>
@@ -128,7 +145,7 @@
                     <h2 id="interests-title">Interests</h2>
                 </header>
                 <div id="interests-shelf" class="shelf">
-                    <div class="shelf-track" tabindex="0" aria-label="Interests and photos"></div>
+                    <div class="shelf-track" role="region" tabindex="0" aria-label="Interests and photos"></div>
                     <div class="shelf-controls">
                         <button class="shelf-btn shelf-btn-prev" type="button" aria-label="Scroll backwards">&larr;</button>
                         <button class="shelf-btn shelf-btn-next" type="button" aria-label="Scroll forwards">&rarr;</button>
@@ -154,7 +171,7 @@
     <noscript>
         <p style="padding:1rem 1.5rem">
             This page renders its cards with JavaScript. In the meantime:
-            <a href="http://linkedin.com/in/tnoon">LinkedIn</a> ·
+            <a href="https://www.linkedin.com/in/tnoon">LinkedIn</a> ·
             <a href="https://www.cal.com/tnoon">Book a meeting</a>
         </p>
     </noscript>

@@ -9,6 +9,9 @@
     <meta name="theme-color" content="#E3F4D9" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#1B2716" media="(prefers-color-scheme: dark)">
 
+    <!-- apply the light/dark choice saved by the homepage theme picker before first paint -->
+    <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://trevornoon.com/projects/sitterbot/">
     <meta property="og:title" content="SitterBot | Trevor Noon">
