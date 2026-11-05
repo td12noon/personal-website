@@ -149,12 +149,6 @@ window.SITE_DATA = {
       image: "images/projects/openai_author.png",
     },
     {
-      title: "SitterBot",
-      subtitle: "AI babysitting assistant",
-      href: "projects/sitterbot/",
-      image: "images/projects/sitterbot.png",
-    },
-    {
       title: "Securing MCPs for the Autonomous Age",
       subtitle: "Co-author",
       href: "projects/securing-mcps/",
@@ -165,6 +159,12 @@ window.SITE_DATA = {
       subtitle: "AI recruitment tool",
       href: "projects/esource-screener/",
       image: "images/projects/esource.png",
+    },
+    {
+      title: "SitterBot",
+      subtitle: "AI babysitting assistant",
+      href: "projects/sitterbot/",
+      image: "images/projects/sitterbot.png",
     },
   ],
 
@@ -201,16 +201,17 @@ window.SITE_DATA = {
 
   // Favorites are the public top-10 lists in Forage (forage.trevornoon.com/favorites).
   interests: [
-    { alt: "My top 10 films", href: "https://forage.trevornoon.com/favorites?kind=film", image: "images/interests/favorites/film.webp" },
-    { alt: "My top 10 books", href: "https://forage.trevornoon.com/favorites?kind=book", image: "images/interests/favorites/book.webp" },
-    { alt: "My top 10 newsletters", href: "https://forage.trevornoon.com/favorites?kind=newsletter", image: "images/interests/favorites/newsletter.webp" },
+    // favorites are spread evenly through the photos, every fourth card
     { image: "images/interests/image_7.JPG" },
+    { alt: "My top 10 films", href: "https://forage.trevornoon.com/favorites?kind=film", image: "images/interests/favorites/film.webp" },
     { image: "images/interests/image_8.jpeg" },
     { image: "images/interests/image_9.jpeg" },
     { image: "images/interests/image_10.jpeg" },
+    { alt: "My top 10 books", href: "https://forage.trevornoon.com/favorites?kind=book", image: "images/interests/favorites/book.webp" },
     { image: "images/interests/image_11.jpeg" },
     { image: "images/interests/image_12.jpeg" },
     { image: "images/interests/image_13.jpeg" },
+    { alt: "My top 10 newsletters", href: "https://forage.trevornoon.com/favorites?kind=newsletter", image: "images/interests/favorites/newsletter.webp" },
     { image: "images/interests/image_14.jpeg" },
     { image: "images/interests/image_15.jpeg" },
     { image: "images/interests/image_16.jpeg" },
