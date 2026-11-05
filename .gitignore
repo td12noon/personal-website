@@ -40,3 +40,6 @@ logs
 
 # Python
 __pycache__/
+
+# Impeccable design-hook session cache (config.json is shared and committed)
+.impeccable/hook.cache.json
