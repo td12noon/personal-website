@@ -19,11 +19,18 @@ He has built and launched products with Amazon, Meta, OpenAI, and Anthropic, and
 
 ## Projects and writing
 
-- [OpenAI Model Selection Guide](https://cookbook.openai.com/examples/partners/model_selection_guide/model_selection_guide): co-author
-- [Securing MCPs for the Autonomous Age](https://web.archive.org/web/2025/https://www.tribe.ai/applied-ai/securing-mcps-for-the-autonomous-age-your-ai-assistant-just-leaked-your-customer-database): co-author
-- [SitterBot](https://sitterbot-info-hub.lovable.app): AI babysitting assistant
-- [ESource Resume Screener](https://esource-screener.vercel.app): AI recruitment tool
-- [Forage](https://www.linkedin.com/posts/share-7445448704918081536-gOTG): LinkedIn launch post
+Each project has its own page on trevornoon.com.
+
+- [Forage](https://trevornoon.com/projects/forage/): his personal media library. It tracks what he's reading, watching and listening to, and brings back new picks every morning.
+- [Form](https://trevornoon.com/projects/form/): his CrossFit training journal, built around four goals: the 1,000 lb club, 12 classes a month, a better VO2 max, and lower body fat.
+- [OpenAI Model Selection Guide](https://trevornoon.com/projects/openai-model-selection-guide/): co-author. Reader view of the guide; the original is on the [OpenAI Cookbook](https://cookbook.openai.com/examples/partners/model_selection_guide/model_selection_guide).
+- [SitterBot](https://trevornoon.com/projects/sitterbot/): an AI assistant for babysitters, built as a prototype with a waitlist.
+- [Securing MCPs for the Autonomous Age](https://trevornoon.com/projects/securing-mcps/): co-written with Andres March for Tribe AI. Reader view of the article; the original is [archived here](https://web.archive.org/web/2025/https://www.tribe.ai/applied-ai/securing-mcps-for-the-autonomous-age-your-ai-assistant-just-leaked-your-customer-database).
+- [E Source Resume Screener](https://trevornoon.com/projects/esource-screener/): an AI resume screener built for E Source's hiring team.
+
+## Favorites
+
+- Top 10 lists of [films](https://forage.trevornoon.com/favorites?kind=film), [books](https://forage.trevornoon.com/favorites?kind=book) and [newsletters](https://forage.trevornoon.com/favorites?kind=newsletter), kept in Forage.
 
 ## Contact
 

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forage | Trevor Noon</title>
+    <meta name="description" content="Forage is Trevor Noon's personal media library. It tracks what he's reading, watching and listening to, and every morning it brings back what's worth his time next.">
+    <link rel="canonical" href="https://trevornoon.com/projects/forage/">
+    <meta name="theme-color" content="#141E55">
+
+    <!-- apply the light/dark choice saved by the homepage theme picker before first paint -->
+    <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://trevornoon.com/projects/forage/">
+    <meta property="og:title" content="Forage | Trevor Noon">
+    <meta property="og:description" content="My personal media library. It tracks what I'm reading, watching and listening to, and every morning it brings back what's worth my time next.">
+    <meta property="og:image" content="https://trevornoon.com/images/projects/forage/og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="../../images/headshot.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../project.css">
+</head>
+<body class="project project-forage">
+    <a class="skip-link" href="#story">Skip to the story</a>
+
+    <div class="band">
+        <nav class="wrap topbar" aria-label="Site">
+            <a class="topbar-home" href="../../"><img src="../../images/headshot.png" alt="" width="32" height="32"><span>Trevor Noon</span></a>
+            <a class="topbar-all" href="../../#projects">All projects</a>
+        </nav>
+
+        <header class="wrap hero">
+            <div>
+                <h1>Forage</h1>
+                <p class="lede">My personal media library. It tracks what I'm reading, watching and listening to, and every morning it goes out and brings back what's worth my time next.</p>
+                <div class="actions">
+                    <a class="btn" href="https://forage.trevornoon.com/favorites" target="_blank" rel="noopener">See my favorites</a>
+                    <a class="btn btn-quiet" href="https://forage.trevornoon.com/" target="_blank" rel="noopener">Visit Forage</a>
+                </div>
+            </div>
+            <dl class="facts">
+                <div><dt>Started</dt><dd>March 2026</dd></div>
+                <div><dt>Status</dt><dd>In daily use, on my laptop and my phone</dd></div>
+                <div class="wide"><dt>Built with</dt><dd>Next.js, Turso and Vercel, built with Claude Code</dd></div>
+            </dl>
+        </header>
+    </div>
+
+    <div class="stage-wrap">
+        <div class="wrap">
+            <div class="stage">
+                <figure class="shot shot-main">
+                    <img src="../../images/projects/forage/front-door-1200.webp"
+                         srcset="../../images/projects/forage/front-door-1200.webp 1200w, ../../images/projects/forage/front-door-2000.webp 2000w"
+                         sizes="(max-width: 1180px) 92vw, 1100px"
+                         width="1200" height="750" fetchpriority="high"
+                         alt="The Forage sign-in page: an engraved orchard in navy ink where books grow on the trees and people on ladders pick them, with FORAGE in the sky and a Sign in with Google button.">
+                </figure>
+                <figure class="shot shot-phone">
+                    <img src="../../images/projects/forage/favorites-phone.webp" width="780" height="1328" loading="lazy"
+                         alt="Trevor's favorites page on a phone, showing the orchard banner, tabs for each kind of media, and his top 10 films starting with Good Will Hunting and Interstellar.">
+                </figure>
+            </div>
+            <p class="stage-caption">The front door, and my public favorites page on a phone. The engraving is the whole idea in one picture: a tree that grows books.</p>
+        </div>
+    </div>
+
+    <main id="story" class="wrap">
+        <article class="story">
+            <section>
+                <h2>The problem</h2>
+                <p>Good stuff was everywhere, and none of it was in one place. Newsletters sat in Gmail, videos in YouTube, books in StoryGraph, and everything else in open tabs. So I'd pick whatever was in front of me instead of what I actually wanted to spend time on.</p>
+            </section>
+
+            <section>
+                <h2>Why I built it</h2>
+                <p>I started Forage in March to fix the inbox half. It pulled newsletters, articles and videos into one feed, gave me a short read on each, and sent one email at 8pm so I didn't have to open forty tabs.</p>
+                <p>In September it grew into what it is now. The question I care about most is "what should I pick up next?", so Forage became a library first: books, films, TV, music, podcasts, newsletters, YouTube and articles, all in one place, with discovery built in. The reading feed is still there, it's just not the center anymore.</p>
+            </section>
+
+            <p class="pull">Intention over drift.</p>
+
+            <section>
+                <h2>What it does</h2>
+                <ul>
+                    <li>Every morning, Discover adds a fresh batch of picks grounded in what I've loved, and each one shows its reason, so I can see why it's there.</li>
+                    <li>The Library holds what's up next, my shelves and my favorites, across eight kinds of media.</li>
+                    <li>Through the day it syncs Gmail, RSS and YouTube, and the 8pm email rolls up the day's reading.</li>
+                    <li>Separate watch lists for what I watch on my own and what we watch as a family.</li>
+                    <li>A public page with my top tens, which is where the favorites on this site point.</li>
+                    <li>It installs as an app on my phone, and a Chrome extension saves anything I find along the way.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>What it's changed for me</h2>
+                <p>I open it every day. The bar I hold it to is the same one from day one: am I choosing what to read, watch or listen to next on purpose, or am I drifting? Having one place, with the reason attached to every pick, makes on purpose the easy default.</p>
+                <p>It's also where I play. It's been 266 commits since March, and plenty of them are tiny fixes, which is what happens when you use the thing you build every day. The engraved look took four rounds of comps before it felt right, and I'd do it again.</p>
+                <p>If you're curious, <a href="https://forage.trevornoon.com/favorites" target="_blank" rel="noopener">my favorites are public</a>, and I wrote a short <a href="https://www.linkedin.com/posts/share-7445448704918081536-gOTG" target="_blank" rel="noopener">launch post on LinkedIn</a>.</p>
+            </section>
+        </article>
+
+        <nav class="next" aria-label="Next project">
+            <a href="../form/"><span>Next project</span><strong>Form</strong></a>
+        </nav>
+
+        <footer class="site-footer">
+            <p>&copy; 2026 Trevor Noon, Durham, NC</p>
+            <p><a href="../../">Back to trevornoon.com</a></p>
+        </footer>
+    </main>
+</body>
+</html>

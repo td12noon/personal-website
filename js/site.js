@@ -99,8 +99,12 @@
     const track = shelf.querySelector(".shelf-track");
 
     items.forEach((item) => {
+      // other sites open in a new tab; our own project pages open in place
+      const external = /^https?:\/\//.test(item.href || "");
       const card = item.href
-        ? el("a", "shelf-item", { href: item.href, target: "_blank", rel: "noopener" })
+        ? el("a", "shelf-item", external
+            ? { href: item.href, target: "_blank", rel: "noopener" }
+            : { href: item.href })
         : el("div", "shelf-item");
       const frame = el("span", "shelf-frame");
       const img = el("img", "", {

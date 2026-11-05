@@ -14,6 +14,24 @@
         "value": "space grotesk",
         "createdAt": "2026-11-04T23:37:00.189Z",
         "reason": "project design system: CLAUDE.md specifies Space Grotesk (display) + Inter (body); predates this session"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "projects/*/index.html"
+        ],
+        "createdAt": "2026-11-05T00:03:27.316Z",
+        "reason": "False positive on .band: its children are .wrap containers with 16-40px side padding; verified text inset at 375px"
+      },
+      {
+        "rule": "marketing-buzzword",
+        "value": "*",
+        "files": [
+          "projects/securing-mcps/index.html"
+        ],
+        "createdAt": "2026-11-05T00:03:27.327Z",
+        "reason": "Faithful reproduction of the original Tribe AI article text; wording is the original authors'"
       }
     ]
   }
