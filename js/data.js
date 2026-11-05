@@ -10,6 +10,7 @@
    Logos are transparent PNGs in images/logos/ (see scripts/extract-logos.py).
    To add a new company: drop a logo in images/logos/ and add an entry below.
    Set `hidden: true` to keep an entry without showing it.
+   Keep /llms.txt (the plain-text summary for AI assistants) in sync.
    ========================================================================== */
 
 window.SITE_DATA = {

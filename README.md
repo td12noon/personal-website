@@ -22,6 +22,7 @@ Open `index.html` in a browser, or run `python3 -m http.server` and visit `http:
 | `styles.css` | Design system (CSS custom properties, light + dark) |
 | `js/data.js` | All site content — edit this |
 | `js/site.js` | Renders content and wires up interactions |
+| `llms.txt` | Plain-text summary for AI assistants — update it when `js/data.js` or the headline changes |
 | `images/logos/` | Transparent logo marks used by the generated cards |
 | `scripts/extract-logos.py` | One-time tool that pulled logo marks out of the old Figma tiles |
 | `portal*.html`, `api/` | Separate password-gated portal (Vercel) — independent of the main site |

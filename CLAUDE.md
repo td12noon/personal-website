@@ -34,6 +34,8 @@ Cards are generated in code; there are no Figma-designed tile images anymore.
 
 Modal descriptions may contain trusted HTML (links). Card names/roles are rendered as plain text.
 
+`llms.txt` (served at trevornoon.com/llms.txt for AI assistants) is a hand-written plain-text mirror of the hero copy and `js/data.js`. When you change experience, projects, links, or the headline, update it too. Leave out `hidden` entries.
+
 ### Image Organization
 ```
 images/

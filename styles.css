@@ -395,6 +395,7 @@ section {
 }
 
 .hero-copy {
+    max-width: 60ch;
     margin-top: 20px;
     font-size: clamp(1rem, 1.4vw, 1.15rem);
     color: var(--ink-muted);
