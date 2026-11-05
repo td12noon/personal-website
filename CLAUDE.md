@@ -42,7 +42,7 @@ Every project card opens its own static page at `projects/<slug>/index.html`, st
 - Screenshots live in `images/projects/<slug>/` as WebP (desktop ~2000px wide or less, phone ~780px). Use sample data, never real people's details. Each build page also has a 1200×630 `og.jpg` for link previews.
 - Pages use relative links (`../../`, `../project.css`) so they work from the file system and on any host.
 
-**Interests → favorites** cards link to the public Forage lists (`https://forage.trevornoon.com/favorites?kind=<kind>`, kinds: `film`, `album`, `book`, `series`, `podcast`, `article`, `newsletter`, `channel`). Their artwork is in `images/interests/favorites/`, cut from Forage's orchard engraving.
+**Interests → favorites** cards link to the public Forage lists (`https://forage.trevornoon.com/favorites?kind=<kind>`). The site shows Films, Books and Newsletters (`film`, `book`, `newsletter`); Forage also has `album`, `series`, `podcast`, `article` and `channel` lists. Card artwork is in `images/interests/favorites/`, cut from Forage's orchard engraving (cards for the other kinds are in git history at commit c0e220a).
 
 ### Image Organization
 ```

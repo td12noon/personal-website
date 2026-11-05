@@ -199,13 +199,8 @@ window.SITE_DATA = {
   // Favorites are the public top-10 lists in Forage (forage.trevornoon.com/favorites).
   interests: [
     { alt: "My top 10 films", href: "https://forage.trevornoon.com/favorites?kind=film", image: "images/interests/favorites/film.webp" },
-    { alt: "My top 10 albums", href: "https://forage.trevornoon.com/favorites?kind=album", image: "images/interests/favorites/album.webp" },
     { alt: "My top 10 books", href: "https://forage.trevornoon.com/favorites?kind=book", image: "images/interests/favorites/book.webp" },
-    { alt: "My top 10 TV shows", href: "https://forage.trevornoon.com/favorites?kind=series", image: "images/interests/favorites/series.webp" },
-    { alt: "My top 10 podcasts", href: "https://forage.trevornoon.com/favorites?kind=podcast", image: "images/interests/favorites/podcast.webp" },
-    { alt: "My top 10 articles", href: "https://forage.trevornoon.com/favorites?kind=article", image: "images/interests/favorites/article.webp" },
     { alt: "My top 10 newsletters", href: "https://forage.trevornoon.com/favorites?kind=newsletter", image: "images/interests/favorites/newsletter.webp" },
-    { alt: "My top 10 YouTube channels", href: "https://forage.trevornoon.com/favorites?kind=channel", image: "images/interests/favorites/channel.webp" },
     { image: "images/interests/image_7.JPG" },
     { image: "images/interests/image_8.jpeg" },
     { image: "images/interests/image_9.jpeg" },
